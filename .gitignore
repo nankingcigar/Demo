@@ -21,3 +21,4 @@
 *.user
 *.suo
 *.dbmdl
+/Nankingcigar.Demo.Web/App_Data

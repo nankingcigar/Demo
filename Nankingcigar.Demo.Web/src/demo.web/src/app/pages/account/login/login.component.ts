@@ -2,15 +2,15 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 14:22:26
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-25 14:38:08
+ * @Last Modified time: 2017-08-28 08:00:22
  */
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { LoginInput } from './loginInput.entity';
+import { LoginInput } from '../../../models/account/login/input';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-demo-account-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
