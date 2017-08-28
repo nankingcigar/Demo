@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DFA48E27-7D53-4955-A722-3D91A7119BE7}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.Core", "Nankingcigar.Demo.Core\Nankingcigar.Demo.Core.csproj", "{17298EA0-AF73-4F30-B6F1-2066100D7D74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.Application", "Nankingcigar.Demo.Application\Nankingcigar.Demo.Application.csproj", "{EDF5D964-4C0F-4F19-B674-58A38A5E5401}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.EntityFramework", "Nankingcigar.Demo.EntityFramework\Nankingcigar.Demo.EntityFramework.csproj", "{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.WebApi", "Nankingcigar.Demo.WebApi\Nankingcigar.Demo.WebApi.csproj", "{5EB52D3D-09FD-463A-B02A-8D9856BD3724}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.Web", "Nankingcigar.Demo.Web\Nankingcigar.Demo.Web.csproj", "{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{E540E257-FAFB-4103-A2DE-D2A8003AF0D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{67770EB9-24BB-42A7-946B-7FB9F8F194A5}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Nankingcigar.Demo.Database", "Nankingcigar.Demo.Database\Nankingcigar.Demo.Database.sqlproj", "{52BE68B0-AF9B-403A-AD2C-362E92B3D39D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.Test", "Nankingcigar.Demo.Test\Nankingcigar.Demo.Test.csproj", "{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.Entity", "Nankingcigar.Demo.Entity\Nankingcigar.Demo.Entity.csproj", "{5C08E39E-A468-4221-A25C-DA5895089EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.Dapper", "Nankingcigar.Demo.Dapper\Nankingcigar.Demo.Dapper.csproj", "{3CAD2421-C0D2-44F3-B905-62CF366853A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17298EA0-AF73-4F30-B6F1-2066100D7D74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17298EA0-AF73-4F30-B6F1-2066100D7D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17298EA0-AF73-4F30-B6F1-2066100D7D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17298EA0-AF73-4F30-B6F1-2066100D7D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF5D964-4C0F-4F19-B674-58A38A5E5401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF5D964-4C0F-4F19-B674-58A38A5E5401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF5D964-4C0F-4F19-B674-58A38A5E5401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF5D964-4C0F-4F19-B674-58A38A5E5401}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3979F157-DEB0-4878-AB1D-4CEF6B5A1300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB52D3D-09FD-463A-B02A-8D9856BD3724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB52D3D-09FD-463A-B02A-8D9856BD3724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB52D3D-09FD-463A-B02A-8D9856BD3724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB52D3D-09FD-463A-B02A-8D9856BD3724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{404A6D3B-AA85-4E4C-AEEE-1E5026D5F135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52BE68B0-AF9B-403A-AD2C-362E92B3D39D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52BE68B0-AF9B-403A-AD2C-362E92B3D39D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52BE68B0-AF9B-403A-AD2C-362E92B3D39D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{52BE68B0-AF9B-403A-AD2C-362E92B3D39D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52BE68B0-AF9B-403A-AD2C-362E92B3D39D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52BE68B0-AF9B-403A-AD2C-362E92B3D39D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C08E39E-A468-4221-A25C-DA5895089EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C08E39E-A468-4221-A25C-DA5895089EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C08E39E-A468-4221-A25C-DA5895089EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C08E39E-A468-4221-A25C-DA5895089EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CAD2421-C0D2-44F3-B905-62CF366853A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CAD2421-C0D2-44F3-B905-62CF366853A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CAD2421-C0D2-44F3-B905-62CF366853A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CAD2421-C0D2-44F3-B905-62CF366853A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{52BE68B0-AF9B-403A-AD2C-362E92B3D39D} = {E540E257-FAFB-4103-A2DE-D2A8003AF0D2}
+		{2E3DF5C2-8A38-4A03-86D7-8D463C917E47} = {67770EB9-24BB-42A7-946B-7FB9F8F194A5}
+	EndGlobalSection
+EndGlobal

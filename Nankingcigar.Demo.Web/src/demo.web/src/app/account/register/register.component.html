@@ -1,0 +1,7 @@
+<form (ngSubmit)="onSubmit()">
+    <input type="text" class="form-control" name="userName" [(ngModel)]="_registerInput.userName" required />
+    <input type="text" class="form-control" name="password" [(ngModel)]="_registerInput.password" required />
+    <input type="text" class="form-control" name="displayName" [(ngModel)]="_registerInput.displayName" />
+    <button type="submit" class="btn btn-success">Register</button>
+    <a href="/#/account/login">Log In</a>
+</form>
