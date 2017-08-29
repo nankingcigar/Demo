@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:01:50
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-28 07:56:15
+ * @Last Modified time: 2017-08-29 03:17:00
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -21,11 +21,17 @@ export const ROUTES: Routes = [
     children: [
       {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        data: {
+          bodyClass: 'login-register'
+        }
       },
       {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        data: {
+          bodyClass: 'login-body'
+        }
       }
     ]
   }
