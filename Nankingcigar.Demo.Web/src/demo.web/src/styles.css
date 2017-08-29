@@ -2,6 +2,10 @@
  * @Author: Chao Yang
  * @Date: 2017-08-29 00:33:33
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-29 02:42:10
+ * @Last Modified time: 2017-08-29 08:04:25
  */
 /* You can add global styles to this file, and also import other style files */
+.page-login.account-login .page-content,
+.page-register.account-register .page-content{
+    background: #121212;
+}

@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:01:50
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-29 03:17:00
+ * @Last Modified time: 2017-08-29 08:03:33
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -23,14 +23,14 @@ export const ROUTES: Routes = [
         path: 'register',
         component: RegisterComponent,
         data: {
-          bodyClass: 'login-register'
+          bodyClass: 'page-register'
         }
       },
       {
         path: 'login',
         component: LoginComponent,
         data: {
-          bodyClass: 'login-body'
+          bodyClass: 'page-login'
         }
       }
     ]

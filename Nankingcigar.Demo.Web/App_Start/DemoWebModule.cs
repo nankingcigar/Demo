@@ -15,6 +15,11 @@ namespace Nankingcigar.Demo.Web
         typeof(DemoWebApiModule))]
     public class DemoWebModule : AbpModule
     {
+        public override void PreInitialize()
+        {
+            Configuration.Localization.IsEnabled = false;
+        }
+
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());

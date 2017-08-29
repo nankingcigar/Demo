@@ -23,13 +23,13 @@ namespace Nankingcigar.Demo.WebApi.Controllers
         [AllowAnonymous]
         [AbpAllowAnonymous]
         [HttpPost]
-        public virtual async Task<bool> Authenticate(LoginInput input)
+        public virtual async Task<int> Authenticate(LoginInput input)
         {
             var identity = await _logInManager.LoginAsync(input.UserName, input.Password);
-            if (identity == null) return false;
+            if (identity == null) return 1;
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignIn(identity);
-            return true;
+            return 0;
         }
     }
 }

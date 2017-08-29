@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 07:52:42
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-28 07:23:31
+ * @Last Modified time: 2017-08-29 07:54:13
  */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
