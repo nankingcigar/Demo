@@ -15,9 +15,9 @@ namespace Nankingcigar.Demo.Account
         }
 
         [AbpAllowAnonymous]
-        public virtual async Task<int> Register(RegisterInput input)
+        public virtual async Task Register(RegisterInput input)
         {
-            return await _userRegistrationManager.RegisterAsync(
+            await _userRegistrationManager.RegisterAsync(
                 input.UserName,
                 input.Password,
                 input.DisplayName

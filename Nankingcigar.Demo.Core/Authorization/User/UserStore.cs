@@ -40,12 +40,12 @@ namespace Nankingcigar.Demo.Core.Authorization.User
 
         public virtual async Task<Entity.User> FindByIdAsync(long userId)
         {
-            return await UserRepository.FirstOrDefaultAsync(userId);
+            return await UserRepository.CloseLazyLoad().FirstOrDefaultAsync(userId);
         }
 
         public virtual async Task<Entity.User> FindByNameAsync(string userName)
         {
-            return await UserRepository.FirstOrDefaultAsync(user => user.UserName == userName);
+            return await UserRepository.CloseLazyLoad().FirstOrDefaultAsync(user => user.UserName == userName);
         }
 
         #endregion IUserStore

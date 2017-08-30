@@ -11,8 +11,7 @@ import { RegisterInput } from '../../../models/account/register/input';
 
 @Component({
   selector: 'app-demo-account-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
   _registerInput: RegisterInput;
@@ -21,7 +20,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._registerInput = new RegisterInput();
+    this._registerInput = new RegisterInput(undefined, undefined);
   }
 
   onSubmit() {
@@ -30,6 +29,6 @@ export class RegisterComponent implements OnInit {
       this._registerInput
     ).subscribe(
       data => console.log(data)
-      );
+    );
   }
 }

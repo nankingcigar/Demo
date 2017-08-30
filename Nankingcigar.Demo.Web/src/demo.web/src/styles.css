@@ -4,8 +4,16 @@
  * @Last Modified by: Chao Yang
  * @Last Modified time: 2017-08-29 08:04:25
  */
-/* You can add global styles to this file, and also import other style files */
-.page-login.account-login .page-content,
-.page-register.account-register .page-content{
+ .account-login.page-login .page-content,
+ .account-register.page-register .page-content{
     background: #121212;
+}
+
+.account-login.page-login .a-forgotPassword:hover,
+.account-login.page-login .a-forgotPassword:visited,
+.account-login.page-login .a-forgotPassword:active,
+.account-register.page-register .a-forgotPassword:hover,
+.account-register.page-register .a-forgotPassword:visited,
+.account-register.page-register .a-forgotPassword:active{
+    color: #337ab7;
 }

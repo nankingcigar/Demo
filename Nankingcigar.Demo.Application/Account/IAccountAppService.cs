@@ -6,6 +6,6 @@ namespace Nankingcigar.Demo.Account
 {
     public interface IAccountAppService : IApplicationService
     {
-        Task<int> Register(RegisterInput input);
+        Task Register(RegisterInput input);
     }
 }

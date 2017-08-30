@@ -1,6 +1,7 @@
 ﻿using Abp.Domain.Services;
 using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
+using Nankingcigar.Demo.Core.Entity;
 
 namespace Nankingcigar.Demo.Core.Authorization.User
 {
@@ -9,11 +10,10 @@ namespace Nankingcigar.Demo.Core.Authorization.User
         public UserManager UserManager { get; set; }
         private static PasswordHasher PasswordHasher => new PasswordHasher();
 
-        public async Task<int> RegisterAsync(string userName, string password, string displayName)
+        public async Task RegisterAsync(string userName, string password, string displayName)
         {
             var user = await UserManager.FindByNameAsync(userName);
-            if (user != null)
-                return 1;
+            if (user != null) throw new DemoApiException(1);
             user = new Entity.User
             {
                 UserName = userName,
@@ -23,7 +23,6 @@ namespace Nankingcigar.Demo.Core.Authorization.User
             };
             await UserManager.CreateAsync(user);
             await CurrentUnitOfWork.SaveChangesAsync();
-            return 0;
         }
     }
 }

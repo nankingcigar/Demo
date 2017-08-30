@@ -1,4 +1,5 @@
-﻿using Abp.Domain.Entities;
+﻿using System;
+using Abp.Domain.Entities;
 using Abp.EntityFramework;
 using Abp.EntityFramework.Repositories;
 using Nankingcigar.Demo.Core.Extend;
@@ -14,9 +15,16 @@ namespace Nankingcigar.Demo.EntityFramework.Repositories
         }
 
         //add common methods for all repositories
-        public virtual void CloseLazyLoad()
+        public virtual IRepositoryExtend<TEntity, TPrimaryKey> CloseLazyLoad()
         {
-            this.Context.Configuration.LazyLoadingEnabled = false;
+            Context.Configuration.LazyLoadingEnabled = false;
+            return this;
+        }
+
+        public IRepositoryExtend<TEntity, TPrimaryKey> OpenLazyLoad()
+        {
+            Context.Configuration.LazyLoadingEnabled = true;
+            return this;
         }
     }
 

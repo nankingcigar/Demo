@@ -11,8 +11,7 @@ import { LoginInput } from '../../../models/account/login/input';
 
 @Component({
   selector: 'app-demo-account-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
   _loginInput: LoginInput;

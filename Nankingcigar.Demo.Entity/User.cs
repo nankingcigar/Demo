@@ -4,6 +4,7 @@ namespace Nankingcigar.Demo.Entity
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("User")]
     public partial class User
@@ -11,6 +12,8 @@ namespace Nankingcigar.Demo.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+            Audits = new HashSet<Audit>();
+            Audits1 = new HashSet<Audit>();
             User1 = new HashSet<User>();
             User11 = new HashSet<User>();
             User12 = new HashSet<User>();
@@ -32,23 +35,33 @@ namespace Nankingcigar.Demo.Entity
         [StringLength(50)]
         public string AuthenticationSource { get; set; }
 
-        public DateTimeOffset? LastLoginTime { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? LastLoginTime { get; set; }
 
         public bool? IsActive { get; set; }
 
         public long? CreatorUserId { get; set; }
 
-        public DateTimeOffset? CreationTime { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? CreationTime { get; set; }
 
         public long? LastModifierUserId { get; set; }
 
-        public DateTimeOffset? LastModificationTime { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? LastModificationTime { get; set; }
 
         public long? DeleterUserId { get; set; }
 
-        public DateTimeOffset? DeletionTime { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? DeletionTime { get; set; }
 
         public bool? IsDeleted { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Audit> Audits { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Audit> Audits1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> User1 { get; set; }

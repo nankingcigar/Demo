@@ -14,6 +14,8 @@ namespace Nankingcigar.Demo.Dapper.Mapper
             Map(entity => entity.LastModifierUser).Ignore();
             Map(entity => entity.DeletedUsers).Ignore();
             Map(entity => entity.DeleterUser).Ignore();
+            Map(entity => entity.UserAuditLogs).Ignore();
+            Map(entity => entity.ImpersonatorAuditLogs).Ignore();
             AutoMap();
         }
     }

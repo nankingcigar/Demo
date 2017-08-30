@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
-import { RoutesModule } from './pages/routes.module';
+import { RoutesModule } from './routes/routes.module';
 
 @NgModule({
   declarations: [

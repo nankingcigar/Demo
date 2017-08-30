@@ -37,6 +37,12 @@ namespace Nankingcigar.Demo.Core.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public ICollection<User> DeletedUsers { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<AuditLog> UserAuditLogs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<AuditLog> ImpersonatorAuditLogs { get; set; }
+
         [Required]
         [StringLength(50)]
         public string UserName { get; set; }
