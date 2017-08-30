@@ -2,6 +2,6 @@
     "/api": {
       "target": "http://localhost/demo",
       "secure": false,
-      "logLevel": "debug"
+      "changeOrigin": true
     }
 }

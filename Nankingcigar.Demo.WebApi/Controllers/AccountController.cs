@@ -1,14 +1,12 @@
-﻿using System;
-using Abp.Authorization;
+﻿using Abp.Authorization;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Nankingcigar.Demo.Core.Authorization;
+using Nankingcigar.Demo.Core.Entity;
 using Nankingcigar.Demo.WebApi.DTO;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using Abp.Web.Models;
-using Nankingcigar.Demo.Core.Entity;
 
 namespace Nankingcigar.Demo.WebApi.Controllers
 {

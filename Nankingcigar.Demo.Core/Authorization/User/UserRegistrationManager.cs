@@ -1,7 +1,7 @@
 ﻿using Abp.Domain.Services;
 using Microsoft.AspNet.Identity;
-using System.Threading.Tasks;
 using Nankingcigar.Demo.Core.Entity;
+using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Core.Authorization.User
 {

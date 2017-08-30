@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abp.Auditing;
+﻿using Abp.Auditing;
 using Abp.Dependency;
 using Nankingcigar.Demo.Core.Entity;
 using Nankingcigar.Demo.Core.Extend;
+using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Core.Audit
 {

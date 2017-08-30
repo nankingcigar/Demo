@@ -1,17 +1,15 @@
-﻿using Abp.Domain.Entities;
+﻿using Abp.Auditing;
+using Abp.Domain.Entities;
+using Abp.Extensions;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Abp.Auditing;
-using Abp.Extensions;
 
 namespace Nankingcigar.Demo.Core.Entity
 {
     [Table("AuditLog")]
     public class AuditLog : Entity<long>
     {
-
         public long? UserId { get; set; }
 
         [StringLength(256)]

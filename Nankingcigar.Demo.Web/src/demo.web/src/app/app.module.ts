@@ -7,10 +7,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { RoutesModule } from './routes/routes.module';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -25,7 +32,14 @@ import { RoutesModule } from './routes/routes.module';
         useHash: true
       }
     ),
-    RoutesModule
+    RoutesModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
   ],

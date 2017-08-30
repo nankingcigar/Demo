@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 import { AccountComponent } from './account.component';
 import { RegisterComponent } from './register/register.component';
@@ -44,7 +46,8 @@ export const ROUTES: Routes = [
       ROUTES
     ),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forChild()
   ],
   declarations: [
     AccountComponent,

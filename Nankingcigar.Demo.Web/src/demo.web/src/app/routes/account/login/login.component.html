@@ -4,23 +4,23 @@
       <div class="row">
         <div class="col-md-3 center">
           <div class="login-box">
-            <a routerLink="/" class="logo-name text-lg text-center">Demo</a>
-            <p class="text-center m-t-md">Please login into your account.</p>
+            <a routerLink="/" class="logo-name text-lg text-center">{{ 'Demo' | translate }}</a>
+            <p class="text-center m-t-md">{{ 'Please login into your account.' | translate }}</p>
             <form class="m-t-md" (ngSubmit)="onSubmit()">
               <div class="form-group">
-                <input type="text" class="form-control" name="userName" [(ngModel)]="_loginInput.userName" placeholder="User Name" required
+                <input type="text" class="form-control" name="userName" [(ngModel)]="_loginInput.userName" placeholder="{{ 'User Name' | translate }}" required
                 />
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" name="password" [(ngModel)]="_loginInput.password" placeholder="Password" required
+                <input type="password" class="form-control" name="password" [(ngModel)]="_loginInput.password" placeholder="{{ 'Password' | translate }}" required
                 />
               </div>
-              <button type="submit" class="btn btn-success btn-block">Log In</button>
-              <a href="javascript:void(0);" class="display-block text-center m-t-md text-sm a-forgotPassword">Forgot Password?</a>
-              <p class="text-center m-t-xs text-sm">Do not have an account?</p>
-              <a routerLink="/account/register" class="btn btn-default btn-block m-t-md">Create an account</a>
+              <button type="submit" class="btn btn-success btn-block">{{ 'Log In' | translate }}</button>
+              <a href="javascript:void(0);" class="display-block text-center m-t-md text-sm a-forgotPassword">{{ 'Forgot Password?' | translate }}</a>
+              <p class="text-center m-t-xs text-sm">{{ 'Do not have an account?' | translate }}</p>
+              <a routerLink="/account/register" class="btn btn-default btn-block m-t-md">{{ 'Create an account' | translate }}</a>
             </form>
-            <p class="text-center m-t-xs text-sm">2017 &copy; Demo by Chao.</p>
+            <p class="text-center m-t-xs text-sm">{{ '2017 © Demo by Chao.' | translate }}</p>
           </div>
         </div>
       </div>

@@ -6,17 +6,21 @@
  */
 import { Component, Renderer2 } from '@angular/core';
 import { RoutesRecognized, Router, NavigationStart } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-demo-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
   _pageClass: string;
   _bodyClass: string;
 
-  constructor(private _renderer: Renderer2, private _router: Router) {
+  constructor(
+    private _renderer: Renderer2,
+    private _router: Router,
+    private _translateService: TranslateService) {
+    this._translateService.setDefaultLang('cn');
     this._router.events
       .subscribe(event => {
         if (event instanceof RoutesRecognized) {

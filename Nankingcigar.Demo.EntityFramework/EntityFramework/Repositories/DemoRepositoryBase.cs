@@ -1,5 +1,4 @@
-﻿using System;
-using Abp.Domain.Entities;
+﻿using Abp.Domain.Entities;
 using Abp.EntityFramework;
 using Abp.EntityFramework.Repositories;
 using Nankingcigar.Demo.Core.Extend;

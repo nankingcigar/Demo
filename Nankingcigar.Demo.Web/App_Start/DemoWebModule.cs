@@ -2,12 +2,8 @@
 using Abp.Web.Mvc;
 using Nankingcigar.Demo.Dapper;
 using System.Reflection;
-using System.Web.Http.Filters;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Abp.WebApi.Configuration;
-using Abp.WebApi.ExceptionHandling;
-using Nankingcigar.Demo.WebApi;
 
 namespace Nankingcigar.Demo.Web
 {
