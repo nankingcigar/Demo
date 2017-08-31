@@ -2,21 +2,22 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:19:27
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-28 08:00:10
+ * @Last Modified time: 2017-08-31 05:49:29
  */
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
-import { RegisterInput } from '../../../models/account/register/input';
+import { RegisterInput } from '../../models/account/register/input';
+import { AccountService } from '../../services/account/account.service';
 
 @Component({
-  selector: 'app-demo-account-register',
+  // tslint:disable-next-line:component-selector
+  selector: 'nankingcigar-demo-account-register',
   templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
   _registerInput: RegisterInput;
 
-  constructor(private _http: HttpClient) {
+  constructor(private _accountService: AccountService) {
   }
 
   ngOnInit() {
@@ -24,10 +25,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    this._http.post(
-      'api/services/app/account/Register',
-      this._registerInput
-    ).subscribe(
+    this._accountService.register(this._registerInput).subscribe(
       data => console.log(data)
     );
   }

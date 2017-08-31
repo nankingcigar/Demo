@@ -22,3 +22,4 @@
 *.suo
 *.dbmdl
 /Nankingcigar.Demo.Web/App_Data
+/Nankingcigar.Demo.Web/src/demo.web/.vscode

@@ -2,45 +2,90 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:01:36
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-29 07:56:47
+ * @Last Modified time: 2017-08-31 07:14:54
  */
 import { Component, Renderer2 } from '@angular/core';
-import { RoutesRecognized, Router, NavigationStart } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { RoutesRecognized, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
+import { environment } from '../environments/environment';
+import { AccountService } from './services/account/account.service';
+
 @Component({
-  selector: 'app-demo-root',
+  // tslint:disable-next-line:component-selector
+  selector: 'nankingcigar-demo-app',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
+  _routeClass: string;
   _pageClass: string;
-  _bodyClass: string;
 
   constructor(
     private _renderer: Renderer2,
     private _router: Router,
-    private _translateService: TranslateService) {
-    this._translateService.setDefaultLang('cn');
+    private _translateService: TranslateService,
+    private _title: Title,
+    private _accountService: AccountService
+  ) {
+    this._translateService.setDefaultLang('en');
     this._router.events
       .subscribe(event => {
         if (event instanceof RoutesRecognized) {
+          let route = event.state.root;
+          let parentRoute = route;
+          while (route.children.length > 0) {
+            route = route.firstChild;
+            if (parentRoute.data && parentRoute.data.toAuth === true) {
+              if (!route.data) {
+                route.data = {};
+              }
+              if (!route.data.toAuth) {
+                route.data = Object.assign({ toAuth: true }, route.data);
+              }
+            }
+            parentRoute = route;
+          }
+          if (route.data.toAuth) {
+            if (this._accountService.canActivate() === false) {
+              this._router.navigate(['login']);
+              return;
+            }
+          } else {
+            if (this._accountService.canActivate() === true) {
+              this._router.navigate(['app/dashboard']);
+              return;
+            }
+          }
+          if (this._routeClass) {
+            this._renderer.removeClass(document.body, this._routeClass);
+            this._routeClass = undefined;
+          }
+          this._routeClass = event.urlAfterRedirects.slice(1).replace(/[/]/g, '-');
+          if (this._routeClass === '') {
+            this._routeClass = undefined;
+          } else {
+            this._routeClass = environment.classPrefix + this._routeClass;
+          }
+          if (this._routeClass) {
+            this._renderer.addClass(document.body, this._routeClass);
+          }
           if (this._pageClass) {
             this._renderer.removeClass(document.body, this._pageClass);
             this._pageClass = undefined;
           }
-          this._pageClass = event.urlAfterRedirects.slice(1).replace(/[/]/g, '-');
-          this._renderer.addClass(document.body, this._pageClass);
-          let route = event.state.root;
-          while (route.children.length > 0) {
-            route = route.firstChild;
-          }
-          if (this._bodyClass) {
-            this._renderer.removeClass(document.body, this._bodyClass);
-            this._bodyClass = undefined;
-          }
-          if (route.data && route.data.bodyClass) {
-            this._bodyClass = route.data.bodyClass;
-            this._renderer.addClass(document.body, this._bodyClass);
+          if (route.data) {
+            if (route.data.pageClass && route.data.pageClass !== '') {
+              this._pageClass = route.data.pageClass;
+              this._renderer.addClass(document.body, this._pageClass);
+            }
+            if (route.data.title && route.data.title !== '') {
+              this._title.setTitle(environment.titlePrefix + route.data.title);
+            } else {
+              this._title.setTitle(environment.defaultTitle);
+            }
+          } else {
+            this._title.setTitle(environment.defaultTitle);
           }
         }
       });
