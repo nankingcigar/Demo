@@ -19,6 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "nankingcigar-demo",
       "styles": [
+        "../node_modules/pace-progress/themes/blue/pace-theme-flash.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/simple-line-icons/css/simple-line-icons.css",
@@ -27,7 +28,9 @@
         "assets/css/modern.css",
         "styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/pace-progress/pace.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
