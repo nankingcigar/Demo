@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:19:27
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-31 05:49:29
+ * @Last Modified time: 2017-09-01 09:21:18
  */
 import { Component, OnInit } from '@angular/core';
 
@@ -28,5 +28,13 @@ export class RegisterComponent implements OnInit {
     this._accountService.register(this._registerInput).subscribe(
       data => console.log(data)
     );
+  }
+
+  onBlurUserName(e) {
+    this._registerInput.userName = this._registerInput.userName.trim();
+  }
+
+  onBlurDisplayName(e) {
+    this._registerInput.displayName = this._registerInput.displayName.trim();
   }
 }

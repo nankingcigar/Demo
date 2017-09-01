@@ -3,7 +3,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-31 05:47:44
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-31 10:00:32
+ * @Last Modified time: 2017-09-01 09:11:24
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

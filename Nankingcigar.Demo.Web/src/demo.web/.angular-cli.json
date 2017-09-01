@@ -29,7 +29,9 @@
         "styles.scss"
       ],
       "scripts": [
-        "../node_modules/pace-progress/pace.min.js"
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/pace-progress/pace.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

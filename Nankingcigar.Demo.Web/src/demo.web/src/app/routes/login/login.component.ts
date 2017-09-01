@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 14:22:26
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-31 09:48:36
+ * @Last Modified time: 2017-09-01 09:11:37
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -31,8 +31,12 @@ export class LoginComponent implements OnInit {
     private _translateService: TranslateService
   ) { }
 
-  ngOnInit() {
-    this._loginInput = new LoginInput();
+  ngOnInit(): void {
+    this._loginInput = new LoginInput('', '');
+  }
+
+  onBlur(e) {
+    this._loginInput.userName = this._loginInput.userName.trim();
   }
 
   onSubmit() {

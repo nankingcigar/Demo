@@ -6,8 +6,8 @@
  */
 export class LoginInput {
     constructor(
-        public userName?: string,
-        public password?: string
+        public userName: string,
+        public password: string
     ) {
     }
 }

@@ -8,14 +8,15 @@
     "Do not have an account?": "Do not have an account?",
     "Create an account": "Create an account",
     "2017 © Demo by Chao.": "2017 © Demo by Chao.",
-
     "Create a Demo's account": "Create a Demo's account",
     "Display Name": "Display Name",
     "Agree the": " Agree the ",
     "terms and policy": "terms and policy",
     "Submit": "Submit",
     "Already have an account?": "Already have an account?",
-
     "Demo | Login - Sign in": "cnDemo | Login - Sign in",
-    "Demo | Login - Sign up": "cnDemo | Login - Sign up"
+    "Demo | Login - Sign up": "cnDemo | Login - Sign up",
+    "User Name is required.": "User Name is required.",
+    "Password is required.": "Password is required.",
+    "Display Name is required.": "Display Name is required."
 }

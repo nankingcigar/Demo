@@ -2,13 +2,14 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:01:36
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-31 07:14:54
+ * @Last Modified time: 2017-09-01 09:10:43
  */
 import { Component, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RoutesRecognized, Router } from '@angular/router';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 import { environment } from '../environments/environment';
 import { AccountService } from './services/account/account.service';
@@ -21,6 +22,7 @@ import { AccountService } from './services/account/account.service';
 export class AppComponent {
   _routeClass: string;
   _pageClass: string;
+  _titleBroadCast: Subject<string>;
   _pageTitle: string;
 
   constructor(
@@ -31,6 +33,11 @@ export class AppComponent {
     private _accountService: AccountService
   ) {
     this._translateService.setDefaultLang('en');
+    this._titleBroadCast = new Subject<string>();
+    this._titleBroadCast.asObservable().subscribe(title => {
+      this._pageTitle = title;
+      this.setPageTitle();
+    });
     this._translateService.onLangChange.subscribe((e: LangChangeEvent) => {
       this.setPageTitle();
     });
@@ -85,15 +92,12 @@ export class AppComponent {
               this._renderer.addClass(document.body, this._pageClass);
             }
             if (route.data.title && route.data.title !== '') {
-              this._pageTitle = environment.titlePrefix + route.data.title;
-              this.setPageTitle();
+              this._titleBroadCast.next(environment.titlePrefix + route.data.title);
             } else {
-              this._pageTitle = environment.defaultTitle;
-              this.setPageTitle();
+              this._titleBroadCast.next(environment.defaultTitle);
             }
           } else {
-            this._pageTitle = environment.defaultTitle;
-            this.setPageTitle();
+            this._titleBroadCast.next(environment.defaultTitle);
           }
         }
       });
