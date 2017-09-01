@@ -20,3 +20,14 @@ export const api = {
       register: 'api/services/app/account/register'
   }
 };
+
+export const languages = [
+  {
+    label: 'English',
+    value: 'en'
+  },
+  {
+    label: '简体中文',
+    value: 'cn'
+  }
+];

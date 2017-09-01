@@ -4,10 +4,11 @@
  * @Last Modified by: Chao Yang
  * @Last Modified time: 2017-08-31 04:18:55
  */
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, PreloadAllModules, NoPreloading } from '@angular/router';
-import { HttpHeaders, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 
@@ -15,7 +16,6 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { RoutesModule } from './routes/routes.module';
 import { DemoInterceptor } from './app.interceptor';
-import { HttpErrorResponse } from '@angular/common/http';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json?v=' + (new Date()).getTime());
@@ -26,7 +26,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
+    NoopAnimationsModule,
     RouterModule.forRoot(
       [],
       {

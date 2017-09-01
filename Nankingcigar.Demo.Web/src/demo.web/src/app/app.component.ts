@@ -7,7 +7,8 @@
 import { Component, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RoutesRecognized, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Observable } from 'rxjs/Observable';
 
 import { environment } from '../environments/environment';
 import { AccountService } from './services/account/account.service';
@@ -20,6 +21,7 @@ import { AccountService } from './services/account/account.service';
 export class AppComponent {
   _routeClass: string;
   _pageClass: string;
+  _pageTitle: string;
 
   constructor(
     private _renderer: Renderer2,
@@ -29,6 +31,9 @@ export class AppComponent {
     private _accountService: AccountService
   ) {
     this._translateService.setDefaultLang('en');
+    this._translateService.onLangChange.subscribe((e: LangChangeEvent) => {
+      this.setPageTitle();
+    });
     this._router.events
       .subscribe(event => {
         if (event instanceof RoutesRecognized) {
@@ -80,14 +85,23 @@ export class AppComponent {
               this._renderer.addClass(document.body, this._pageClass);
             }
             if (route.data.title && route.data.title !== '') {
-              this._title.setTitle(environment.titlePrefix + route.data.title);
+              this._pageTitle = environment.titlePrefix + route.data.title;
+              this.setPageTitle();
             } else {
-              this._title.setTitle(environment.defaultTitle);
+              this._pageTitle = environment.defaultTitle;
+              this.setPageTitle();
             }
           } else {
-            this._title.setTitle(environment.defaultTitle);
+            this._pageTitle = environment.defaultTitle;
+            this.setPageTitle();
           }
         }
       });
+  }
+
+  private setPageTitle() {
+    this._translateService.get(this._pageTitle).subscribe((r: string) => {
+      this._title.setTitle(r);
+    });
   }
 }

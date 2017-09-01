@@ -77,3 +77,8 @@ $classPrefix: nankingcigar-demo-;
          -o-animation: fadein 3s; /* Opera < 12.1 */
             animation: fadein 3s;
 }
+
+
+.#{$classPrefix}login.page-login .ui-dropdown{
+    width: 100%;
+}
