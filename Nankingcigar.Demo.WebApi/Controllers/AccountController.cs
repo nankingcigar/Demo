@@ -35,7 +35,7 @@ namespace Nankingcigar.Demo.WebApi.Controllers
         [HttpGet]
         public virtual void LogOut()
         {
-           AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
     }
 }

@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AccountProxy } from './account/account.proxy';
+import { UserProxy } from './user/user.proxy';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { AccountProxy } from './account/account.proxy';
     HttpClientModule
   ],
   providers: [
-    AccountProxy
+    AccountProxy,
+    UserProxy
   ]
 })
 export class ProxysModule { }

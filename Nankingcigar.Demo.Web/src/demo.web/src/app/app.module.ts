@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 07:52:42
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-31 04:18:55
+ * @Last Modified time: 2017-09-04 09:10:49
  */
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';

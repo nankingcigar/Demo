@@ -55,7 +55,6 @@ $classPrefix: nankingcigar-demo-;
     background: #121212;
 }
 
-
 .#{$classPrefix}login.page-login .a-forgotPassword:hover,
 .#{$classPrefix}login.page-login .a-forgotPassword:visited,
 .#{$classPrefix}login.page-login .a-forgotPassword:active,
@@ -77,7 +76,11 @@ $classPrefix: nankingcigar-demo-;
             animation: fadein 3s;
 }
 
-
 .#{$classPrefix}login.page-login .ui-dropdown{
     width: 100%;
+}
+
+.#{$classPrefix}login.page-login .pace .pace-activity,
+.#{$classPrefix}login.page-register .pace .pace-activity{
+    margin-top: 0px;
 }

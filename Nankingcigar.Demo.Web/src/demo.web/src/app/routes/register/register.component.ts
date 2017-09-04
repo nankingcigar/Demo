@@ -2,9 +2,10 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:19:27
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-01 09:21:18
+ * @Last Modified time: 2017-09-04 09:27:46
  */
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { RegisterInput } from '../../models/account/register/input';
 import { AccountService } from '../../services/account/account.service';
@@ -17,16 +18,18 @@ import { AccountService } from '../../services/account/account.service';
 export class RegisterComponent implements OnInit {
   _registerInput: RegisterInput;
 
-  constructor(private _accountService: AccountService) {
+  constructor(
+    private _accountService: AccountService,
+    private _router: Router) {
   }
 
   ngOnInit() {
-    this._registerInput = new RegisterInput(undefined, undefined);
+    this._registerInput = new RegisterInput();
   }
 
   onSubmit() {
     this._accountService.register(this._registerInput).subscribe(
-      data => console.log(data)
+      data => this._router.navigate(['login'])
     );
   }
 
@@ -34,7 +37,7 @@ export class RegisterComponent implements OnInit {
     this._registerInput.userName = this._registerInput.userName.trim();
   }
 
-  onBlurDisplayName(e) {
-    this._registerInput.displayName = this._registerInput.displayName.trim();
+  onBlurEmail(e) {
+    this._registerInput.email = this._registerInput.email.trim();
   }
 }

@@ -10,7 +10,7 @@ namespace Nankingcigar.Demo.Core.Authorization.User
         public UserManager UserManager { get; set; }
         private static PasswordHasher PasswordHasher => new PasswordHasher();
 
-        public async Task RegisterAsync(string userName, string password, string displayName)
+        public async Task RegisterAsync(string userName, string password, string email)
         {
             var user = await UserManager.FindByNameAsync(userName);
             if (user != null) throw new DemoApiException(1);
@@ -18,7 +18,7 @@ namespace Nankingcigar.Demo.Core.Authorization.User
             {
                 UserName = userName,
                 Password = PasswordHasher.HashPassword(password),
-                DisplayName = displayName,
+                Email = email,
                 IsActive = true
             };
             await UserManager.CreateAsync(user);

@@ -14,7 +14,7 @@ export const ROUTES: Routes = [
     path: 'app',
     component: HomeComponent,
     data: {
-      toAuth: true,
+      toAuth: true
     },
     children: [
       {

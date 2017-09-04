@@ -1,4 +1,43 @@
-<p>
-  {{ 'Welcome to use Demo !!!' | translate }}
-</p>
-<router-outlet></router-outlet>
+<main class="page-content content-wrap">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="logo-box">
+        <a routerLink="/app" class="logo-text">
+          <span>{{ 'Demo'| translate }}</span>
+        </a>
+      </div>
+      <div class="topmenu-outer">
+        <div class="top-menu">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                <span class="user-name">
+                  {{showName()}}
+                  <i class="fa fa-angle-down"></i>
+                </span>
+                <img class="img-circle avatar" src="assets/images/avatar1.png" width="40" height="40" alt=""/>
+              </a>
+              <ul class="dropdown-menu dropdown-list" role="menu">
+                <li role="presentation">
+                  <a href="javascript:void(0);" (click)="logOut();">
+                    <i class="fa fa-sign-out m-r-xs"></i>
+                    {{ 'Log out'| translate }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="log-out waves-effect waves-button waves-classic" (click)="logOut();">
+                <span>
+                  <i class="fa fa-sign-out m-r-xs"></i>
+                  {{ 'Log out'| translate }}
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</main>

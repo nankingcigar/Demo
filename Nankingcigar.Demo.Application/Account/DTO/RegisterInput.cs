@@ -1,10 +1,8 @@
-﻿using Castle.Core.Internal;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Nankingcigar.Demo.Account.DTO
 {
-    public class RegisterInput : IValidatableObject
+    public class RegisterInput
     {
         [Required]
         [StringLength(50)]
@@ -14,13 +12,8 @@ namespace Nankingcigar.Demo.Account.DTO
         [StringLength(50)]
         public virtual string Password { get; set; }
 
-        [StringLength(50)]
-        public virtual string DisplayName { get; set; }
-
-        public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        {
-            if (UserName.IsNullOrEmpty() || Password.IsNullOrEmpty())
-                yield return new ValidationResult("Username & Password both can't be empty !");
-        }
+        [Required]
+        [StringLength(100)]
+        public virtual string Email { get; set; }
     }
 }

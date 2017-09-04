@@ -4,12 +4,14 @@ using Nankingcigar.Demo.Core.Extend;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Nankingcigar.Demo.Core.Entity;
 
 namespace Nankingcigar.Demo.Core.Authorization.User
 {
     public class UserStore :
         IUserStore<Entity.User, long>,
         IUserPasswordStore<Entity.User, long>,
+        IUserEmailStore<Entity.User, long>,
         IQueryableUserStore<Entity.User, long>,
         IDisposable, ITransientDependency
     {
@@ -69,6 +71,38 @@ namespace Nankingcigar.Demo.Core.Authorization.User
         }
 
         #endregion IUserPasswordStore
+
+        #region IUserEmailStore
+
+        public virtual Task SetEmailAsync(Entity.User user, string email)
+        {
+            user.Email = email;
+            return Task.FromResult(0);
+        }
+
+        public virtual Task<string> GetEmailAsync(Entity.User user)
+        {
+            return Task.FromResult(user.Email);
+        }
+
+        public virtual Task<bool> GetEmailConfirmedAsync(Entity.User user)
+        {
+            return Task.FromResult(false);
+        }
+
+        public virtual Task SetEmailConfirmedAsync(Entity.User user, bool confirmed)
+        {
+            return Task.FromResult(0);
+        }
+
+        public virtual async Task<Entity.User> FindByEmailAsync(string email)
+        {
+            return await UserRepository.FirstOrDefaultAsync(
+                user => user.Email == email
+            );
+        }
+
+        #endregion
 
         #region IDisposable
 

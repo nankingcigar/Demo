@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 14:22:26
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-01 09:11:37
+ * @Last Modified time: 2017-09-04 09:26:59
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._loginInput = new LoginInput('', '');
+    this._loginInput = new LoginInput();
   }
 
   onBlur(e) {

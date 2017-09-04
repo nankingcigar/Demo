@@ -9,7 +9,7 @@
     "Create an account": "Create an account",
     "2017 © Demo by Chao.": "2017 © Demo by Chao.",
     "Create a Demo's account": "Create a Demo's account",
-    "Display Name": "Display Name",
+    "Email": "Email",
     "Agree the": " Agree the ",
     "terms and policy": "terms and policy",
     "Submit": "Submit",
@@ -18,5 +18,6 @@
     "Demo | Login - Sign up": "Demo | Login - Sign up",
     "User Name is required.": "User Name is required.",
     "Password is required.": "Password is required.",
-    "Display Name is required.": "Display Name is required."
+    "Email is required.": "Email is required.",
+    "Log out": "Log out"
 }

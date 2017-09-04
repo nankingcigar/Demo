@@ -48,6 +48,10 @@ namespace Nankingcigar.Demo.Core.Entity
         public string UserName { get; set; }
 
         [Required]
+        [StringLength(100)]
+        public string Email { get; set; }
+
+        [Required]
         [StringLength(500)]
         public string Password { get; set; }
 

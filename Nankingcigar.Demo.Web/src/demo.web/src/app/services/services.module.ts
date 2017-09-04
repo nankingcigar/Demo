@@ -10,6 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 import { ProxysModule } from '../proxys/proxys.module';
 import { AccountService } from './account/account.service';
+import { UserService } from './user/user.service';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { AccountService } from './account/account.service';
   ],
   providers: [
     AccountService,
-    CookieService
+    CookieService,
+    UserService
   ]
 })
 export class ServicesModule { }

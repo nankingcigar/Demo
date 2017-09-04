@@ -20,7 +20,7 @@ namespace Nankingcigar.Demo.Account
             await _userRegistrationManager.RegisterAsync(
                 input.UserName,
                 input.Password,
-                input.DisplayName
+                input.Email
             );
         }
     }

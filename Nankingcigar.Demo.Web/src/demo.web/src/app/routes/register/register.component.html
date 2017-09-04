@@ -15,12 +15,12 @@
                                     required autocomplete="off" autofocus #userName="ngModel" (blur)="onBlurUserName($event);"
                                 />
                             </div>
-                            <div class="alert alert-danger loginError" role="alert" [hidden]="displayName.valid || displayName.pristine">
-                                {{ 'Display Name is required.' | translate}}
+                            <div class="alert alert-danger loginError" role="alert" [hidden]="email.valid || email.pristine">
+                                {{ 'Email is required.' | translate}}
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="displayName" [(ngModel)]="_registerInput.displayName" placeholder="{{ 'Display Name' | translate }}"
-                                    required autocomplete="off" #displayName="ngModel" (blur)="onBlurDisplayName($event);" />
+                                <input type="email" class="form-control" name="email" [(ngModel)]="_registerInput.email" placeholder="{{ 'Email' | translate }}"
+                                    required  autocomplete="off" #email="ngModel" (blur)="onBlurEmail($event);" email/>
                             </div>
                             <div class="alert alert-danger loginError" role="alert" [hidden]="password.valid ||password.pristine">
                                 {{ 'Password is required.' | translate}}
@@ -31,7 +31,7 @@
                             </div>
                             <label>
                                     <input type="checkbox">{{ 'Agree the' | translate }}<a href="javascript:void(0);" class="m-t-md a-forgotPassword">{{ 'terms and policy' | translate }}</a>
-                                </label>
+                            </label>
                             <button type="submit" class="btn btn-success btn-block m-t-xs btnSubmit" [disabled]="!form.valid">{{ 'Submit' | translate }}</button>
                             <p class="text-center m-t-xs text-sm">{{ 'Already have an account?' | translate }}</p>
                             <a routerLink="/login" class="btn btn-default btn-block m-t-xs">{{ 'Log In' | translate }}</a>
