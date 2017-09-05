@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 14:22:26
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-04 09:26:59
+ * @Last Modified time: 2017-09-05 03:08:48
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { LoginInput } from '../../models/account/login/input';
 import { AccountService } from '../../services/account/account.service';
-import { languages } from '../../../environments/environment';
+import { languages, languageKeys } from '../../app.global';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
     message: ''
   };
   _languages = languages;
+  _languageKeys = languageKeys.page.login;
+  _app = app;
 
   constructor(
     private _accountService: AccountService,

@@ -187,6 +187,12 @@
     /* splash screen */
   </style>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+  <script>
+    var app = {};
+    if (!app.year) {
+      app.year = (new Date()).getFullYear();
+    }
+  </script>
 </head>
 
 <body>

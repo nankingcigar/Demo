@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 10:21:46
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-04 09:55:48
+ * @Last Modified time: 2017-09-05 02:48:00
  */
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse, HttpUserEvent } from '@angular/common/http';
@@ -11,7 +11,6 @@ import * as Enumerable from 'linq/linq';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
 import { Request } from './models/http/request';

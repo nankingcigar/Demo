@@ -2,13 +2,14 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:19:27
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-04 09:27:46
+ * @Last Modified time: 2017-09-05 04:56:35
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { RegisterInput } from '../../models/account/register/input';
 import { AccountService } from '../../services/account/account.service';
+import { languageKeys } from '../../app.global';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -17,6 +18,8 @@ import { AccountService } from '../../services/account/account.service';
 })
 export class RegisterComponent implements OnInit {
   _registerInput: RegisterInput;
+  _languageKeys = languageKeys.page.register;
+  _app = app;
 
   constructor(
     private _accountService: AccountService,

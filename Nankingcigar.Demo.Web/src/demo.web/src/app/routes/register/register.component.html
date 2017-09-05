@@ -4,39 +4,39 @@
             <div class="row">
                 <div class="col-md-3 center">
                     <div class="login-box">
-                        <a routerLink="/" class="logo-name text-lg text-center">{{ 'Demo' | translate }}</a>
-                        <p class="text-center m-t-md">{{ 'Create a Demo\'s account' | translate }}</p>
+                        <a routerLink="/" class="logo-name text-lg text-center">{{ _languageKeys.title | translate }}</a>
+                        <p class="text-center m-t-md">{{ _languageKeys.subTitle | translate: _app }}</p>
                         <form class="m-t-md" (ngSubmit)="onSubmit()" #form="ngForm">
                             <div class="alert alert-danger loginError" role="alert" [hidden]="userName.valid || userName.pristine">
-                                {{ 'User Name is required.' | translate}}
+                                {{ _languageKeys.userNameIsRequired | translate}}
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" name="userName" [(ngModel)]="_registerInput.userName" placeholder="{{ 'User Name' | translate }}"
+                                <input type="text" class="form-control" name="userName" [(ngModel)]="_registerInput.userName" placeholder="{{ _languageKeys.userName | translate }}"
                                     required autocomplete="off" autofocus #userName="ngModel" (blur)="onBlurUserName($event);"
                                 />
                             </div>
                             <div class="alert alert-danger loginError" role="alert" [hidden]="email.valid || email.pristine">
-                                {{ 'Email is required.' | translate}}
+                                {{ _languageKeys.emailIsRequired | translate}}
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email" [(ngModel)]="_registerInput.email" placeholder="{{ 'Email' | translate }}"
-                                    required  autocomplete="off" #email="ngModel" (blur)="onBlurEmail($event);" email/>
+                                <input type="email" class="form-control" name="email" [(ngModel)]="_registerInput.email" placeholder="{{ _languageKeys.email | translate }}"
+                                    required autocomplete="off" #email="ngModel" (blur)="onBlurEmail($event);" email/>
                             </div>
                             <div class="alert alert-danger loginError" role="alert" [hidden]="password.valid ||password.pristine">
-                                {{ 'Password is required.' | translate}}
+                                {{ _languageKeys.passwordIsRequired | translate}}
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" name="password" [(ngModel)]="_registerInput.password" placeholder="{{ 'Password' | translate }}"
+                                <input type="password" class="form-control" name="password" [(ngModel)]="_registerInput.password" placeholder="{{ _languageKeys.password | translate }}"
                                     required autocomplete="new-password" #password="ngModel" />
                             </div>
                             <label>
-                                    <input type="checkbox">{{ 'Agree the' | translate }}<a href="javascript:void(0);" class="m-t-md a-forgotPassword">{{ 'terms and policy' | translate }}</a>
+                                    <input type="checkbox">{{ _languageKeys.agreeTheTermsAndPolicyPart1 | translate }}<a href="javascript:void(0);" class="m-t-md a-forgotPassword">{{ _languageKeys.agreeTheTermsAndPolicyPart2 | translate }}</a>
                             </label>
-                            <button type="submit" class="btn btn-success btn-block m-t-xs btnSubmit" [disabled]="!form.valid">{{ 'Submit' | translate }}</button>
-                            <p class="text-center m-t-xs text-sm">{{ 'Already have an account?' | translate }}</p>
-                            <a routerLink="/login" class="btn btn-default btn-block m-t-xs">{{ 'Log In' | translate }}</a>
+                            <button type="submit" class="btn btn-success btn-block m-t-xs btnSubmit" [disabled]="!form.valid">{{ _languageKeys.submit | translate }}</button>
+                            <p class="text-center m-t-xs text-sm">{{ _languageKeys.alreadyHaveAnAccount | translate }}</p>
+                            <a routerLink="/login" class="btn btn-default btn-block m-t-xs">{{ _languageKeys.login | translate }}</a>
                         </form>
-                        <p class="text-center m-t-xs text-sm">{{ '2017 © Demo by Chao.' | translate }}</p>
+                        <p class="text-center m-t-xs text-sm">{{ _languageKeys.yearSystemByAuthor | translate: _app }}</p>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
   <div class="navbar">
     <div class="navbar-inner">
       <div class="logo-box">
-        <a routerLink="/app" class="logo-text">
+        <a routerLink="/app/dashboard" class="logo-text">
           <span>{{ 'Demo'| translate }}</span>
         </a>
       </div>
@@ -12,7 +12,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                 <span class="user-name">
-                  {{showName()}}
+                  {{ _displayName }}
                   <i class="fa fa-angle-down"></i>
                 </span>
                 <img class="img-circle avatar" src="assets/images/avatar1.png" width="40" height="40" alt=""/>

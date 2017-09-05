@@ -2,25 +2,12 @@
  * @Author: Chao Yang
  * @Date: 2017-08-31 06:38:50
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-04 09:14:47
+ * @Last Modified time: 2017-09-05 03:35:14
  */
 export const environment = {
   production: true,
-  app: 'demo',
-  classPrefix: 'demo',
-  author: 'Chao(Nankingcigar)',
-  titlePrefix: 'Demo | ',
-  defaultTitle: 'Demo',
+  classPrefix: 'nankingcigar-demo-',
+  titlePrefix: '{{ system }} | ',
+  defaultTitle: '{{ system }}',
   sessionKey: 'nankingcigar-demo-session'
 };
-
-export const languages = [
-  {
-    label: 'English',
-    value: 'en'
-  },
-  {
-    label: '简体中文',
-    value: 'cn'
-  }
-];

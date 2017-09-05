@@ -4,21 +4,21 @@
       <div class="row">
         <div class="col-md-3 center">
           <div class="login-box">
-            <a routerLink="/" class="logo-name text-lg text-center">{{ 'Demo' | translate }}</a>
-            <p class="text-center m-t-md">{{ 'Please login into your account.' | translate }}</p>
+            <a routerLink="/" class="logo-name text-lg text-center">{{ _languageKeys.title | translate }}</a>
+            <p class="text-center m-t-md">{{ _languageKeys.subTitle | translate }}</p>
             <form class="m-t-md" (ngSubmit)="onSubmit()" #form="ngForm">
               <div class="alert alert-danger loginError" role="alert" [hidden]="userName.valid || userName.pristine">
-                {{ 'User Name is required.' | translate }}
+                {{ _languageKeys.userNameIsRequired | translate }}
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" name="userName" [(ngModel)]="_loginInput.userName" placeholder="{{ 'User Name' | translate }}"
+                <input type="text" class="form-control" name="userName" [(ngModel)]="_loginInput.userName" placeholder="{{ _languageKeys.userName | translate }}"
                   required autocomplete="off" autofocus #userName="ngModel" (blur)="onBlur($event);" />
               </div>
               <div class="alert alert-danger loginError" role="alert" [hidden]="password.valid ||password.pristine">
-                {{ 'Password is required.' | translate}}
+                {{ _languageKeys.passwordIsRequired | translate}}
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" name="password" [(ngModel)]="_loginInput.password" placeholder="{{ 'Password' | translate }}"
+                <input type="password" class="form-control" name="password" [(ngModel)]="_loginInput.password" placeholder="{{ _languageKeys.password | translate }}"
                   required autocomplete="new-password" #password="ngModel" />
               </div>
               <div class="form-group">
@@ -27,12 +27,12 @@
               <div class="alert alert-danger loginError" role="alert" [hidden]="_error.hidden">
                 {{_error.message}}
               </div>
-              <button type="submit" class="btn btn-success btn-block btnSubmit" [disabled]="!form.valid">{{ 'Log In' | translate }}</button>
-              <a href="javascript:void(0);" class="display-block text-center m-t-md text-sm a-forgotPassword">{{ 'Forgot Password?' | translate }}</a>
-              <p class="text-center m-t-xs text-sm">{{ 'Do not have an account?' | translate }}</p>
-              <a routerLink="/register" class="btn btn-default btn-block m-t-md">{{ 'Create an account' | translate }}</a>
+              <button type="submit" class="btn btn-success btn-block btnSubmit" [disabled]="!form.valid">{{ _languageKeys.login | translate }}</button>
+              <a href="javascript:void(0);" class="display-block text-center m-t-md text-sm a-forgotPassword">{{ _languageKeys.forgotPassword | translate }}</a>
+              <p class="text-center m-t-xs text-sm">{{ _languageKeys.doNotHaveAnAccount | translate }}</p>
+              <a routerLink="/register" class="btn btn-default btn-block m-t-md">{{ _languageKeys.createAnAccount | translate:_app }}</a>
             </form>
-            <p class="text-center m-t-xs text-sm">{{ '2017 © Demo by Chao.' | translate }}</p>
+            <p class="text-center m-t-xs text-sm">{{ _languageKeys.yearSystemByAuthor | translate:_app }}</p>
           </div>
         </div>
       </div>

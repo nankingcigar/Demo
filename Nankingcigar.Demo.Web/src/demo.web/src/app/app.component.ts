@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:01:36
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-01 09:10:43
+ * @Last Modified time: 2017-09-05 03:34:36
  */
 import { Component, Renderer2 } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -13,6 +13,7 @@ import { Subject } from 'rxjs/Subject';
 
 import { environment } from '../environments/environment';
 import { AccountService } from './services/account/account.service';
+import { languageKeys } from './app.global';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -38,7 +39,9 @@ export class AppComponent {
       this._pageTitle = title;
       this.setPageTitle();
     });
+    this.setApp();
     this._translateService.onLangChange.subscribe((e: LangChangeEvent) => {
+      this.setApp();
       this.setPageTitle();
     });
     this._router.events
@@ -104,8 +107,18 @@ export class AppComponent {
   }
 
   private setPageTitle() {
-    this._translateService.get(this._pageTitle).subscribe((r: string) => {
-      this._title.setTitle(r);
-    });
+    console.log(app);
+    this._translateService.get(this._pageTitle, app)
+      .subscribe((translation: string) => {
+        this._title.setTitle(translation);
+      });
+  }
+
+  private setApp() {
+    this._translateService.get([languageKeys.system, languageKeys.author])
+      .subscribe((translation: any) => {
+        app.system = translation[languageKeys.system];
+        app.author = translation[languageKeys.author];
+      });
   }
 }
