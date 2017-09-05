@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 07:53:04
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 01:34:33
+ * @Last Modified time: 2017-09-05 09:52:27
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '../../services/account/account.service';
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../models/user/user';
+import { languageKeys } from '../../app.global';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -22,6 +23,7 @@ import { User } from '../../models/user/user';
 export class HomeComponent implements OnInit {
   private _user: User;
   private _displayName: string;
+  private _languageKeys = languageKeys.page.home;
 
   constructor(
     private _accountService: AccountService,
@@ -50,7 +52,7 @@ export class HomeComponent implements OnInit {
           onclick: null,
           showDuration: 300,
           hideDuration: 1000,
-          timeOut: 5000,
+          timeOut: 3000,
           extendedTimeOut: 1000,
           showEasing: 'swing',
           hideEasing: 'linear',

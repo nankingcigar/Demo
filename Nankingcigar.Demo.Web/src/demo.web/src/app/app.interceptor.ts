@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 10:21:46
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 08:53:43
+ * @Last Modified time: 2017-09-05 09:30:02
  */
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse, HttpUserEvent } from '@angular/common/http';
@@ -108,7 +108,7 @@ export class DemoInterceptor implements HttpInterceptor {
     removeRequestQueue(req: HttpRequest<any>): Request {
         const queueKey = this.getRequestFromQueue(req);
         Observable.of(this._requestQueue)
-            .delay(2000)
+            .delay(1000)
             .subscribe(data => {
                 if (this._requestQueue.length === 1) {
                     Pace.stop();

@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 07:14:26
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 08:28:16
+ * @Last Modified time: 2017-09-05 09:13:11
  */
 import { Injectable, EventEmitter } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -35,7 +35,7 @@ export class LocalizationService extends BaseService {
     }
 
     setLanguage(language: string): void {
-        this._cookieService.set(app.environment.sessionKey, language);
+        this._cookieService.set(app.environment.languageKey, language);
         this._translateService.use(language);
     }
 

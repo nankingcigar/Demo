@@ -17,6 +17,7 @@
     "Already have an account?": "Already have an account?",
     "{{ system }} | Login - Sign in": "{{ system }} | Login - Sign in",
     "{{ system }} | Login - Sign up": "{{ system }} | Login - Sign up",
+    "{{ system }} | Admin Dashboard Template": "{{ system }} | Admin Dashboard Template",
     "User Name is required.": "User Name is required.",
     "Password is required.": "Password is required.",
     "Email is required.": "Email is required.",

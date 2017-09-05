@@ -21,8 +21,8 @@ export const ROUTES: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         data: {
-          pageClass: 'page-dashboard',
-          title: 'Dashboard'
+          pageClass: 'page-header-fixed',
+          title: 'Admin Dashboard Template'
         }
       },
       {
