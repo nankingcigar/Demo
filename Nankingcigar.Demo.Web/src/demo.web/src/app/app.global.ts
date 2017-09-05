@@ -2,8 +2,16 @@
  * @Author: Chao Yang
  * @Date: 2017-09-04 09:18:32
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 05:01:23
+ * @Last Modified time: 2017-09-05 08:37:45
  */
+app.environment = {
+  classPrefix: 'nankingcigar-demo-',
+  titlePrefix: '{{ system }} | ',
+  defaultTitle: '{{ system }}',
+  sessionKey: 'nankingcigar-demo-session',
+  languageKey: 'nankingcigar-demo-language'
+};
+
 export const api = {
   account: {
     authenicate: 'api/account',
@@ -59,6 +67,12 @@ export const languageKeys = {
       agreeTheTermsAndPolicyPart1: 'Agree the',
       agreeTheTermsAndPolicyPart2: ' terms and policy',
     }
+  },
+  errors: {
+    global: {
+    },
+    '/login': {
+      '1': 'User Name or Password is incorrect.'
+    }
   }
 };
-

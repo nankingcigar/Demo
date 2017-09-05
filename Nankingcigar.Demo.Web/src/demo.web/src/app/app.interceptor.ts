@@ -2,10 +2,11 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 10:21:46
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 02:48:00
+ * @Last Modified time: 2017-09-05 08:53:43
  */
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse, HttpUserEvent } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import * as Enumerable from 'linq/linq';
 import 'rxjs/add/observable/throw';
@@ -14,12 +15,26 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/map';
 
 import { Request } from './models/http/request';
+import { AccountService } from './services/account/account.service';
+import { LocalizationService } from './services/localization/localization.service';
+import { languageKeys } from './app.global';
 
 @Injectable()
 export class DemoInterceptor implements HttpInterceptor {
     private _requestQueue: Request[] = [];
+    private _accountService: AccountService;
+    private _localizationService: LocalizationService;
+
+    constructor(
+        private _router: Router
+    ) {
+    }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        if (app.moduleRef) {
+            this._accountService = app.moduleRef.injector.get<AccountService>(AccountService);
+            this._localizationService = app.moduleRef.injector.get<LocalizationService>(LocalizationService);
+        }
         if (this.containsRequest(req)) {
             if (req.method !== 'GET') {
                 return Observable.of(null);
@@ -51,9 +66,20 @@ export class DemoInterceptor implements HttpInterceptor {
             })
             .catch((err: any, caught) => {
                 if (err instanceof HttpErrorResponse) {
+                    console.log(req);
+                    console.log(err);
+                    console.log(this._router);
+                    if (err.status === 401) {
+                        this._accountService.logOut();
+                        this._router.navigate(['login']);
+                    }
                     const queueKey = this.removeRequestQueue(req);
                     if (err.error) {
                         if (err.error.__abp === true) {
+                            this._localizationService.get(languageKeys.errors[this._router.url][err.error.error.code])
+                                .subscribe((translation: string) => {
+                                    err.error.error.message = translation;
+                                });
                             queueKey.requestBroadCaster.error(err.error.error);
                             return Observable.throw(err.error.error);
                         }

@@ -21,9 +21,30 @@ interface Toastr {
   error(subTitle: string, title: string): void;
 }
 
-declare var app;
+declare var app: App;
 interface App {
   system: string;
   author: string;
   year: number;
+  moduleRef: NgModuleRef;
+  environment: Environment;
+}
+
+interface Type<T>{
+}
+
+interface Injector{
+  get<T>(token: Type<T>): T;
+}
+
+interface NgModuleRef {
+  injector: Injector;
+}
+
+interface Environment{
+  classPrefix: string,
+  titlePrefix: string,
+  defaultTitle: string,
+  sessionKey: string,
+  languageKey: string
 }

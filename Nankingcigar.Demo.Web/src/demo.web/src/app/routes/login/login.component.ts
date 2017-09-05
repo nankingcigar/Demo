@@ -2,15 +2,15 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 14:22:26
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 03:08:48
+ * @Last Modified time: 2017-09-05 08:54:05
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 
-import { LoginInput } from '../../models/account/login/input';
-import { AccountService } from '../../services/account/account.service';
 import { languages, languageKeys } from '../../app.global';
+import { AccountService } from '../../services/account/account.service';
+import { LocalizationService } from '../../services/localization/localization.service';
+import { LoginInput } from '../../models/account/login/input';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -30,18 +30,18 @@ export class LoginComponent implements OnInit {
   constructor(
     private _accountService: AccountService,
     private _router: Router,
-    private _translateService: TranslateService
+    private _localizationService: LocalizationService
   ) { }
 
   ngOnInit(): void {
     this._loginInput = new LoginInput();
   }
 
-  onBlur(e) {
+  onBlur(e): void {
     this._loginInput.userName = this._loginInput.userName.trim();
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this._accountService.authenticate(this._loginInput).subscribe(
       data => {
         if (this._error.hidden === false) {
@@ -53,12 +53,12 @@ export class LoginComponent implements OnInit {
         if (this._error.hidden === true) {
           this._error.hidden = false;
         }
-        this._error.message = 'User Name or Password is incorrect.';
+        this._error.message = err.message;
       }
     );
   }
 
-  onChange(e) {
-    this._translateService.use(e.value);
+  onChange(e): void {
+    this._localizationService.setLanguage(e.value);
   }
 }

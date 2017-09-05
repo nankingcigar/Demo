@@ -1,6 +1,6 @@
 {
     "System": "cnDemo",
-    "Author": "Tao",
+    "Author": "Chao",
     "Please login into your account.": "Please login into your account.",
     "User Name": "User Name",
     "Password": "Password",
@@ -22,5 +22,6 @@
     "Email is required.": "Email is required.",
     "Log out": "Log out",
     "Welcome to {{ system }}!": "Welcome to {{ system }}!",
-    "Hi {{ name }},": "Hi {{ name }},"
+    "Hi {{ name }},": "Hi {{ name }},",
+    "User Name or Password is incorrect.": "User Name or Password is incorrect."
 }

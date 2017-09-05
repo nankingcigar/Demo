@@ -3,7 +3,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-28 07:55:28
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-08-31 10:03:54
+ * @Last Modified time: 2017-09-05 06:56:48
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,8 +14,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { HomeModule } from './home/home.module';
-import { TranslateModule } from '@ngx-translate/core';
-import { ServicesModule } from '../services/services.module';
 
 export const ROUTES: Routes = [
   /*
@@ -49,7 +47,6 @@ export const ROUTES: Routes = [
     RouterModule.forChild(
       ROUTES
     ),
-    ServicesModule,
     LoginModule,
     RegisterModule,
     HomeModule
