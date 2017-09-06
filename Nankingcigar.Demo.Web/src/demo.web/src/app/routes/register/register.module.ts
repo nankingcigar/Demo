@@ -34,7 +34,6 @@ import { RegisterComponent } from './register.component';
     RegisterComponent
   ],
   exports: [
-    RegisterComponent
   ]
 })
 export class RegisterModule { }

@@ -3448,6 +3448,10 @@ node-sass@^4.3.0:
     sass-graph "^2.1.1"
     stdout-stream "^1.4.0"
 
+node-waves@^0.7.5:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/node-waves/-/node-waves-0.7.5.tgz#be15bccc685544cb9e68c8f922b57fb802d95cff"
+
 "nopt@2 || 3":
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/nopt/-/nopt-3.0.6.tgz#c6465dbf08abcd4db359317f79ac68a646b28ff9"

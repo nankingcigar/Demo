@@ -10,7 +10,7 @@
         <div class="top-menu">
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+              <a href="javascript:void(0);" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                 <span class="user-name">
                   {{ _displayName }}
                   <i class="fa fa-angle-down"></i>
@@ -21,7 +21,7 @@
                 <li role="presentation">
                   <a href="javascript:void(0);" (click)="logOut();">
                     <i class="fa fa-sign-out m-r-xs"></i>
-                    {{ 'Log out'| translate }}
+                    {{ _languageKeys.logOut | translate }}
                   </a>
                 </li>
               </ul>
@@ -30,7 +30,7 @@
               <a href="javascript:void(0);" class="log-out waves-effect waves-button waves-classic" (click)="logOut();">
                 <span>
                   <i class="fa fa-sign-out m-r-xs"></i>
-                  {{ 'Log out'| translate }}
+                  {{ _languageKeys.logOut | translate }}
                 </span>
               </a>
             </li>
@@ -51,7 +51,7 @@
               <span>
                 {{ _displayName }}<br>
                 <small>
-                  Art Director
+                  {{ _languageKeys.job | translate }}
                 </small>
               </span>
             </div>
@@ -59,18 +59,63 @@
         </div>
       </div>
       <ul class="menu accordion-menu">
-        <li class="active">
-          <a router="/app/dashboard" class="waves-effect waves-button">
+        <li routerLink="/app/dashboard" routerLinkActive="active">
+          <a href="javascript:void(0);" class="waves-effect waves-button">
             <span class="menu-icon glyphicon glyphicon-home"></span>
             <p>
-              Dashboard
+              {{ _languageKeys.dashboard | translate }}
             </p>
           </a>
         </li>
-        <li>
+        <li routerLink="/app/profile" routerLinkActive="active">
           <a href="javascript:void(0);" class="waves-effect waves-button">
             <span class="menu-icon glyphicon glyphicon-user"></span>
-            <p>Profile</p>
+            <p>
+              {{ _languageKeys.profile | translate }}
+            </p>
+          </a>
+        </li>
+        <li routerLink="/app/user" routerLinkActive="active">
+          <a href="javascript:void(0);" class="waves-effect waves-button">
+            <span class="menu-icon glyphicon">
+              <i class="fa fa-users"></i>
+            </span>
+            <p>
+              {{ _languageKeys.users | translate }}
+            </p>
+          </a>
+        </li>
+        <li routerLink="/app/log" routerLinkActive="active">
+          <a href="javascript:void(0);" class="waves-effect waves-button">
+            <span class="menu-icon glyphicon glyphicon-record">
+            </span>
+            <p>
+              {{ _languageKeys.logs | translate }}
+            </p>
+          </a>
+        </li>
+        <li class="droplink">
+          <a href="javascript:void(0);" class="waves-effect waves-button">
+            <span class="menu-icon glyphicon glyphicon-envelope"></span>
+            <p>
+              {{ _languageKeys.mailbox | translate }}
+            </p>
+            <span class="arrow"></span>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="javascript:void(0);">Inbox</a></li>
+            <li><a href="javascript:void(0);">Inbox Alt</a></li>
+            <li><a href="javascript:void(0);">View Message</a></li>
+            <li><a href="javascript:void(0);">View Message Alt</a></li>
+            <li><a href="javascript:void(0);">Compose</a></li>
+            <li><a href="javascript:void(0);">Compose Alt</a></li>
+          </ul>
+        </li>
+        <li routerLink="/app/about" routerLinkActive="active">
+          <a href="javascript:void(0);" class="waves-effect waves-button">
+            <span class="menu-icon glyphicon glyphicon-exclamation-sign">
+            </span>
+            <p>{{ _languageKeys.about | translate }}</p>
           </a>
         </li>
       </ul>

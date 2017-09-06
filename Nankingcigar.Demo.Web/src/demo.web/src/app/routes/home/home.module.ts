@@ -8,6 +8,10 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 import { HomeComponent } from './home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserComponent } from './user/user.component';
+import { LogComponent } from './log/log.component';
+import { AboutComponent } from './about/about.component';
 
 export const ROUTES: Routes = [
   {
@@ -21,8 +25,40 @@ export const ROUTES: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         data: {
-          pageClass: 'page-header-fixed',
+          pageClass: 'page-home-dashboard',
           title: 'Admin Dashboard Template'
+        }
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        data: {
+          pageClass: 'page-home-profile',
+          title: 'Profile'
+        }
+      },
+      {
+        path: 'user',
+        component: UserComponent,
+        data: {
+          pageClass: 'page-home-user',
+          title: 'Users'
+        }
+      },
+      {
+        path: 'log',
+        component: LogComponent,
+        data: {
+          pageClass: 'page-home-log',
+          title: 'Logs'
+        }
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
+        data: {
+          pageClass: 'page-home-about',
+          title: 'About'
         }
       },
       {
@@ -46,11 +82,13 @@ export const ROUTES: Routes = [
   ],
   declarations: [
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfileComponent,
+    UserComponent,
+    LogComponent,
+    AboutComponent
   ],
   exports: [
-    HomeComponent,
-    DashboardComponent
   ]
 })
 export class HomeModule { }

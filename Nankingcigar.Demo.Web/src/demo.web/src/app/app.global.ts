@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-09-04 09:18:32
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 09:51:09
+ * @Last Modified time: 2017-09-06 04:05:40
  */
 app.environment = {
   classPrefix: 'nankingcigar-demo-',
@@ -68,7 +68,20 @@ export const languageKeys = {
       agreeTheTermsAndPolicyPart2: ' terms and policy',
     },
     home: {
-      title: 'System'
+      title: 'System',
+      logOut: 'Log out',
+      job: 'Code Farmer',
+      dashboard: 'Dashboard',
+      profile: 'Profile',
+      users: 'Users',
+      logs: 'Logs',
+      mailbox: 'Mail Box',
+      about: 'About'
+    },
+    dashboard: {
+      home: 'Home',
+      dashboard: 'Dashboard',
+      yearSystemByAuthor: '{{ year }} © {{ system }} by {{ author }}.'
     }
   },
   errors: {

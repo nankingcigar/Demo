@@ -19,6 +19,7 @@ export class AppComponent {
     private _renderer: Renderer2,
     private _routeService: RouteService
   ) {
+    Waves.init();
     this._routeService.setRenerder(this._renderer);
   }
 }

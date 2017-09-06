@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 07:53:04
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 09:52:27
+ * @Last Modified time: 2017-09-06 03:48:24
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -70,6 +70,7 @@ export class HomeComponent implements OnInit {
             toastr.success(translations['Welcome to Demo!'], translations['Hi {{ name }},']);
           });
       });
+      $(window).trigger('resize');
   }
 
   logOut() {

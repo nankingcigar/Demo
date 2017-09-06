@@ -21,6 +21,14 @@ interface Toastr {
   error(subTitle: string, title: string): void;
 }
 
+declare var Waves: Waves;
+interface Waves {
+  init(config?: any): void;
+  attach(elements: any, classes: any): void;
+  ripple(elements: any, options: any): void;
+  calm(elements: any): void;
+}
+
 declare var app: App;
 interface App {
   system: string;
@@ -30,10 +38,10 @@ interface App {
   environment: Environment;
 }
 
-interface Type<T>{
+interface Type<T> {
 }
 
-interface Injector{
+interface Injector {
   get<T>(token: Type<T>): T;
 }
 
@@ -41,7 +49,7 @@ interface NgModuleRef {
   injector: Injector;
 }
 
-interface Environment{
+interface Environment {
   classPrefix: string,
   titlePrefix: string,
   defaultTitle: string,

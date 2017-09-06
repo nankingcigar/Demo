@@ -23,17 +23,20 @@
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/simple-line-icons/css/simple-line-icons.css",
+        "../node_modules/node-waves/dist/waves.min.css",
         "../node_modules/toastr/build/toastr.min.css",
         "../node_modules/primeng/resources/themes/omega/theme.css",
         "../node_modules/primeng/resources/primeng.min.css",
-        "assets/css/modern.css",
+        "assets/modern/modern.css",
         "styles.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/pace-progress/pace.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
-        "../node_modules/toastr/build/toastr.min.js"
+        "../node_modules/node-waves/dist/waves.min.js",
+        "../node_modules/toastr/build/toastr.min.js",
+        "assets/modern/modern.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

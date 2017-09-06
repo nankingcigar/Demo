@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-29 00:33:33
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 09:49:12
+ * @Last Modified time: 2017-09-06 03:50:19
  */
 * {
     -webkit-touch-callout: none; /* iOS Safari */
@@ -48,8 +48,12 @@
     to   { opacity: 0; }
 }
 
-.toast-success{
+.toast-success {
     background-color: #22BAA0;
+}
+
+.page-inner:before {
+    padding-bottom: 5px;
 }
 
 $classPrefix: nankingcigar-demo-;
@@ -87,4 +91,8 @@ $classPrefix: nankingcigar-demo-;
 .#{$classPrefix}login.page-login .pace .pace-activity,
 .#{$classPrefix}login.page-register .pace .pace-activity{
     margin-top: 0px;
+}
+
+.page-sidebar.sidebar .menu.accordion-menu li.droplink ul.sub-menu{
+    display: none;
 }
