@@ -35,6 +35,8 @@
         "../node_modules/pace-progress/pace.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../node_modules/node-waves/dist/waves.min.js",
+        "../node_modules/waypoints/lib/jquery.waypoints.min.js",
+        "../node_modules/counterup/jquery.counterup.min.js",
         "../node_modules/toastr/build/toastr.min.js",
         "assets/modern/modern.js"
       ],

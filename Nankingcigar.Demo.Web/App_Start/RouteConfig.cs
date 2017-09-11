@@ -9,6 +9,7 @@ namespace Nankingcigar.Demo.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("");
 
             //ASP.NET Web API Route Config
             routes.MapHttpRoute(

@@ -14,12 +14,16 @@ import { languageKeys } from '../../../app.global';
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-  private _languageKeys = languageKeys.page.dashboard;
-  private _app = app;
+  _languageKeys = languageKeys.page.dashboard;
+  _app = app;
 
   constructor() { }
 
   ngOnInit() {
+    $('.counter').counterUp({
+        delay: 10,
+        time: 1000
+    });
   }
 
 }

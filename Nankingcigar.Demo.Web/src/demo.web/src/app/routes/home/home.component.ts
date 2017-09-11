@@ -21,9 +21,9 @@ import { languageKeys } from '../../app.global';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-  private _user: User;
-  private _displayName: string;
-  private _languageKeys = languageKeys.page.home;
+  _user: User;
+  _displayName: string;
+  _languageKeys = languageKeys.page.home;
 
   constructor(
     private _accountService: AccountService,
