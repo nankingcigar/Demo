@@ -1,8 +1,8 @@
-﻿using Abp.Application.Services;
-using Nankingcigar.Demo.Account.DTO;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Abp.Application.Services;
+using Nankingcigar.Demo.Application.Account.DTO;
 
-namespace Nankingcigar.Demo.Account
+namespace Nankingcigar.Demo.Application.Account
 {
     public interface IAccountAppService : IApplicationService
     {

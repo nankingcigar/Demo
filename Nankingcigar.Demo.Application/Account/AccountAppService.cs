@@ -1,9 +1,10 @@
-﻿using Abp.Authorization;
-using Nankingcigar.Demo.Account.DTO;
+﻿using System.Threading.Tasks;
+using Abp.Authorization;
+using Nankingcigar.Demo.Application.Account;
+using Nankingcigar.Demo.Application.Account.DTO;
 using Nankingcigar.Demo.Core.Authorization.User;
-using System.Threading.Tasks;
 
-namespace Nankingcigar.Demo.Account
+namespace Nankingcigar.Demo.Application.Account
 {
     internal class AccountAppService : DemoAppServiceBase, IAccountAppService
     {

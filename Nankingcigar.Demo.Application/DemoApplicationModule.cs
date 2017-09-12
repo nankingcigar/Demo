@@ -1,7 +1,8 @@
-﻿using Abp.Modules;
-using System.Reflection;
+﻿using System.Reflection;
+using Abp.Modules;
+using Nankingcigar.Demo.Core;
 
-namespace Nankingcigar.Demo
+namespace Nankingcigar.Demo.Application
 {
     [DependsOn(typeof(DemoCoreModule))]
     public class DemoApplicationModule : AbpModule

@@ -1,9 +1,9 @@
-﻿using Abp.EntityFramework;
-using Nankingcigar.Demo.Core.Entity;
-using System.Data.Common;
+﻿using System.Data.Common;
 using System.Data.Entity;
+using Abp.EntityFramework;
+using Nankingcigar.Demo.Core.Entity;
 
-namespace Nankingcigar.Demo.EntityFramework
+namespace Nankingcigar.Demo.EntityFramework.EntityFramework
 {
     public class DemoDbContext : AbpDbContext
     {
@@ -40,13 +40,13 @@ namespace Nankingcigar.Demo.EntityFramework
 
         //This constructor is used in tests
         public DemoDbContext(DbConnection existingConnection)
-         : base(existingConnection, false)
+            : base(existingConnection, false)
         {
             this.Configuration.ProxyCreationEnabled = false;
         }
 
         public DemoDbContext(DbConnection existingConnection, bool contextOwnsConnection)
-         : base(existingConnection, contextOwnsConnection)
+            : base(existingConnection, contextOwnsConnection)
         {
             this.Configuration.ProxyCreationEnabled = false;
         }

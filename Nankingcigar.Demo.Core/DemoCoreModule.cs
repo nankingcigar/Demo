@@ -1,7 +1,7 @@
-﻿using Abp.Modules;
-using System.Reflection;
+﻿using System.Reflection;
+using Abp.Modules;
 
-namespace Nankingcigar.Demo
+namespace Nankingcigar.Demo.Core
 {
     public class DemoCoreModule : AbpModule
     {

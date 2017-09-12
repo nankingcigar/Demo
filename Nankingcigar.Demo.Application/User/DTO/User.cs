@@ -1,4 +1,4 @@
-﻿namespace Nankingcigar.Demo.User.DTO
+﻿namespace Nankingcigar.Demo.Application.User.DTO
 {
     public class User
     {

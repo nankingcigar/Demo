@@ -1,9 +1,7 @@
-﻿using Abp.Application.Services;
-using Nankingcigar.Demo.User.DTO;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Abp.Application.Services;
 
-namespace Nankingcigar.Demo.User
+namespace Nankingcigar.Demo.Application.User
 {
     public interface IUserAppService : IApplicationService
     {

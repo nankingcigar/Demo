@@ -66,9 +66,6 @@ export class DemoInterceptor implements HttpInterceptor {
             })
             .catch((err: any, caught) => {
                 if (err instanceof HttpErrorResponse) {
-                    console.log(req);
-                    console.log(err);
-                    console.log(this._router);
                     if (err.status === 401) {
                         this._accountService.logOut();
                         this._router.navigate(['login']);
@@ -95,7 +92,12 @@ export class DemoInterceptor implements HttpInterceptor {
 
     setRequestQueue(req: HttpRequest<any>): void {
         if (this._requestQueue.length === 0) {
-            Pace.restart();
+            Pace.start({
+                initialRate: 0.7,
+                minTime: 1750,
+                maxProgressPerFrame: 1,
+                ghostTime: 120000
+            });
         }
         const queueKey = new Request(
             req.urlWithParams,

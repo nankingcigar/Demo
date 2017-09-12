@@ -1,8 +1,9 @@
 using System.Data.Entity.Migrations;
+using Nankingcigar.Demo.EntityFramework.EntityFramework;
 
-namespace Nankingcigar.Demo.Migrations
+namespace Nankingcigar.Demo.EntityFramework.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<Demo.EntityFramework.DemoDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DemoDbContext>
     {
         public Configuration()
         {
@@ -10,7 +11,7 @@ namespace Nankingcigar.Demo.Migrations
             ContextKey = "Demo";
         }
 
-        protected override void Seed(Demo.EntityFramework.DemoDbContext context)
+        protected override void Seed(DemoDbContext context)
         {
             // This method will be called every time after migrating to the latest version.
             // You can add any seed data here...

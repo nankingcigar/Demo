@@ -1,10 +1,11 @@
-﻿using Abp.Application.Services;
+﻿using System.Reflection;
+using Abp.Application.Services;
 using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.WebApi;
-using System.Reflection;
+using Nankingcigar.Demo.Application;
 
-namespace Nankingcigar.Demo
+namespace Nankingcigar.Demo.WebApi
 {
     [DependsOn(typeof(AbpWebApiModule), typeof(DemoApplicationModule))]
     public class DemoWebApiModule : AbpModule

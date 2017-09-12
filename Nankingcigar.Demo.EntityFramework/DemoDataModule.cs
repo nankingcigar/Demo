@@ -1,13 +1,14 @@
-﻿using Abp.EntityFramework;
+﻿using System.Data.Entity;
+using System.Reflection;
+using Abp.EntityFramework;
 using Abp.Modules;
 using Castle.MicroKernel.Registration;
+using Nankingcigar.Demo.Core;
 using Nankingcigar.Demo.Core.Extend;
-using Nankingcigar.Demo.EntityFramework;
-using Nankingcigar.Demo.EntityFramework.Repositories;
-using System.Data.Entity;
-using System.Reflection;
+using Nankingcigar.Demo.EntityFramework.EntityFramework;
+using Nankingcigar.Demo.EntityFramework.EntityFramework.Repositories;
 
-namespace Nankingcigar.Demo
+namespace Nankingcigar.Demo.EntityFramework
 {
     [DependsOn(typeof(AbpEntityFrameworkModule), typeof(DemoCoreModule))]
     public class DemoDataModule : AbpModule

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Nankingcigar.Demo.Account.DTO
+namespace Nankingcigar.Demo.Application.Account.DTO
 {
     public class RegisterInput
     {

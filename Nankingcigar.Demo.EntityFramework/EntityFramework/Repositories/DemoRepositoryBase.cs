@@ -3,7 +3,7 @@ using Abp.EntityFramework;
 using Abp.EntityFramework.Repositories;
 using Nankingcigar.Demo.Core.Extend;
 
-namespace Nankingcigar.Demo.EntityFramework.Repositories
+namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Repositories
 {
     internal class DemoRepositoryBase<TEntity, TPrimaryKey> : EfRepositoryBase<DemoDbContext, TEntity, TPrimaryKey>, IRepositoryExtend<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>

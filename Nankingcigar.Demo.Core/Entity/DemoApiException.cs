@@ -6,7 +6,6 @@ namespace Nankingcigar.Demo.Core.Entity
     public sealed class DemoApiException : Exception, IHasErrorCode
     {
         public DemoApiException(int code)
-            : base()
         {
             Code = code;
         }

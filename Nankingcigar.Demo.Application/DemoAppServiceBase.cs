@@ -1,7 +1,7 @@
 ﻿using Abp.Application.Services;
 using Abp.Authorization;
 
-namespace Nankingcigar.Demo
+namespace Nankingcigar.Demo.Application
 {
     /// <summary>
     /// Derive your application services from this class.

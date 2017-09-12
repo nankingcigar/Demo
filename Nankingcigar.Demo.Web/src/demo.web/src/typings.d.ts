@@ -8,6 +8,7 @@ declare var $: any;
 
 declare var Pace: Pace;
 interface Pace {
+  start(options: any): void;
   restart(): void;
   stop(): void;
 }
