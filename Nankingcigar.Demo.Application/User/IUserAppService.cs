@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Abp.Application.Services;
+﻿using Abp.Application.Services;
+using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Application.User
 {

@@ -4,7 +4,6 @@ using Nankingcigar.Demo.Core.Extend;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Nankingcigar.Demo.Core.Entity;
 
 namespace Nankingcigar.Demo.Core.Authorization.User
 {
@@ -102,7 +101,7 @@ namespace Nankingcigar.Demo.Core.Authorization.User
             );
         }
 
-        #endregion
+        #endregion IUserEmailStore
 
         #region IDisposable
 

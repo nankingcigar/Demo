@@ -1,7 +1,7 @@
-﻿using System;
-using Abp.Castle.Logging.Log4Net;
+﻿using Abp.Castle.Logging.Log4Net;
 using Abp.Web;
 using Castle.Facilities.Logging;
+using System;
 
 namespace Nankingcigar.Demo.Web
 {

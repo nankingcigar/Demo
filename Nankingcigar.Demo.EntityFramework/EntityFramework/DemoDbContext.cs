@@ -1,7 +1,7 @@
-﻿using System.Data.Common;
-using System.Data.Entity;
-using Abp.EntityFramework;
+﻿using Abp.EntityFramework;
 using Nankingcigar.Demo.Core.Entity;
+using System.Data.Common;
+using System.Data.Entity;
 
 namespace Nankingcigar.Demo.EntityFramework.EntityFramework
 {

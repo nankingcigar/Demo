@@ -1,5 +1,5 @@
-using System.Data.Entity.Migrations;
 using Nankingcigar.Demo.EntityFramework.EntityFramework;
+using System.Data.Entity.Migrations;
 
 namespace Nankingcigar.Demo.EntityFramework.Migrations
 {

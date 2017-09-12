@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
-using Dapper;
+﻿using Dapper;
 using Nankingcigar.Demo.Dapper.Extend;
+using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Application.User
 {

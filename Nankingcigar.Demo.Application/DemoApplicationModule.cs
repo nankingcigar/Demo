@@ -1,6 +1,6 @@
-﻿using System.Reflection;
-using Abp.Modules;
+﻿using Abp.Modules;
 using Nankingcigar.Demo.Core;
+using System.Reflection;
 
 namespace Nankingcigar.Demo.Application
 {

@@ -1,9 +1,9 @@
-﻿using System.Reflection;
-using Abp.Application.Services;
+﻿using Abp.Application.Services;
 using Abp.Configuration.Startup;
 using Abp.Modules;
 using Abp.WebApi;
 using Nankingcigar.Demo.Application;
+using System.Reflection;
 
 namespace Nankingcigar.Demo.WebApi
 {
