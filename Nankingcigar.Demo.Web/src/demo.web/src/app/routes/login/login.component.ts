@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 14:22:26
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 08:54:05
+ * @Last Modified time: 2017-09-13 08:14:41
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,8 +13,7 @@ import { LocalizationService } from '../../services/localization/localization.se
 import { LoginInput } from '../../models/account/login/input';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'nankingcigar-demo-account-login',
+  selector: selector(),
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
@@ -26,6 +25,7 @@ export class LoginComponent implements OnInit {
   _languages = languages;
   _languageKeys = languageKeys.page.login;
   _app = app;
+  _language: string;
 
   constructor(
     private _accountService: AccountService,
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this._loginInput = new LoginInput();
+    this._language = this._localizationService.getLanuage();
   }
 
   onBlur(e): void {
@@ -61,4 +62,8 @@ export class LoginComponent implements OnInit {
   onChange(e): void {
     this._localizationService.setLanguage(e.value);
   }
+}
+
+function selector(): string {
+  return 'nankingcigar-demo-account-login';
 }

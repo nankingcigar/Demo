@@ -22,7 +22,7 @@
                   required autocomplete="new-password" #password="ngModel" />
               </div>
               <div class="form-group">
-                <p-dropdown [options]="_languages" (onChange)="onChange($event);" [autoWidth]="false"></p-dropdown>
+                <p-dropdown [options]="_languages" name="language" (onChange)="onChange($event);" [autoWidth]="false" [(ngModel)]="_language"></p-dropdown>
               </div>
               <div class="alert alert-danger loginError" role="alert" [hidden]="_error.hidden">
                 {{_error.message}}

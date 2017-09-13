@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 07:53:04
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-06 03:48:24
+ * @Last Modified time: 2017-09-13 08:15:03
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -16,8 +16,7 @@ import { User } from '../../models/user/user';
 import { languageKeys } from '../../app.global';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'nankingcigar-demo-home',
+  selector: selector(),
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
@@ -43,34 +42,25 @@ export class HomeComponent implements OnInit {
           this._displayName = this._user.userName;
         }
         toastr.options = {
-          closeButton: false,
-          debug: false,
-          newestOnTop: true,
+          closeButton: true,
           progressBar: true,
-          positionClass: 'toast-top-right',
-          preventDuplicates: true,
-          onclick: null,
-          showDuration: 300,
-          hideDuration: 1000,
-          timeOut: 3000,
-          extendedTimeOut: 1000,
-          showEasing: 'swing',
-          hideEasing: 'linear',
           showMethod: 'fadeIn',
-          hideMethod: 'fadeOut'
+          hideMethod: 'fadeOut',
+          timeOut: 5000
         };
         this._translateService.get(
           [
-            'Welcome to Demo!',
+            'Welcome to {{ system }}!',
             'Hi {{ name }},'
           ],
           {
+            system: app.system,
             name: this._displayName
           }).subscribe((translations: any) => {
-            toastr.success(translations['Welcome to Demo!'], translations['Hi {{ name }},']);
+            toastr.success(translations['Welcome to {{ system }}!'], translations['Hi {{ name }},']);
           });
       });
-      $(window).trigger('resize');
+    $(window).trigger('resize');
   }
 
   logOut() {
@@ -79,4 +69,8 @@ export class HomeComponent implements OnInit {
       err => this._router.navigate(['login'])
     );
   }
+}
+
+function selector(): string {
+  return 'nankingcigar-demo-home';
 }

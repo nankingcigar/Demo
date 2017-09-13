@@ -1,6 +1,6 @@
 {
-    "System": "示例网站",
-    "Author": "周律君",
+    "System": "Demo",
+    "Author": "杨超",
     "{{ system }} | Login - Sign in": "{{ system }} | Login - Sign in",
     "{{ system }} | Login - Sign up": "{{ system }} | Login - Sign up",
     "{{ system }} | Admin Dashboard Template": "{{ system }} | Admin Dashboard Template",

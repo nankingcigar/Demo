@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:19:27
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 06:02:07
+ * @Last Modified time: 2017-09-13 08:14:18
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,8 +12,7 @@ import { AccountService } from '../../services/account/account.service';
 import { languageKeys } from '../../app.global';
 
 @Component({
-  // tslint:disable-next-line:component-selector
-  selector: 'nankingcigar-demo-account-register',
+  selector: selector(),
   templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
@@ -43,4 +42,8 @@ export class RegisterComponent implements OnInit {
   onBlurEmail(e) {
     this._registerInput.email = this._registerInput.email.trim();
   }
+}
+
+function selector(): string {
+  return 'nankingcigar-demo-account-register';
 }

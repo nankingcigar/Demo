@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 10:21:46
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 09:30:02
+ * @Last Modified time: 2017-09-13 07:32:19
  */
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse, HttpUserEvent } from '@angular/common/http';
@@ -91,14 +91,6 @@ export class DemoInterceptor implements HttpInterceptor {
     }
 
     setRequestQueue(req: HttpRequest<any>): void {
-        if (this._requestQueue.length === 0) {
-            Pace.start({
-                initialRate: 0.7,
-                minTime: 1750,
-                maxProgressPerFrame: 1,
-                ghostTime: 120000
-            });
-        }
         const queueKey = new Request(
             req.urlWithParams,
             req.body,
@@ -112,9 +104,6 @@ export class DemoInterceptor implements HttpInterceptor {
         Observable.of(this._requestQueue)
             .delay(1000)
             .subscribe(data => {
-                if (this._requestQueue.length === 1) {
-                    Pace.stop();
-                }
                 const index = this._requestQueue.indexOf(queueKey);
                 this._requestQueue.splice(index, 1);
             });
