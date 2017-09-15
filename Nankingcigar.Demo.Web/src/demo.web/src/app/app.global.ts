@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-09-04 09:18:32
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-06 04:05:40
+ * @Last Modified time: 2017-09-15 06:13:21
  */
 app.environment = {
   classPrefix: 'nankingcigar-demo-',
@@ -76,12 +76,22 @@ export const languageKeys = {
       users: 'Users',
       logs: 'Logs',
       mailbox: 'Mail Box',
-      about: 'About'
+      about: 'About',
+      yearSystemByAuthor: '{{ year }} © {{ system }} by {{ author }}.',
+      layout: {
+        fixedHeader: 'Fixed Header',
+        fixedSidebar: 'Fixed Sidebar',
+        horizontalBar: 'Horizontal bar',
+        toggleSidebar: 'Toggle Sidebar',
+        compactMenu: 'Compact Menu',
+        hoverMenu: 'Hover Menu',
+        boxedLayout: 'Boxed Layout',
+        resetOptions: 'Reset Options'
+      }
     },
     dashboard: {
       home: 'Home',
-      dashboard: 'Dashboard',
-      yearSystemByAuthor: '{{ year }} © {{ system }} by {{ author }}.'
+      dashboard: 'Dashboard'
     }
   },
   errors: {
@@ -89,6 +99,9 @@ export const languageKeys = {
     },
     '/login': {
       '1': 'User Name or Password is incorrect.'
+    },
+    '/register': {
+      '1': 'User Name or Email has been registered.'
     }
   }
 };

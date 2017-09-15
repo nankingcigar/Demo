@@ -36,5 +36,15 @@
     "Logs": "Logs",
     "Mail Box": "Mail Box",
     "About": "About",
-    "Home": "Home"
+    "Home": "Home",
+    "Navigation": "Navigation",
+    "User Name or Email has been existed.": "User Name or Email has been existed.",
+    "Fixed Header": "Fixed Header",
+    "Fixed Sidebar": "Fixed Sidebar",
+    "Horizontal bar": "Horizontal bar",
+    "Toggle Sidebar": "Toggle Sidebar",
+    "Compact Menu": "Compact Menu",
+    "Hover Menu": "Hover Menu",
+    "Boxed Layout": "Boxed Layout",
+    "Reset Options": "Reset Options"
 }

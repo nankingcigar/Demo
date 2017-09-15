@@ -29,6 +29,7 @@
     "counterup": "^1.0.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "jquery.uniform": "^4.2.0",
     "linq": "^3.0.8",
     "ngx-cookie-service": "^1.0.7",
     "node-waves": "^0.7.5",

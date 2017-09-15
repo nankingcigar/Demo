@@ -4,32 +4,7 @@ interface NodeModule {
   id: string;
 }
 
-declare var $: any;
-
-declare var Pace: Pace;
-interface Pace {
-  start(options: any): void;
-  restart(): void;
-  stop(): void;
-}
-
-declare var toastr: Toastr;
-interface Toastr {
-  options: any;
-  info(subTitle: string, title: string): void;
-  success(subTitle: string, title: string): void;
-  warning(subTitle: string, title: string): void;
-  error(subTitle: string, title: string): void;
-}
-
-declare var Waves: Waves;
-interface Waves {
-  init(config?: any): void;
-  attach(elements: any, classes: any): void;
-  ripple(elements: any, options: any): void;
-  calm(elements: any): void;
-}
-
+/* app global variable */
 declare var app: App;
 interface App {
   system: string;
@@ -57,3 +32,27 @@ interface Environment {
   sessionKey: string,
   languageKey: string
 }
+/* app global variable */
+
+/* plugins */
+declare var $: any;
+
+declare var toastr: Toastr;
+interface Toastr {
+  options: any;
+  info(subTitle: string, title?: string, options?: any): void;
+  success(subTitle: string, title?: string, options?: any): void;
+  warning(subTitle: string, title?: string, options?: any): void;
+  error(subTitle: string, title?: string, options?: any): void;
+}
+
+declare var Waves: Waves;
+interface Waves {
+  init(config?: any): void;
+  attach(elements: any, classes: any): void;
+  ripple(elements: any, options: any): void;
+  calm(elements: any): void;
+}
+
+declare function Switchery(element: any, options?: any): void;
+/* plugins */

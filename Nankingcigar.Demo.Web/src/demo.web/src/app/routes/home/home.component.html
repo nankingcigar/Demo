@@ -1,10 +1,49 @@
+﻿<div class="overlay" (click)="toggleProfileMenu($event);">
+</div>
+<div class="menu-wrap">
+  <nav class="profile-menu">
+    <div class="profile">
+      <img src="assets/images/profile-menu-image.png" width="60" />
+      <span>
+        {{ _displayName }}
+      </span>
+    </div>
+    <div class="profile-menu-list" (click)="toggleProfileMenu($event);">
+      <a href="javascript:void(0);">
+        <i class="fa fa-star"></i>
+        <span>
+          Favorites
+        </span>
+      </a>
+      <a href="javascript:void(0);">
+        <i class="fa fa-bell"></i>
+        <span>
+          Alerts
+        </span>
+      </a>
+      <a href="javascript:void(0);">
+        <i class="fa fa-envelope"></i>
+        <span>
+          Messages
+        </span>
+      </a>
+      <a href="javascript:void(0);">
+        <i class="fa fa-comment"></i>
+        <span>
+          Comments
+        </span>
+      </a>
+    </div>
+  </nav>
+  <button class="close-button" (click)="toggleProfileMenu($event);">Close Menu</button>
+</div>
 <main class="page-content content-wrap">
   <div class="navbar">
     <div class="navbar-inner">
-      <div class="sidebar-pusher">
+      <div class="sidebar-pusher" (click)="collapseSidebar2($event);">
         <a href="javascript:void(0);" class="waves-effect waves-button waves-classic push-sidebar">
-              <i class="fa fa-bars"></i>
-          </a>
+          <i class="fa fa-bars"></i>
+        </a>
       </div>
       <div class="logo-box">
         <a routerLink="/app/dashboard" class="logo-text">
@@ -12,31 +51,37 @@
         </a>
       </div>
       <div class="search-button">
-        <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
+        <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search">
+          <i class="glyphicon glyphicon-cog"></i>
+        </a>
       </div>
       <div class="topmenu-outer">
         <div class="top-menu">
           <ul class="nav navbar-nav navbar-left">
             <li>
-              <a href="javascript:void(0);" class="waves-effect waves-button waves-classic sidebar-toggle"><i class="fa fa-bars"></i></a>
+              <a href="javascript:void(0);" class="waves-effect waves-button waves-classic sidebar-toggle">
+                <i class="fa fa-bars"></i>
+                <span class="visible-xs-inline">Notifications</span>
+              </a>
             </li>
-            <li>
-              <a href="#cd-nav" class="waves-effect waves-button waves-classic cd-nav-trigger"><i class="fa fa-diamond"></i></a>
-            </li>
-            <li>
-              <a href="javascript:void(0);" class="waves-effect waves-button waves-classic toggle-fullscreen"><i class="fa fa-expand"></i></a>
+            <li (click)="openNavitionMenu($event);">
+              <a href="javascript:void(0);" class="waves-effect waves-button waves-classic cd-nav-trigger">
+                <i class="fa fa-diamond"></i>
+                <span class="visible-xs-inline">Notifications</span>
+              </a>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                      <i class="fa fa-cogs"></i>
-                  </a>
+              <a href="javascript:void(0);" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
+                <i class="fa fa-cogs"></i>
+                <span class="visible-xs-inline">Notifications</span>
+              </a>
               <ul class="dropdown-menu dropdown-md dropdown-list theme-settings" role="menu">
                 <li class="li-group">
                   <ul class="list-unstyled">
                     <li class="no-link" role="presentation">
-                      Fixed Header
+                      {{ _languageKeys.layout.fixedHeader | translate }}
                       <div class="ios-switch pull-right switch-md">
-                        <input type="checkbox" class="js-switch pull-right fixed-header-check" checked>
+                        <input type="checkbox" class="js-switch pull-right fixed-header-check">
                       </div>
                     </li>
                   </ul>
@@ -44,31 +89,31 @@
                 <li class="li-group">
                   <ul class="list-unstyled">
                     <li class="no-link" role="presentation">
-                      Fixed Sidebar
+                      {{ _languageKeys.layout.fixedSidebar | translate }}
                       <div class="ios-switch pull-right switch-md">
                         <input type="checkbox" class="js-switch pull-right fixed-sidebar-check">
                       </div>
                     </li>
                     <li class="no-link" role="presentation">
-                      Horizontal bar
+                      {{ _languageKeys.layout.horizontalBar | translate }}
                       <div class="ios-switch pull-right switch-md">
                         <input type="checkbox" class="js-switch pull-right horizontal-bar-check">
                       </div>
                     </li>
                     <li class="no-link" role="presentation">
-                      Toggle Sidebar
+                      {{ _languageKeys.layout.toggleSidebar | translate }}
                       <div class="ios-switch pull-right switch-md">
                         <input type="checkbox" class="js-switch pull-right toggle-sidebar-check">
                       </div>
                     </li>
                     <li class="no-link" role="presentation">
-                      Compact Menu
+                      {{ _languageKeys.layout.compactMenu | translate }}
                       <div class="ios-switch pull-right switch-md">
                         <input type="checkbox" class="js-switch pull-right compact-menu-check">
                       </div>
                     </li>
                     <li class="no-link" role="presentation">
-                      Hover Menu
+                      {{ _languageKeys.layout.hoverMenu | translate }}
                       <div class="ios-switch pull-right switch-md">
                         <input type="checkbox" class="js-switch pull-right hover-menu-check">
                       </div>
@@ -78,14 +123,18 @@
                 <li class="li-group">
                   <ul class="list-unstyled">
                     <li class="no-link" role="presentation">
-                      Boxed Layout
+                      {{ _languageKeys.layout.boxedLayout | translate }}
                       <div class="ios-switch pull-right switch-md">
                         <input type="checkbox" class="js-switch pull-right boxed-layout-check">
                       </div>
                     </li>
                   </ul>
                 </li>
-                <li class="no-link"><button class="btn btn-default reset-options">Reset Options</button></li>
+                <li class="no-link">
+                  <button class="btn btn-default reset-options">
+                      {{ _languageKeys.layout.resetOptions | translate }}
+                  </button>
+                </li>
               </ul>
             </li>
           </ul>
@@ -96,7 +145,7 @@
                   {{ _displayName }}
                   <i class="fa fa-angle-down"></i>
                 </span>
-                <img class="img-circle avatar" src="assets/images/avatar1.png" width="40" height="40" alt=""/>
+                <img class="img-circle avatar" src="assets/images/avatar1.png" width="40" height="40" alt="" />
               </a>
               <ul class="dropdown-menu dropdown-list" role="menu">
                 <li role="presentation">
@@ -122,11 +171,11 @@
   </div>
   <div class="page-sidebar sidebar">
     <div class="page-sidebar-inner slimscroll">
-      <div class="sidebar-header">
+      <div class="sidebar-header" (click)="toggleProfileMenu($event);">
         <div class="sidebar-profile">
-          <a href="javascript:void(0);" id="profile-menu-link">
+          <a href="javascript:void(0);">
             <div class="sidebar-profile-image">
-              <img src="assets/images/profile-menu-image.png" class="img-circle img-responsive" alt="">
+              <img src="assets/images/profile-menu-image.png" class="img-circle img-responsive" />
             </div>
             <div class="sidebar-profile-details">
               <span>
@@ -168,8 +217,7 @@
         </li>
         <li routerLink="/app/log" routerLinkActive="active">
           <a href="javascript:void(0);" class="waves-effect waves-button">
-            <span class="menu-icon glyphicon">
-              <i class="fa fa-history"></i>
+            <span class="menu-icon glyphicon glyphicon-paperclip">
             </span>
             <p>
               {{ _languageKeys.logs | translate }}
@@ -205,5 +253,81 @@
   </div>
   <div class="page-inner">
     <router-outlet></router-outlet>
+    <div class="page-footer">
+      <p class="no-s">
+        {{ _languageKeys.yearSystemByAuthor | translate: _app }}
+      </p>
+    </div>
   </div>
 </main>
+<nav class="cd-nav-container">
+  <header>
+    <h3>{{ 'Navigation' | translate }}</h3>
+    <a href="javsacript:void(0);" class="cd-close-nav" (click)="closeNavigationMenu($event);"></a>
+  </header>
+  <ul class="cd-nav list-unstyled">
+    <li routerLink="/app/dashboard" routerLinkActive="cd-selected" (click)="closeNavigationMenu($event);">
+      <a>
+        <span>
+          <i class="glyphicon glyphicon-home"></i>
+        </span>
+        <p>
+          {{ _languageKeys.dashboard | translate }}
+        </p>
+      </a>
+    </li>
+    <li routerLink="/app/profile" routerLinkActive="cd-selected" (click)="closeNavigationMenu($event);">
+      <a>
+        <span>
+          <i class="glyphicon glyphicon-user"></i>
+        </span>
+        <p>
+          {{ _languageKeys.profile | translate }}
+        </p>
+      </a>
+    </li>
+    <li routerLink="/app/user" routerLinkActive="cd-selected" (click)="closeNavigationMenu($event);">
+      <a>
+        <span>
+          <i class="glyphicon">
+            <i class="fa fa-users"></i>
+          </i>
+        </span>
+        <p>
+          {{ _languageKeys.users | translate }}
+        </p>
+      </a>
+    </li>
+    <li routerLink="/app/log" routerLinkActive="cd-selected" (click)="closeNavigationMenu($event);">
+      <a>
+        <span>
+          <i class="glyphicon glyphicon-paperclip"></i>
+        </span>
+        <p>
+          {{ _languageKeys.logs | translate }}
+        </p>
+      </a>
+    </li>
+    <li>
+      <a>
+        <span>
+          <i class="glyphicon glyphicon-envelope"></i>
+        </span>
+        <p>
+          {{ _languageKeys.mailbox | translate }}
+        </p>
+      </a>
+    </li>
+    <li routerLink="/app/about" routerLinkActive="cd-selected" (click)="closeNavigationMenu($event);">
+      <a>
+        <span>
+          <i class="glyphicon glyphicon-exclamation-sign"></i>
+        </span>
+        <p>
+          {{ _languageKeys.about | translate }}
+        </p>
+      </a>
+    </li>
+  </ul>
+</nav>
+<div class="cd-overlay" (click)="closeNavigationMenu($event);"></div>

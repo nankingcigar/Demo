@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:19:27
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-13 08:14:18
+ * @Last Modified time: 2017-09-14 06:51:08
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -17,6 +17,10 @@ import { languageKeys } from '../../app.global';
 })
 export class RegisterComponent implements OnInit {
   _registerInput: RegisterInput;
+  _error = {
+    hidden: true,
+    message: ''
+  };
   _languageKeys = languageKeys.page.register;
   _app = app;
 
@@ -27,11 +31,23 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this._registerInput = new RegisterInput();
+    const checkBox = $('input[type=checkbox]:not(.switchery), input[type=radio]:not(.no-uniform)');
+    if (checkBox.length > 0) {
+      checkBox.each(function () {
+        $(this).uniform();
+      });
+    }
   }
 
   onSubmit() {
     this._accountService.register(this._registerInput).subscribe(
-      data => this._router.navigate(['login'])
+      data => this._router.navigate(['login']),
+      err => {
+        if (this._error.hidden === true) {
+          this._error.hidden = false;
+        }
+        this._error.message = err.message;
+      }
     );
   }
 

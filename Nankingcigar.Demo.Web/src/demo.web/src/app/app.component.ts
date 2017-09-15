@@ -2,9 +2,9 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 08:01:36
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-13 08:13:43
+ * @Last Modified time: 2017-09-15 06:25:21
  */
-import { Component, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { RouteService } from './services/route/route.service';
 
@@ -15,11 +15,9 @@ import { RouteService } from './services/route/route.service';
 export class AppComponent {
 
   constructor(
-    private _renderer: Renderer2,
     private _routeService: RouteService
   ) {
     Waves.init();
-    this._routeService.setRenerder(this._renderer);
   }
 }
 

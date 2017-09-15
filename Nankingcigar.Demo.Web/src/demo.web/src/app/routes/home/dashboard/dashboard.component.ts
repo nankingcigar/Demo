@@ -15,7 +15,6 @@ import { languageKeys } from '../../../app.global';
 })
 export class DashboardComponent implements OnInit {
   _languageKeys = languageKeys.page.dashboard;
-  _app = app;
 
   constructor() { }
 

@@ -8,7 +8,6 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Observable';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import { CookieService } from 'ngx-cookie-service';
 
 import { languageKeys } from '../../app.global';
 import { BaseService } from '../base.service';
@@ -19,13 +18,12 @@ export class LocalizationService extends BaseService {
 
   constructor(
     private _translateService: TranslateService,
-    private _title: Title,
-    private _cookieService: CookieService
+    private _title: Title
   ) {
     super();
     this._translateService.setDefaultLang('en');
-    if (this._cookieService.check(app.environment.languageKey)) {
-      this._translateService.use(this._cookieService.get(app.environment.languageKey));
+    if (localStorage.getItem(app.environment.languageKey)) {
+      this._translateService.use(localStorage.getItem(app.environment.languageKey));
     }
     this.setApp();
     this._translateService.onLangChange.subscribe(e => {
@@ -35,13 +33,13 @@ export class LocalizationService extends BaseService {
   }
 
   setLanguage(language: string): void {
-    this._cookieService.set(app.environment.languageKey, language);
+    localStorage.setItem(app.environment.languageKey, language);
     this._translateService.use(language);
   }
 
   getLanuage(): string {
-    if (this._cookieService.check(app.environment.languageKey)) {
-      return this._cookieService.get(app.environment.languageKey);
+    if (localStorage.getItem(app.environment.languageKey)) {
+      return localStorage.getItem(app.environment.languageKey);
     } else {
       return this._translateService.getDefaultLang();
     }

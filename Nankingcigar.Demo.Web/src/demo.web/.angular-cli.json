@@ -8,7 +8,8 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-        "assets",
+        "assets/images",
+        "assets/i18n",
         "demo.ico"
       ],
       "index": "index.html",
@@ -20,25 +21,34 @@
       "prefix": "nankingcigar-demo",
       "styles": [
         "../node_modules/pace-progress/themes/blue/pace-theme-flash.css",
+        "../node_modules/jquery.uniform/dist/css/default.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/simple-line-icons/css/simple-line-icons.css",
+        "assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css",
         "../node_modules/node-waves/dist/waves.min.css",
+        "assets/plugins/switchery/switchery.min.css",
+        "assets/plugins/3d-bold-navigation/css/style.css",
         "../node_modules/toastr/build/toastr.min.css",
         "../node_modules/primeng/resources/themes/omega/theme.css",
         "../node_modules/primeng/resources/primeng.min.css",
-        "assets/modern/modern.css",
+        "assets/css/modern.css",
         "styles.scss"
       ],
       "scripts": [
+        "assets/js/startup.js",
+        "assets/plugins/3d-bold-navigation/js/modernizr.js",
+        "assets/plugins/offcanvasmenueffects/js/snap.svg-min.js",
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/pace-progress/pace.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "assets/plugins/switchery/switchery.min.js",
+        "../node_modules/jquery.uniform/dist/js/jquery.uniform.bundled.js",
         "../node_modules/node-waves/dist/waves.min.js",
         "../node_modules/waypoints/lib/jquery.waypoints.min.js",
         "../node_modules/counterup/jquery.counterup.min.js",
-        "../node_modules/toastr/build/toastr.min.js",
-        "assets/modern/modern.js"
+        "assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js",
+        "../node_modules/toastr/build/toastr.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -30,8 +30,11 @@
                                     required autocomplete="new-password" #password="ngModel" />
                             </div>
                             <label>
-                                    <input type="checkbox">{{ _languageKeys.agreeTheTermsAndPolicyPart1 | translate }}<a href="javascript:void(0);" class="m-t-md a-forgotPassword">{{ _languageKeys.agreeTheTermsAndPolicyPart2 | translate }}</a>
+                                    <input type="checkbox" checked>{{ _languageKeys.agreeTheTermsAndPolicyPart1 | translate }}<a href="javascript:void(0);" class="m-t-md a-forgotPassword">{{ _languageKeys.agreeTheTermsAndPolicyPart2 | translate }}</a>
                             </label>
+                            <div class="alert alert-danger loginError" role="alert" [hidden]="_error.hidden">
+                              {{_error.message}}
+                            </div>
                             <button type="submit" class="btn btn-success btn-block m-t-xs btnSubmit" [disabled]="!form.valid">{{ _languageKeys.submit | translate }}</button>
                             <p class="text-center m-t-xs text-sm">{{ _languageKeys.alreadyHaveAnAccount | translate }}</p>
                             <a routerLink="/login" class="btn btn-default btn-block m-t-xs">{{ _languageKeys.login | translate }}</a>
