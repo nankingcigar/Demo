@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 07:53:04
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-15 06:37:03
+ * @Last Modified time: 2017-09-15 08:58:24
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -109,43 +109,43 @@ export class HomeComponent implements OnInit {
       defaultOptions = function () {
         if (
           ($('body').hasClass('small-sidebar')) &&
-          (toggleSidebarCheck.checked === 1)
+          (toggleSidebarCheck.checked === true)
         ) {
           toggleSidebarCheck.click();
         }
         if (
-          !($('body').hasClass('page-header-fixed')) &&
-          (fixedHeaderCheck.checked === 1)
+          ($('body').hasClass('page-header-fixed')) &&
+          (fixedHeaderCheck.checked === true)
         ) {
           fixedHeaderCheck.click();
         }
         if (
           ($('body').hasClass('page-sidebar-fixed')) &&
-          (fixedSidebarCheck.checked === 1)
+          (fixedSidebarCheck.checked === true)
         ) {
           fixedSidebarCheck.click();
         }
         if (
           ($('body').hasClass('page-horizontal-bar')) &&
-          (horizontalBarCheck.checked === 1)
+          (horizontalBarCheck.checked === true)
         ) {
           horizontalBarCheck.click();
         }
         if (
           ($('body').hasClass('compact-menu')) &&
-          (compactMenuCheck.checked === 1)
+          (compactMenuCheck.checked === true)
         ) {
           compactMenuCheck.click();
         }
         if (
           ($('body').hasClass('hover-menu')) &&
-          (hoverMenuCheck.checked === 1)
+          (hoverMenuCheck.checked === true)
         ) {
           hoverMenuCheck.click();
         }
         if (
           ($('.page-content').hasClass('container')) &&
-          (boxedLayoutCheck.checked === 1)
+          (boxedLayoutCheck.checked === true)
         ) {
           boxedLayoutCheck.click();
         }
@@ -320,6 +320,11 @@ export class HomeComponent implements OnInit {
     $('body').toggleClass('show-menu');
   }
 
+  toggeleNavigationMenu(e: UIEvent): void{
+    e.preventDefault();
+    $('.top-menu').toggleClass('show-navigation');
+  }
+
   openNavitionMenu(e: UIEvent): void {
     e.preventDefault();
     $('.cd-nav-container, .cd-overlay').toggleClass('is-visible', true);
@@ -340,6 +345,11 @@ export class HomeComponent implements OnInit {
   collapseSidebar(e: UIEvent): void {
     e.preventDefault();
     $('body').toggleClass('small-sidebar');
+    if ($('body').hasClass('small-sidebar')) {
+      $('.sidebar-toggle i').removeClass('fa-dedent').addClass('fa-indent');
+    } else {
+      $('.sidebar-toggle i').removeClass('fa-indent').addClass('fa-dedent');
+    }
     if (!this._logoText) {
       this._logoText = $('.navbar .logo-box a span').text();
       this._smallLogoText = this._logoText.slice(0, 1);

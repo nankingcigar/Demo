@@ -50,9 +50,9 @@
           <span>{{ _languageKeys.title | translate }}</span>
         </a>
       </div>
-      <div class="search-button">
+      <div class="search-button" (click)="toggeleNavigationMenu($event);">
         <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search">
-          <i class="glyphicon glyphicon-cog"></i>
+          <i class="fa fa-gears"></i>
         </a>
       </div>
       <div class="topmenu-outer">
@@ -60,20 +60,19 @@
           <ul class="nav navbar-nav navbar-left">
             <li>
               <a href="javascript:void(0);" class="waves-effect waves-button waves-classic sidebar-toggle">
-                <i class="fa fa-bars"></i>
-                <span class="visible-xs-inline">Notifications</span>
+                <i class="fa fa-dedent fa-fw"></i>
+                <span class="visible-xs-inline">Toggle</span>
               </a>
             </li>
             <li (click)="openNavitionMenu($event);">
               <a href="javascript:void(0);" class="waves-effect waves-button waves-classic cd-nav-trigger">
                 <i class="fa fa-diamond"></i>
-                <span class="visible-xs-inline">Notifications</span>
+                <span class="visible-xs-inline">Navigations</span>
               </a>
             </li>
-            <li class="dropdown">
+            <li class="dropdown layout-settings">
               <a href="javascript:void(0);" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                <i class="fa fa-cogs"></i>
-                <span class="visible-xs-inline">Notifications</span>
+                <i class="fa fa-gear"></i>
               </a>
               <ul class="dropdown-menu dropdown-md dropdown-list theme-settings" role="menu">
                 <li class="li-group">
@@ -139,7 +138,7 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
+            <li class="dropdown user-profile-small">
               <a href="javascript:void(0);" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                 <span class="user-name">
                   {{ _displayName }}
@@ -148,16 +147,16 @@
                 <img class="img-circle avatar" src="assets/images/avatar1.png" width="40" height="40" alt="" />
               </a>
               <ul class="dropdown-menu dropdown-list" role="menu">
-                <li role="presentation">
-                  <a href="javascript:void(0);" (click)="logOut();">
+                <li role="presentation" (click)="logOut($event);">
+                  <a href="javascript:void(0);">
                     <i class="fa fa-sign-out m-r-xs"></i>
                     {{ _languageKeys.logOut | translate }}
                   </a>
                 </li>
               </ul>
             </li>
-            <li>
-              <a href="javascript:void(0);" class="log-out waves-effect waves-button waves-classic" (click)="logOut();">
+            <li (click)="logOut($event);">
+              <a href="javascript:void(0);" class="log-out waves-effect waves-button waves-classic">
                 <span>
                   <i class="fa fa-sign-out m-r-xs"></i>
                   {{ _languageKeys.logOut | translate }}

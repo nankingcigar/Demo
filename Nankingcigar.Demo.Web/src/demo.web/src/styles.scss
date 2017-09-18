@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-29 00:33:33
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-15 07:50:19
+ * @Last Modified time: 2017-09-15 10:10:31
  */
 
 * {
@@ -17,8 +17,7 @@
   -ms-user-select: none;
   /* Internet Explorer/Edge */
   user-select: none;
-  /* Non-prefixed version, currently
-                                    supported by Chrome and Opera */
+  /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 
 @keyframes fadein {
@@ -116,13 +115,9 @@ $classPrefix: nankingcigar-demo-;
 .#{$classPrefix}register.page-login .page-content .btnSubmit,
 .#{$classPrefix}login.page-login .page-content .loginError {
   -webkit-animation: fadein 3s;
-  /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 3s;
-  /* Firefox < 16 */
   -ms-animation: fadein 3s;
-  /* Internet Explorer */
   -o-animation: fadein 3s;
-  /* Opera < 12.1 */
   animation: fadein 3s;
 }
 
@@ -168,8 +163,21 @@ body.small-sidebar .page-sidebar.sidebar .menu.accordion-menu>li:hover {
 }
 
 @media screen and (max-width: 767px) {
+  .navbar {
+    height: auto;
+    z-index: 10;
+  }
   .navbar-nav {
     margin: 0;
+  }
+  .navbar .logo-box {
+    text-align: left;
+  }
+  .sidebar-pusher {
+    top: 30px;
+  }
+  .search-button {
+    top: 30px;
   }
   .sidebar-pusher .waves-button:hover,
   .search-button .waves-button:hover,
@@ -187,18 +195,124 @@ body.small-sidebar .page-sidebar.sidebar .menu.accordion-menu>li:hover {
   .top-menu {
     display: block;
   }
-  .top-menu .navbar-nav>li {
+  .top-menu .navbar-nav>li:not(.layout-settings) {
     height: inherit;
+    box-shadow: 0 -1px 0 #2a2a2a;
+    display: none;
+  }
+  .top-menu .navbar-nav>li.layout-settings {
+    top: 120px;
+  }
+  .top-menu.show-navigation .navbar-nav>li {
+    display: block;
   }
   .top-menu .navbar-nav>li>a {
     text-align: left;
-    box-shadow: 0 -1px 0 #2c2c2c;
   }
   .top-menu .navbar-nav>li>a>i.fa {
     width: 16px;
     text-align: center;
+    position: absolute;
+    line-height: 22px;
+  }
+  .top-menu .navbar-nav>li.layout-settings>a>i.fa {
+    animation: fa-spin 2s infinite linear;
+    -webkit-animation: fa-spin 2s infinite linear;
+    -ms-animation: fa-spin 2s infinite linear;
+    -o-animation: fa-spin 2s infinite linear;
+  }
+  .top-menu .navbar-nav>li>a>span {
+    margin-left: 20px;
   }
   .page-inner {
     width: 100%;
+  }
+  .navbar .dropdown {
+    display: block;
+  }
+  .nav>li.layout-settings {
+    position: fixed;
+    right: 0;
+    z-index: 30;
+    width: 43px;
+    height: 44px;
+    border: 1px solid #363636;
+    background-color: #2a2a2a;
+    border-right: 0;
+  }
+  .top-menu .navbar-nav>li.layout-settings>a {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+  }
+  .navbar .layout-settings {
+    transition: right 0.2s;
+    -webkit-transition: right 0.2s;
+    -moz-transition: right 0.2s;
+    -ms-transition: right 0.2s;
+  }
+  .navbar .open.layout-settings {
+    right: 160px;
+  }
+  .navbar .layout-settings .dropdown-menu {
+    position: absolute;
+    background-color: #2a2a2a;
+    top: -26px;
+    width: 160px;
+    left: 42px;
+    border: 1px solid #363636;
+    border-right: 0;
+    border-left: 0;
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    margin-top: 25px !important;
+  }
+  .navbar .open.layout-settings .dropdown-menu>li {
+    border-left: 1px solid #363636;
+  }
+  .navbar .open.layout-settings .dropdown-menu>li:first-child {
+    border-left: 0;
+  }
+  .top-menu .navbar-nav.navbar-right>li>a>.user-name {
+    display: block;
+  }
+  .top-menu .navbar-nav.navbar-right>li>a>.user-name>i {
+    display: none;
+  }
+  .top-menu .navbar-nav>li>a>span.user-name {
+    margin-left: 0px;
+  }
+  .top-menu .navbar-nav.navbar-right>li>a>img {
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-top: -26px;
+  }
+  .navbar .open.user-profile-small .dropdown-menu {
+    display: none;
+  }
+  .top-menu .navbar-nav>li>a.log-out>span {
+    margin-left: 0;
+  }
+  .top-menu .navbar-nav>li>a.log-out>span>.m-r-xs {
+    margin-right: 0;
+  }
+  .dropdown-menu:before,
+  .dropdown-menu:after {
+    display: none !important;
+  }
+  .page-sidebar-fixed:not(.page-header-fixed) .page-inner {
+    padding-left: 0;
+  }
+  .small-sidebar.page-sidebar-fixed:not(.page-header-fixed) .page-inner {
+    padding-left: 0;
+  }
+  .page-inner {
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
   }
 }
