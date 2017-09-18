@@ -1,3 +1,11 @@
-<p>
-  user works!
-</p>
+<p-dataTable [value]="_users" [responsive]="true">
+    <p-column field="id" header="#"></p-column>
+    <p-column field="userName" header="User Name"></p-column>
+    <p-column field="displayName" header="Display Name"></p-column>
+    <p-column field="email" header="Email"></p-column>
+    <p-column field="lastLoginTime" header="Last Login Time">
+      <template pTemplate="body" let-user="rowData">
+        {{ user.lastLoginTime | date: 'medium' }}
+      </template>
+    </p-column>
+</p-dataTable>

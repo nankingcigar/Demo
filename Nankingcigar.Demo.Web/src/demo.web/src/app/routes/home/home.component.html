@@ -210,7 +210,7 @@
               <i class="fa fa-users"></i>
             </span>
             <p>
-              {{ _languageKeys.users | translate }}
+              {{ _languageKeys.user | translate }}
             </p>
           </a>
         </li>
@@ -219,7 +219,7 @@
             <span class="menu-icon glyphicon glyphicon-paperclip">
             </span>
             <p>
-              {{ _languageKeys.logs | translate }}
+              {{ _languageKeys.log | translate }}
             </p>
           </a>
         </li>
@@ -251,6 +251,23 @@
     </div>
   </div>
   <div class="page-inner">
+    <div class="page-title">
+      <h3>
+        {{ _languageKeys.subTitle | translate }}
+      </h3>
+      <div class="page-breadcrumb">
+        <ol class="breadcrumb">
+          <li routerLink="/app/dashboard">
+            <a href="javascript:void(0);">
+              {{ _languageKeys.home | translate }}
+            </a>
+          </li>
+          <li>
+            {{ _languageKeys.subTitle | translate }}
+          </li>
+        </ol>
+      </div>
+    </div>
     <router-outlet></router-outlet>
     <div class="page-footer">
       <p class="no-s">

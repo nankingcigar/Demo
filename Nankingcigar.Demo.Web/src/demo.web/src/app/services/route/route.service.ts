@@ -13,6 +13,7 @@ import 'rxjs/add/operator/filter';
 import { BaseService } from '../base.service';
 import { AccountService } from '../account/account.service';
 import { LocalizationService } from '../localization/localization.service';
+import { languageKeys } from '../../app.global';
 
 @Injectable()
 export class RouteService extends BaseService {
@@ -57,6 +58,7 @@ export class RouteService extends BaseService {
         return;
       }
     }
+    languageKeys.page.home.subTitle = languageKeys.page.home[route.routeConfig.path];
     if (this._routeClass) {
       $('body').removeClass(this._routeClass);
       this._routeClass = undefined;

@@ -315,4 +315,7 @@ body.small-sidebar .page-sidebar.sidebar .menu.accordion-menu>li:hover {
     -moz-transition: none;
     -ms-transition: none;
   }
+  .page-sidebar {
+    z-index: 9;
+  }
 }

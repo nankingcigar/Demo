@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { DataTableModule, SharedModule } from 'primeng/primeng';
 
 import { HomeComponent } from './home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -78,7 +79,9 @@ export const ROUTES: Routes = [
     ),
     FormsModule,
     HttpClientModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    SharedModule,
+    DataTableModule
   ],
   declarations: [
     HomeComponent,
