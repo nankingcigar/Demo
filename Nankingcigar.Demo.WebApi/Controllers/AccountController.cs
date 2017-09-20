@@ -1,12 +1,12 @@
 ﻿using Abp.Authorization;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using Nankingcigar.Demo.Core.Authorization;
 using Nankingcigar.Demo.Core.Entity;
 using Nankingcigar.Demo.WebApi.DTO;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using Nankingcigar.Demo.Core.DomainService.LogIn;
 
 namespace Nankingcigar.Demo.WebApi.Controllers
 {
@@ -14,9 +14,9 @@ namespace Nankingcigar.Demo.WebApi.Controllers
     {
         private IAuthenticationManager AuthenticationManager => HttpContext.Current.GetOwinContext().Authentication;
 
-        private readonly LogInManager _logInManager;
+        private readonly ILogInManager _logInManager;
 
-        public AccountController(LogInManager logInManager)
+        public AccountController(ILogInManager logInManager)
         {
             _logInManager = logInManager;
         }

@@ -1,40 +1,32 @@
 ﻿using Dapper;
 using Nankingcigar.Demo.Dapper.Extend;
-using System.Threading.Tasks;
-using Abp.Application.Services;
-using Nankingcigar.Demo.Application.User.DTO;
-using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Nankingcigar.Demo.Core.Entity.User;
 
 namespace Nankingcigar.Demo.Application.User
 {
     internal class UserAppService : DemoAppServiceBase, IUserAppService
     {
-        private readonly IDapperRepositoryExtend<Core.Entity.User, long> _userDapperRepositoryExtend;
+        private readonly IDapperRepositoryExtend<Landing, long> _userLandingDapperRepositoryExtend;
+        private readonly IDapperRepositoryExtend<Grid, long> _userGridDapperRepositoryExtend;
 
-        public UserAppService(IDapperRepositoryExtend<Core.Entity.User, long> userDapperRepositoryExtend)
+        public UserAppService(
+            IDapperRepositoryExtend<Core.Entity.User.Landing, long> userLandingDapperRepositoryExtend,
+            IDapperRepositoryExtend<Grid, long> userGridDapperRepositoryExtend)
         {
-            _userDapperRepositoryExtend = userDapperRepositoryExtend;
+            _userLandingDapperRepositoryExtend = userLandingDapperRepositoryExtend;
+            _userGridDapperRepositoryExtend = userGridDapperRepositoryExtend;
         }
 
-        public virtual async Task<DTO.User> Get(long? userId)
+        public virtual async Task<Landing> Get(long? userId)
         {
-            string sql = $"select UserName, DisplayName from [User] where Id = { userId ?? AbpSession.UserId}";
-            return await _userDapperRepositoryExtend.GetConnection().QueryFirstAsync<DTO.User>(
-                sql,
-                null,
-                _userDapperRepositoryExtend.GetTransaction()
-            );
+            return await _userLandingDapperRepositoryExtend.GetAsync(userId ?? AbpSession.UserId.Value);
         }
 
-        public virtual async Task<IEnumerable<DTO.User2>> GetAll()
+        public virtual async Task<IEnumerable<Grid>> GetAll()
         {
-            string sql = $"select Id, UserName, DisplayName, Email, LastLoginTime from [User]";
-            return await _userDapperRepositoryExtend.GetConnection().QueryAsync<DTO.User2>(
-                sql, 
-                null, 
-                _userDapperRepositoryExtend.GetTransaction()
-           );
+            return await _userGridDapperRepositoryExtend.GetAllAsync();
         }
     }
 }

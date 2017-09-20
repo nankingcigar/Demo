@@ -1,15 +1,15 @@
 ﻿using Abp.Authorization;
 using Nankingcigar.Demo.Application.Account.DTO;
-using Nankingcigar.Demo.Core.Authorization.User;
 using System.Threading.Tasks;
+using Nankingcigar.Demo.Core.DomainService.Registration;
 
 namespace Nankingcigar.Demo.Application.Account
 {
     internal class AccountAppService : DemoAppServiceBase, IAccountAppService
     {
-        private readonly UserRegistrationManager _userRegistrationManager;
+        private readonly IUserRegistrationManager _userRegistrationManager;
 
-        public AccountAppService(UserRegistrationManager userRegistrationManager)
+        public AccountAppService(IUserRegistrationManager userRegistrationManager)
         {
             _userRegistrationManager = userRegistrationManager;
         }

@@ -1,7 +1,10 @@
-﻿using Abp.EntityFramework;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Abp.EntityFramework;
 using Nankingcigar.Demo.Core.Entity;
 using System.Data.Common;
 using System.Data.Entity;
+using Abp.Extensions;
+using Nankingcigar.Demo.Core.Entity.User;
 
 namespace Nankingcigar.Demo.EntityFramework.EntityFramework
 {
@@ -13,7 +16,12 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework
         //public virtual IDbSet<User> Users { get; set; }
         public virtual IDbSet<User> Users { get; set; }
 
-        public virtual IDbSet<AuditLog> Audits { get; set; }
+        public virtual IDbSet<Landing> UserLandings { get; set; }
+
+        public virtual IDbSet<Grid> UserGrids { get; set; }
+
+        public virtual IDbSet<AuditLog> Logs { get; set; }
+
 
         /* NOTE:
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
@@ -76,6 +84,12 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework
                 .HasMany(e => e.ImpersonatorAuditLogs)
                 .WithOptional(e => e.Impersonator)
                 .HasForeignKey(e => e.ImpersonatorUserId);
+
+            modelBuilder.Entity<Landing>()
+                .Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+            modelBuilder.Entity<Grid>()
+                .Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
         }
     }
 }

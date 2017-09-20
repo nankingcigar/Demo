@@ -43,9 +43,9 @@ namespace Nankingcigar.Demo.Core.Entity
         [StringLength(2000)]
         public string CustomData { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User.User User { get; set; }
 
-        public virtual User Impersonator { get; set; }
+        public virtual User.User Impersonator { get; set; }
 
         public static AuditLog CreateFromAuditInfo(AuditInfo auditInfo)
         {

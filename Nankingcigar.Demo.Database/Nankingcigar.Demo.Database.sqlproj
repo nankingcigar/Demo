@@ -63,5 +63,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\User.sql" />
     <Build Include="dbo\Tables\AuditLog.sql" />
+    <Build Include="dbo\Tables\UserLanding.sql" />
+    <Build Include="dbo\Tables\UserGrid.sql" />
   </ItemGroup>
 </Project>

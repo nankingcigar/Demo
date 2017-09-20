@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[User] (
     [Id]                   BIGINT         IDENTITY (1, 1) NOT NULL,
     [UserName]             NVARCHAR (50)  NOT NULL,
-    [Email]				   NVARCHAR (100) NOT NULL,
+    [Email]                NVARCHAR (100) NULL,
     [Password]             NVARCHAR (500) NOT NULL,
     [DisplayName]          NVARCHAR (50)  NULL,
     [AuthenticationSource] NVARCHAR (50)  NULL,
@@ -19,6 +19,8 @@
     CONSTRAINT [FK_User_DeleterUserId] FOREIGN KEY ([DeleterUserId]) REFERENCES [dbo].[User] ([Id]),
     CONSTRAINT [FK_User_LastModifierUserId] FOREIGN KEY ([LastModifierUserId]) REFERENCES [dbo].[User] ([Id])
 );
+
+
 
 
 

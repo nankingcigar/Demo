@@ -2,6 +2,7 @@
 using Abp.EntityFramework;
 using Abp.EntityFramework.Repositories;
 using Nankingcigar.Demo.Core.Extend;
+using Nankingcigar.Demo.Core.Extend.Repository;
 
 namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Repositories
 {

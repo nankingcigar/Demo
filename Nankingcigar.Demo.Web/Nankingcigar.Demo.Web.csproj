@@ -385,11 +385,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DemoDateTimeConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -413,6 +414,10 @@
     <ProjectReference Include="..\Nankingcigar.Demo.EntityFramework\Nankingcigar.Demo.EntityFramework.csproj">
       <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
       <Name>Nankingcigar.Demo.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nankingcigar.Demo.Event\Nankingcigar.Demo.Event.csproj">
+      <Project>{e7d2a771-409a-4843-920d-f2e412a71cd9}</Project>
+      <Name>Nankingcigar.Demo.Event</Name>
     </ProjectReference>
     <ProjectReference Include="..\Nankingcigar.Demo.WebApi\Nankingcigar.Demo.WebApi.csproj">
       <Project>{5eb52d3d-09fd-463a-b02a-8d9856bd3724}</Project>

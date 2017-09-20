@@ -2,11 +2,11 @@
 using Abp.Modules;
 using Castle.MicroKernel.Registration;
 using Nankingcigar.Demo.Core;
-using Nankingcigar.Demo.Core.Extend;
 using Nankingcigar.Demo.EntityFramework.EntityFramework;
 using Nankingcigar.Demo.EntityFramework.EntityFramework.Repositories;
 using System.Data.Entity;
 using System.Reflection;
+using Nankingcigar.Demo.Core.Extend.Repository;
 
 namespace Nankingcigar.Demo.EntityFramework
 {

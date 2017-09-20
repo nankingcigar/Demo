@@ -7,6 +7,7 @@ using Nankingcigar.Demo.WebApi;
 using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Nankingcigar.Demo.Event;
 
 namespace Nankingcigar.Demo.Web
 {
@@ -14,6 +15,7 @@ namespace Nankingcigar.Demo.Web
         typeof(AbpWebMvcModule),
         typeof(DemoDataModule),
         typeof(DemoDapperModule),
+        typeof(DemoEventModule),
         typeof(DemoApplicationModule),
         typeof(DemoWebApiModule))]
     public class DemoWebModule : AbpModule

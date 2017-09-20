@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-09-04 09:18:32
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-18 09:24:21
+ * @Last Modified time: 2017-09-19 10:13:36
  */
 app.environment = {
   classPrefix: 'nankingcigar-demo-',
@@ -14,7 +14,7 @@ app.environment = {
 
 export const api = {
   account: {
-    authenicate: 'api/account',
+    authenticate: 'api/account',
     register: 'api/services/app/account',
     logOut: 'api/account'
   },
@@ -90,9 +90,13 @@ export const languageKeys = {
         hoverMenu: 'Hover Menu',
         boxedLayout: 'Boxed Layout',
         resetOptions: 'Reset Options'
-      }
+      },
+      navigation: 'Navigation'
     },
     dashboard: {
+    },
+    user: {
+      noUser: 'No user.'
     }
   },
   errors: {

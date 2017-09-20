@@ -2,13 +2,13 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 07:14:26
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 09:09:50
+ * @Last Modified time: 2017-09-19 02:35:14
  */
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 import { BaseService } from '../base.service';
-import { AccountProxy } from '../../proxys/account/account.proxy';
+import { AccountProxy } from '../../proxies/account/account.proxy';
 import { LoginInput } from '../../models/account/login/input';
 import { RegisterInput } from '../../models/account/register/input';
 

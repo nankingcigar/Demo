@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 07:53:04
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-15 08:58:24
+ * @Last Modified time: 2017-09-19 02:35:33
  */
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { AccountService } from '../../services/account/account.service';
 import { UserService } from '../../services/user/user.service';
-import { User } from '../../models/user/user';
+import { LandingUser } from '../../models/user/landing';
 import { languageKeys } from '../../app.global';
 
 @Component({
@@ -20,7 +20,7 @@ import { languageKeys } from '../../app.global';
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-  _user: User;
+  _user: LandingUser;
   _displayName: string;
   _languageKeys = languageKeys.page.home;
   _logoText: string;

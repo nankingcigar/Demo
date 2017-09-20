@@ -171,18 +171,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audit\AuditingStore.cs" />
-    <Compile Include="Authorization\LogInManager.cs" />
-    <Compile Include="Authorization\PermissionChecker.cs" />
-    <Compile Include="Authorization\User\UserManager.cs" />
-    <Compile Include="Authorization\User\UserRegistrationManager.cs" />
-    <Compile Include="Authorization\User\UserStore.cs" />
+    <Compile Include="DataLayer\Audit\AuditingStore.cs" />
+    <Compile Include="DomainService\DemoDomainServiceBase.cs" />
+    <Compile Include="DomainService\LogIn\ILogInManager.cs" />
+    <Compile Include="DomainService\LogIn\LogInManager.cs" />
+    <Compile Include="DomainService\Permission\PermissionChecker.cs" />
+    <Compile Include="DomainService\Registration\IUserRegistrationManager.cs" />
+    <Compile Include="DomainService\User\UserManager.cs" />
+    <Compile Include="DomainService\Registration\UserRegistrationManager.cs" />
+    <Compile Include="DataLayer\User\UserStore.cs" />
     <Compile Include="DemoCoreModule.cs" />
     <Compile Include="Entity\AuditLog.cs" />
     <Compile Include="Entity\DemoApiException.cs" />
     <Compile Include="Entity\DemoEntity.cs" />
-    <Compile Include="Entity\User.cs" />
-    <Compile Include="Extend\IRepositoryExtend.cs" />
+    <Compile Include="Entity\User\Grid.cs" />
+    <Compile Include="Entity\User\Landing.cs" />
+    <Compile Include="Entity\User\User.cs" />
+    <Compile Include="EventBus\DemoEventData.cs" />
+    <Compile Include="EventBus\User\LoginEventData.cs" />
+    <Compile Include="EventBus\User\RegistrationEventData.cs" />
+    <Compile Include="Extend\Repository\IRepositoryExtend.cs" />
+    <Compile Include="Extend\Json\Converter\DemoDateTimeConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,11 @@
 ﻿using Abp.Castle.Logging.Log4Net;
+using Abp.Json;
 using Abp.Web;
 using Castle.Facilities.Logging;
 using System;
+using System.Net.Http.Formatting;
 using System.Web.Http;
-using Abp.Json;
-using Nankingcigar.Demo.Web.Models;
-using Newtonsoft.Json;
+using Nankingcigar.Demo.Core.Extend.Json.Converter;
 
 namespace Nankingcigar.Demo.Web
 {
@@ -23,8 +23,7 @@ namespace Nankingcigar.Demo.Web
                 int index = 0;
                 foreach (var converter in config.Formatters.JsonFormatter.SerializerSettings.Converters)
                 {
-                    var timeConverter = converter as AbpDateTimeConverter;
-                    if (timeConverter != null)
+                    if (converter is AbpDateTimeConverter)
                     {
                         break;
                     }

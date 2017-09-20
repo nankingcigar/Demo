@@ -1,5 +1,6 @@
 ﻿using DapperExtensions.Mapper;
 using Nankingcigar.Demo.Core.Entity;
+using Nankingcigar.Demo.Core.Entity.User;
 
 namespace Nankingcigar.Demo.Dapper.Mapper
 {
