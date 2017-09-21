@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-09-18 09:15:46
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-19 10:09:36
+ * @Last Modified time: 2017-09-21 01:36:57
  */
 import { Component, OnInit } from '@angular/core';
 
@@ -25,7 +25,6 @@ export class UserComponent implements OnInit {
       this._users = users;
     });
   }
-
 }
 
 function selector(): string {

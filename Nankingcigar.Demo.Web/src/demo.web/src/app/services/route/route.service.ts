@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 07:14:26
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-14 06:56:13
+ * @Last Modified time: 2017-09-21 03:37:51
  */
 import { Injectable } from '@angular/core';
 import { RoutesRecognized, Router, Event } from '@angular/router';

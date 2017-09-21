@@ -172,27 +172,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataLayer\Audit\AuditingStore.cs" />
+    <Compile Include="DomainService\Authorization\DemoAuthorizationHelper.cs" />
     <Compile Include="DomainService\DemoDomainServiceBase.cs" />
     <Compile Include="DomainService\LogIn\ILogInManager.cs" />
     <Compile Include="DomainService\LogIn\LogInManager.cs" />
-    <Compile Include="DomainService\Permission\PermissionChecker.cs" />
+    <Compile Include="DomainService\Permission\IDemoPermissionChecker.cs" />
+    <Compile Include="DomainService\Permission\DemoPermissionChecker.cs" />
     <Compile Include="DomainService\Registration\IUserRegistrationManager.cs" />
     <Compile Include="DomainService\User\UserManager.cs" />
     <Compile Include="DomainService\Registration\UserRegistrationManager.cs" />
     <Compile Include="DataLayer\User\UserStore.cs" />
     <Compile Include="DemoCoreModule.cs" />
+    <Compile Include="Entity\Api\ApiPermission.cs" />
+    <Compile Include="Entity\Api\Api.cs" />
     <Compile Include="Entity\AuditLog.cs" />
     <Compile Include="Entity\DemoApiException.cs" />
     <Compile Include="Entity\DemoEntity.cs" />
+    <Compile Include="Entity\Permission\Permission.cs" />
     <Compile Include="Entity\User\Grid.cs" />
     <Compile Include="Entity\User\Landing.cs" />
     <Compile Include="Entity\User\User.cs" />
+    <Compile Include="Entity\User\UserPermission.cs" />
     <Compile Include="EventBus\DemoEventData.cs" />
     <Compile Include="EventBus\User\LoginEventData.cs" />
     <Compile Include="EventBus\User\RegistrationEventData.cs" />
-    <Compile Include="Extend\Repository\IRepositoryExtend.cs" />
-    <Compile Include="Extend\Json\Converter\DemoDateTimeConverter.cs" />
+    <Compile Include="Extension\Repository\IRepositoryExtension.cs" />
+    <Compile Include="Extension\Json\Converter\DemoDateTimeConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\Reflection\ReflectionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

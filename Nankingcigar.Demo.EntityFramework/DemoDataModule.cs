@@ -2,11 +2,11 @@
 using Abp.Modules;
 using Castle.MicroKernel.Registration;
 using Nankingcigar.Demo.Core;
+using Nankingcigar.Demo.Core.Extension.Repository;
 using Nankingcigar.Demo.EntityFramework.EntityFramework;
 using Nankingcigar.Demo.EntityFramework.EntityFramework.Repositories;
 using System.Data.Entity;
 using System.Reflection;
-using Nankingcigar.Demo.Core.Extend.Repository;
 
 namespace Nankingcigar.Demo.EntityFramework
 {
@@ -23,11 +23,11 @@ namespace Nankingcigar.Demo.EntityFramework
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
             Database.SetInitializer<DemoDbContext>(null);
             IocManager.IocContainer.Register(Component
-                .For(typeof(IRepositoryExtend<,>))
+                .For(typeof(IRepositoryExtension<,>))
                 .ImplementedBy(typeof(DemoRepositoryBase<,>))
                 .LifestyleTransient());
             IocManager.IocContainer.Register(Component
-                .For(typeof(IRepositoryExtend<>))
+                .For(typeof(IRepositoryExtension<>))
                 .ImplementedBy(typeof(DemoRepositoryBase<>))
                 .LifestyleTransient());
         }

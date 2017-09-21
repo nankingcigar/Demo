@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Abp.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Abp.Domain.Entities;
-using Abp.Domain.Entities.Auditing;
-using Microsoft.AspNet.Identity;
-using Newtonsoft.Json;
 
 namespace Nankingcigar.Demo.Core.Entity.User
 {

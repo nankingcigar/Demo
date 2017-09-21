@@ -1,11 +1,10 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
-using Abp.Domain.Uow;
+﻿using Abp.Domain.Uow;
 using Abp.Timing;
 using Microsoft.AspNet.Identity;
 using Nankingcigar.Demo.Core.DomainService.User;
-using Nankingcigar.Demo.Core.EventBus;
 using Nankingcigar.Demo.Core.EventBus.User;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Core.DomainService.LogIn
 {

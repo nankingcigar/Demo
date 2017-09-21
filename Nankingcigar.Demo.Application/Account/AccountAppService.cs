@@ -1,7 +1,7 @@
 ﻿using Abp.Authorization;
 using Nankingcigar.Demo.Application.Account.DTO;
-using System.Threading.Tasks;
 using Nankingcigar.Demo.Core.DomainService.Registration;
+using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Application.Account
 {

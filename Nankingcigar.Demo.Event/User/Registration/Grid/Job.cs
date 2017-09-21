@@ -1,9 +1,7 @@
-﻿using System;
-using Abp.BackgroundJobs;
+﻿using Abp.BackgroundJobs;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
-using Nankingcigar.Demo.Core.Entity.User;
 
 namespace Nankingcigar.Demo.Event.User.Registration.Grid
 {

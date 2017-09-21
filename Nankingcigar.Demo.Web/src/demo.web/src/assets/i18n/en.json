@@ -47,5 +47,9 @@
   "Hover Menu": "Hover Menu",
   "Boxed Layout": "Boxed Layout",
   "Reset Options": "Reset Options",
-  "No user.": "No user."
+  "No user.": "No user.",
+  "Id": "#",
+  "Last Login Time": "Last Login Time",
+  "Operation": " ",
+  "401": "You can't ability to access [{{ url }}]."
 }

@@ -1,15 +1,15 @@
-﻿using System;
-using System.Globalization;
-using Abp.Json;
+﻿using Abp.Json;
 using Newtonsoft.Json;
+using System;
+using System.Globalization;
 
-namespace Nankingcigar.Demo.Core.Extend.Json.Converter
+namespace Nankingcigar.Demo.Core.Extension.Json.Converter
 {
     public class DemoDateTimeConverter : AbpDateTimeConverter
     {
         public DemoDateTimeConverter()
         {
-            this.DateTimeStyles = (DateTimeStyles) (-1);
+            this.DateTimeStyles = (DateTimeStyles)(-1);
         }
 
         private static readonly DateTime Time1970 = (new DateTime(1970, 1, 1)).ToUniversalTime();

@@ -181,8 +181,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoDapperModule.cs" />
-    <Compile Include="Extend\DapperRepositoryBaseExtend.cs" />
-    <Compile Include="Extend\IDapperRepositoryExtend.cs" />
+    <Compile Include="Extend\DapperRepositoryBaseExtension.cs" />
+    <Compile Include="Extend\IDapperRepositoryExtension.cs" />
     <Compile Include="Mapper\AuditLogMapper.cs" />
     <Compile Include="Mapper\UserGridMapper.cs" />
     <Compile Include="Mapper\UserLandingMapper.cs" />

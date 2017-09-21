@@ -1,6 +1,5 @@
 ﻿using Abp.BackgroundJobs;
 using Abp.Dependency;
-using Nankingcigar.Demo.Core.EventBus;
 using Nankingcigar.Demo.Core.EventBus.User;
 
 namespace Nankingcigar.Demo.Event.User.Registration.Landing

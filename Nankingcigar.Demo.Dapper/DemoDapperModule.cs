@@ -23,10 +23,10 @@ namespace Nankingcigar.Demo.Dapper
 
             ISecondaryOrmRegistrar additionalOrmRegistrar = IocManager.Resolve<ISecondaryOrmRegistrar>();
             additionalOrmRegistrar.RegisterRepositories(IocManager, new DapperAutoRepositoryTypeAttribute(
-                typeof(IDapperRepositoryExtend<>),
-                typeof(IDapperRepositoryExtend<,>),
-                typeof(DapperRepositoryBaseExtend<,>),
-                typeof(DapperRepositoryBaseExtend<,,>)
+                typeof(IDapperRepositoryExtension<>),
+                typeof(IDapperRepositoryExtension<,>),
+                typeof(DapperRepositoryBaseExtension<,>),
+                typeof(DapperRepositoryBaseExtension<,,>)
             ));
         }
     }

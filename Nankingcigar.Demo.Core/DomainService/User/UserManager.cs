@@ -1,9 +1,8 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
-using Abp.Domain.Services;
-using Abp.Events.Bus;
+﻿using Abp.Domain.Services;
 using Microsoft.AspNet.Identity;
 using Nankingcigar.Demo.Core.DataLayer.User;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Core.DomainService.User
 {

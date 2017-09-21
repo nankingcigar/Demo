@@ -1,12 +1,12 @@
 ﻿using Abp.Authorization;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using Nankingcigar.Demo.Core.DomainService.LogIn;
 using Nankingcigar.Demo.Core.Entity;
 using Nankingcigar.Demo.WebApi.DTO;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using Nankingcigar.Demo.Core.DomainService.LogIn;
 
 namespace Nankingcigar.Demo.WebApi.Controllers
 {

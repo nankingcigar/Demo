@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Abp.Dependency;
+using Microsoft.AspNet.Identity;
+using Nankingcigar.Demo.Core.Extension.Repository;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Abp.Dependency;
-using Microsoft.AspNet.Identity;
-using Nankingcigar.Demo.Core.Extend;
-using Nankingcigar.Demo.Core.Extend.Repository;
 
 namespace Nankingcigar.Demo.Core.DataLayer.User
 {
@@ -15,7 +14,7 @@ namespace Nankingcigar.Demo.Core.DataLayer.User
         IQueryableUserStore<Entity.User.User, long>,
         IDisposable, ITransientDependency
     {
-        public virtual IRepositoryExtend<Entity.User.User, long> UserRepository { get; set; }
+        public virtual IRepositoryExtension<Entity.User.User, long> UserRepository { get; set; }
 
         #region IQueryableUserStore
 
@@ -97,7 +96,7 @@ namespace Nankingcigar.Demo.Core.DataLayer.User
 
         public virtual async Task<Entity.User.User> FindByEmailAsync(string email)
         {
-            return await UserRepository.FirstOrDefaultAsync(
+            return await UserRepository.CloseLazyLoad().FirstOrDefaultAsync(
                 user => user.Email == email
             );
         }

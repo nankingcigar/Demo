@@ -1,12 +1,11 @@
 ﻿using Abp.Domain.Entities;
 using Abp.EntityFramework;
 using Abp.EntityFramework.Repositories;
-using Nankingcigar.Demo.Core.Extend;
-using Nankingcigar.Demo.Core.Extend.Repository;
+using Nankingcigar.Demo.Core.Extension.Repository;
 
 namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Repositories
 {
-    internal class DemoRepositoryBase<TEntity, TPrimaryKey> : EfRepositoryBase<DemoDbContext, TEntity, TPrimaryKey>, IRepositoryExtend<TEntity, TPrimaryKey>
+    internal class DemoRepositoryBase<TEntity, TPrimaryKey> : EfRepositoryBase<DemoDbContext, TEntity, TPrimaryKey>, IRepositoryExtension<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
         public DemoRepositoryBase(IDbContextProvider<DemoDbContext> dbContextProvider)
@@ -15,20 +14,20 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Repositories
         }
 
         //add common methods for all repositories
-        public virtual IRepositoryExtend<TEntity, TPrimaryKey> CloseLazyLoad()
+        public virtual IRepositoryExtension<TEntity, TPrimaryKey> CloseLazyLoad()
         {
             Context.Configuration.LazyLoadingEnabled = false;
             return this;
         }
 
-        public IRepositoryExtend<TEntity, TPrimaryKey> OpenLazyLoad()
+        public virtual IRepositoryExtension<TEntity, TPrimaryKey> OpenLazyLoad()
         {
             Context.Configuration.LazyLoadingEnabled = true;
             return this;
         }
     }
 
-    internal class DemoRepositoryBase<TEntity> : DemoRepositoryBase<TEntity, int>, IRepositoryExtend<TEntity>
+    internal class DemoRepositoryBase<TEntity> : DemoRepositoryBase<TEntity, int>, IRepositoryExtension<TEntity>
         where TEntity : class, IEntity<int>
     {
         public DemoRepositoryBase(IDbContextProvider<DemoDbContext> dbContextProvider)

@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-09-04 09:18:32
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-19 10:13:36
+ * @Last Modified time: 2017-09-21 10:30:57
  */
 app.environment = {
   classPrefix: 'nankingcigar-demo-',
@@ -96,7 +96,13 @@ export const languageKeys = {
     dashboard: {
     },
     user: {
-      noUser: 'No user.'
+      noUser: 'No user.',
+      id: 'Id',
+      userName: 'User Name',
+      displayName: 'Display Name',
+      email: 'Email',
+      lastLoginTime: 'Last Login Time',
+      operation: 'Operation'
     }
   },
   errors: {
@@ -107,6 +113,9 @@ export const languageKeys = {
     },
     '/register': {
       '1': 'User Name or Email has been registered.'
+    },
+    '/app/user': {
+      '401': '401'
     }
   }
 };

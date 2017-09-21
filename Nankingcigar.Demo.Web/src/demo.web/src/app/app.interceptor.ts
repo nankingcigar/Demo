@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 10:21:46
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-19 05:59:33
+ * @Last Modified time: 2017-09-21 10:29:30
  */
 import { Injectable } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse, HttpUserEvent } from '@angular/common/http';
@@ -64,7 +64,7 @@ export class DemoInterceptor implements HttpInterceptor {
           return event;
         }
       })
-      .catch((err: any, caught) => {
+      .catch((err, caught) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
             this._accountService.logOut();
@@ -72,10 +72,25 @@ export class DemoInterceptor implements HttpInterceptor {
           }
           const queueKey = this.removeRequestQueue(req);
           if (err.error) {
+            (<any>err).error = JSON.parse(err.error);
             if (err.error.__abp === true) {
-              this._localizationService.get(languageKeys.errors[this._router.url][err.error.error.code])
+              console.log(languageKeys.errors[this._router.url]);
+              this._localizationService.get(languageKeys.errors[this._router.url][err.error.error.code], { url: req.url })
                 .subscribe((translation: string) => {
                   err.error.error.message = translation;
+                  if(err.error.error.code === 401){
+                    toastr.error(
+                      translation,
+                      '',
+                      {
+                        closeButton: true,
+                        progressBar: true,
+                        showMethod: 'fadeIn',
+                        hideMethod: 'fadeOut',
+                        timeOut: 2000
+                      }
+                    );
+                  }
                 });
               queueKey.requestBroadCaster.error(err.error.error);
               return Observable.throw(err.error.error);

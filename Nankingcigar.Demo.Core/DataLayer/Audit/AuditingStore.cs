@@ -1,17 +1,16 @@
-﻿using System.Threading.Tasks;
-using Abp.Auditing;
+﻿using Abp.Auditing;
 using Abp.Dependency;
 using Nankingcigar.Demo.Core.Entity;
-using Nankingcigar.Demo.Core.Extend;
-using Nankingcigar.Demo.Core.Extend.Repository;
+using Nankingcigar.Demo.Core.Extension.Repository;
+using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Core.DataLayer.Audit
 {
     public class AuditingStore : IAuditingStore, ITransientDependency
     {
-        private readonly IRepositoryExtend<AuditLog, long> _auditLogRepository;
+        private readonly IRepositoryExtension<AuditLog, long> _auditLogRepository;
 
-        public AuditingStore(IRepositoryExtend<AuditLog, long> auditLogRepository)
+        public AuditingStore(IRepositoryExtension<AuditLog, long> auditLogRepository)
         {
             _auditLogRepository = auditLogRepository;
         }

@@ -1,9 +1,8 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Nankingcigar.Demo.Core.DomainService.User;
 using Nankingcigar.Demo.Core.Entity;
-using Nankingcigar.Demo.Core.EventBus;
 using Nankingcigar.Demo.Core.EventBus.User;
+using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Core.DomainService.Registration
 {

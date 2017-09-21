@@ -3,11 +3,14 @@ using Abp.Web.Mvc;
 using Nankingcigar.Demo.Application;
 using Nankingcigar.Demo.Dapper;
 using Nankingcigar.Demo.EntityFramework;
+using Nankingcigar.Demo.Event;
 using Nankingcigar.Demo.WebApi;
 using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Nankingcigar.Demo.Event;
+using Abp.Authorization;
+using Abp.Dependency;
+using Nankingcigar.Demo.Core.DomainService.Authorization;
 
 namespace Nankingcigar.Demo.Web
 {
