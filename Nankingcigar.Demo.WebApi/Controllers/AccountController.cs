@@ -1,7 +1,7 @@
 ﻿using Abp.Authorization;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using Nankingcigar.Demo.Core.DomainService.LogIn;
+using Nankingcigar.Demo.Core.DomainService.Login;
 using Nankingcigar.Demo.Core.Entity;
 using Nankingcigar.Demo.WebApi.DTO;
 using System.Threading.Tasks;
@@ -14,11 +14,11 @@ namespace Nankingcigar.Demo.WebApi.Controllers
     {
         private IAuthenticationManager AuthenticationManager => HttpContext.Current.GetOwinContext().Authentication;
 
-        private readonly ILogInManager _logInManager;
+        private readonly ILoginManager _loginManager;
 
-        public AccountController(ILogInManager logInManager)
+        public AccountController(ILoginManager loginManager)
         {
-            _logInManager = logInManager;
+            _loginManager = loginManager;
         }
 
         [AllowAnonymous]
@@ -26,7 +26,7 @@ namespace Nankingcigar.Demo.WebApi.Controllers
         [HttpPost]
         public virtual async Task Authenticate(LoginInput input)
         {
-            var identity = await _logInManager.LoginAsync(input.UserName, input.Password);
+            var identity = await _loginManager.LoginAsync(input.UserName, input.Password);
             if (identity == null) throw new DemoApiException(1);
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignIn(identity);

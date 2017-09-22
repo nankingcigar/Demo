@@ -5,13 +5,13 @@ using Abp.Configuration.Startup;
 using Abp.Dependency;
 using Abp.Localization;
 using Abp.Runtime.Session;
+using Nankingcigar.Demo.Core.DomainService.Permission;
 using Nankingcigar.Demo.Core.Utility.Reflection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Nankingcigar.Demo.Core.DomainService.Permission;
 
 namespace Nankingcigar.Demo.Core.DomainService.Authorization
 {

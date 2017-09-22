@@ -1,11 +1,8 @@
-﻿using Abp.Modules;
-using System.Reflection;
-using System.Threading;
-using Abp.Authorization;
+﻿using Abp.Authorization;
 using Abp.Dependency;
-using Castle.MicroKernel.Registration;
+using Abp.Modules;
 using Nankingcigar.Demo.Core.DomainService.Authorization;
-using Nankingcigar.Demo.Core.Extension.Repository;
+using System.Reflection;
 
 namespace Nankingcigar.Demo.Core
 {

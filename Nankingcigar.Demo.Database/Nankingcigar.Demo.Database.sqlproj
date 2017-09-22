@@ -61,9 +61,14 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\User.sql" />
-    <Build Include="dbo\Tables\AuditLog.sql" />
+    <Build Include="dbo\Tables\RoleUser.sql" />
     <Build Include="dbo\Tables\UserLanding.sql" />
     <Build Include="dbo\Tables\UserGrid.sql" />
+    <Build Include="dbo\Tables\UserApi.sql" />
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\Role.sql" />
+    <Build Include="dbo\Tables\AuditLog.sql" />
+    <Build Include="dbo\Tables\RoleApi.sql" />
+    <Build Include="dbo\Tables\Api.sql" />
   </ItemGroup>
 </Project>

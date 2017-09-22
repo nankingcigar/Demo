@@ -2,10 +2,6 @@
 using Nankingcigar.Demo.Dapper.Extend;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Abp.Authorization;
-using Abp.Dependency;
-using Castle.MicroKernel.Registration;
-using Nankingcigar.Demo.Core.DomainService.Authorization;
 
 namespace Nankingcigar.Demo.Application.User
 {
@@ -15,7 +11,7 @@ namespace Nankingcigar.Demo.Application.User
         private readonly IDapperRepositoryExtension<Grid, long> _userGridDapperRepositoryExtend;
 
         public UserAppService(
-            IDapperRepositoryExtension<Core.Entity.User.Landing, long> userLandingDapperRepositoryExtend,
+            IDapperRepositoryExtension<Landing, long> userLandingDapperRepositoryExtend,
             IDapperRepositoryExtension<Grid, long> userGridDapperRepositoryExtend)
         {
             _userLandingDapperRepositoryExtend = userLandingDapperRepositoryExtend;

@@ -1,54 +1,73 @@
 ﻿using Abp;
-using Abp.Authorization;
 using Abp.Dependency;
-using System.Threading.Tasks;
-using System;
-using System.Linq;
-using System.Reflection;
 using Abp.Runtime.Session;
 using Nankingcigar.Demo.Core.Entity;
 using Nankingcigar.Demo.Core.Extension.Repository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
+using Nankingcigar.Demo.Core.Entity.Api;
+using Nankingcigar.Demo.Core.Entity.Role;
+using Nankingcigar.Demo.Core.Entity.User;
 
 namespace Nankingcigar.Demo.Core.DomainService.Permission
 {
     internal class DemoPermissionChecker : IDemoPermissionChecker, ITransientDependency
     {
         public IAbpSession AbpSession { get; set; }
-        public virtual IRepositoryExtension<Entity.Api.Api, long> ApiRepository { get; set; }
-        public virtual IRepositoryExtension<Entity.User.UserPermission, long> UserPermissionRepository { get; set; }
+        public IRepositoryExtension<Api, long> ApiRepository { get; set; }
+        public IRepositoryExtension<RoleApi, long> RoleApiRepositoryExtension { get; set; }
+        public IRepositoryExtension<RoleUser, long> RoleUserRepositoryExtension { get; set; }
+        public IRepositoryExtension<UserApi, long> UserApiRepositoryExtension { get; set; }
 
-        public virtual Task<bool> IsGrantedAsync(string permissionName)
+        public Task<bool> IsGrantedAsync(string permissionName)
         {
             return Task.FromResult(true);
         }
 
-        public virtual Task<bool> IsGrantedAsync(UserIdentifier user, string permissionName)
+        public Task<bool> IsGrantedAsync(UserIdentifier user, string permissionName)
         {
             return Task.FromResult(true);
         }
 
-        public virtual async Task<bool> IsGrantedAsync(MethodInfo methodInfo, Type type)
+        public async Task<bool> IsGrantedAsync(MethodInfo methodInfo, Type type)
         {
-            var api = ApiRepository
-                .GetAllIncluding(entity => entity.ApiPermissions)
+            var api = ApiRepository.CloseLazyLoad()
+                .GetAllIncluding(entity => entity.ApiRoles)
                 .FirstOrDefault(entity =>
                     entity.Namespace == type.Namespace &&
                     entity.ClassName == type.Name &&
-                    entity.MethodName == methodInfo.Name
-                );
-            if (api == null || !api.ApiPermissions.Any())
+                    entity.MethodName == methodInfo.Name);
+            if (api == null)
             {
                 return true;
             }
-            var apiPermissions = api.ApiPermissions.Select(entity => entity.PermissionId);
-            var userPermissions = (await UserPermissionRepository
-                .GetAllListAsync(entity => entity.UserId == AbpSession.UserId.Value))
-                .Select(entity => entity.PermissionId).ToList();
-            if (!apiPermissions.All(apiPermission => userPermissions.Contains(apiPermission)))
+            var userApi = await UserApiRepositoryExtension.FirstOrDefaultAsync(entity =>
+                entity.UserId == AbpSession.UserId &&
+                entity.ApiId == api.Id
+            );
+            if (userApi != null)
             {
+                if (userApi.HasPermission)
+                {
+                    return true;
+                }
                 throw new DemoApiException(401);
             }
-            return true;
+            if (!api.ApiRoles.Any())
+            {
+                return true;
+            }
+            var apiRoleIds = api.ApiRoles.Select(p => p.RoleId);
+            var userRoleIds = (await RoleUserRepositoryExtension.GetAllListAsync(entity =>
+                 entity.UserId == AbpSession.UserId.Value)).Select(entity => entity.RoleId);
+            if (apiRoleIds.Any(apiRoleId => userRoleIds.Contains(apiRoleId)))
+            {
+                return true;
+            }
+            throw new DemoApiException(401);
         }
     }
 }

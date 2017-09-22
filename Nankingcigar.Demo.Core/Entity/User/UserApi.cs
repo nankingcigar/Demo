@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Abp.Domain.Entities.Auditing;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abp.Domain.Entities.Auditing;
 
 namespace Nankingcigar.Demo.Core.Entity.User
 {
-    [Table("UserPermission")]
-    public sealed class UserPermission :
+    [Table("UserApi")]
+    public sealed class UserApi :
         DemoEntity,
         IFullAudited<User>
     {
         public long UserId { get; set; }
-        public long PermissionId { get; set; }
+        public long ApiId { get; set; }
+        public bool HasPermission { get; set; }
 
-        public Permission.Permission Permission { get; set; }
+        public Api.Api Api { get; set; }
         public User User { get; set; }
 
         public User CreatorUser { get; set; }

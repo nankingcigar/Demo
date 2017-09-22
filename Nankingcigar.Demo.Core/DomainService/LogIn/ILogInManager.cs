@@ -2,9 +2,9 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Nankingcigar.Demo.Core.DomainService.LogIn
+namespace Nankingcigar.Demo.Core.DomainService.Login
 {
-    public interface ILogInManager : IDomainService
+    public interface ILoginManager : IDomainService
     {
         Task<ClaimsIdentity> LoginAsync(string userNameOrEmailAddress, string plainPassword);
     }

@@ -53,11 +53,7 @@ export class DemoInterceptor implements HttpInterceptor {
                 queueKey.requestBroadCaster.error(event.body.error);
                 return Observable.throw(event.body.error);
               }
-              event = event.clone(
-                {
-                  body: event.body.result
-                }
-              );
+              (<any>event).body = event.body.result;
             }
           }
           queueKey.requestBroadCaster.next(event);
@@ -74,11 +70,10 @@ export class DemoInterceptor implements HttpInterceptor {
           if (err.error) {
             (<any>err).error = JSON.parse(err.error);
             if (err.error.__abp === true) {
-              console.log(languageKeys.errors[this._router.url]);
               this._localizationService.get(languageKeys.errors[this._router.url][err.error.error.code], { url: req.url })
                 .subscribe((translation: string) => {
                   err.error.error.message = translation;
-                  if(err.error.error.code === 401){
+                  if (err.error.error.code === 401) {
                     toastr.error(
                       translation,
                       '',

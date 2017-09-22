@@ -8,9 +8,6 @@ using Nankingcigar.Demo.WebApi;
 using System.Reflection;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Abp.Authorization;
-using Abp.Dependency;
-using Nankingcigar.Demo.Core.DomainService.Authorization;
 
 namespace Nankingcigar.Demo.Web
 {

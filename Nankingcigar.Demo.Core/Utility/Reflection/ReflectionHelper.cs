@@ -45,7 +45,7 @@ namespace Nankingcigar.Demo.Core.Utility.Reflection
 
             return attributeList;
         }
-        
+
         public static List<object> GetAttributesOfMemberAndType(MemberInfo memberInfo, Type type, bool inherit = true)
         {
             var attributeList = new List<object>();
@@ -53,7 +53,7 @@ namespace Nankingcigar.Demo.Core.Utility.Reflection
             attributeList.AddRange(type.GetTypeInfo().GetCustomAttributes(inherit));
             return attributeList;
         }
-        
+
         public static List<TAttribute> GetAttributesOfMemberAndDeclaringType<TAttribute>(MemberInfo memberInfo, bool inherit = true)
             where TAttribute : Attribute
         {
@@ -71,7 +71,7 @@ namespace Nankingcigar.Demo.Core.Utility.Reflection
 
             return attributeList;
         }
-        
+
         public static List<TAttribute> GetAttributesOfMemberAndType<TAttribute>(MemberInfo memberInfo, Type type, bool inherit = true)
             where TAttribute : Attribute
         {
@@ -89,7 +89,7 @@ namespace Nankingcigar.Demo.Core.Utility.Reflection
 
             return attributeList;
         }
-        
+
         public static TAttribute GetSingleAttributeOfMemberOrDeclaringTypeOrDefault<TAttribute>(MemberInfo memberInfo, TAttribute defaultValue = default(TAttribute), bool inherit = true)
             where TAttribute : class
         {
@@ -97,7 +97,7 @@ namespace Nankingcigar.Demo.Core.Utility.Reflection
                    ?? memberInfo.DeclaringType?.GetTypeInfo().GetCustomAttributes(true).OfType<TAttribute>().FirstOrDefault()
                    ?? defaultValue;
         }
-        
+
         public static TAttribute GetSingleAttributeOrDefault<TAttribute>(MemberInfo memberInfo, TAttribute defaultValue = default(TAttribute), bool inherit = true)
             where TAttribute : Attribute
         {
@@ -109,7 +109,7 @@ namespace Nankingcigar.Demo.Core.Utility.Reflection
 
             return defaultValue;
         }
-        
+
         /// <returns></returns>
         internal static object GetValueByPath(object obj, Type objectType, string propertyPath)
         {
@@ -131,7 +131,7 @@ namespace Nankingcigar.Demo.Core.Utility.Reflection
 
             return value;
         }
-        
+
         internal static void SetValueByPath(object obj, Type objectType, string propertyPath, object value)
         {
             var currentType = objectType;

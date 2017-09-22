@@ -6,9 +6,9 @@ using Nankingcigar.Demo.Core.EventBus.User;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Nankingcigar.Demo.Core.DomainService.LogIn
+namespace Nankingcigar.Demo.Core.DomainService.Login
 {
-    internal class LogInManager : DemoDomainServiceBase, ILogInManager
+    internal class LoginManager : DemoDomainServiceBase, ILoginManager
     {
         public virtual UserManager UserManager { get; set; }
 

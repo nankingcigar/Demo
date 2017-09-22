@@ -189,6 +189,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\DemoDbContext.cs" />
+    <Compile Include="EntityFramework\Mapping\Api\ApiMap.cs" />
+    <Compile Include="EntityFramework\Mapping\Role\RoleUser.cs" />
+    <Compile Include="EntityFramework\Mapping\Role\RoleMap.cs" />
+    <Compile Include="EntityFramework\Mapping\Role\RoleApiMap.cs" />
+    <Compile Include="EntityFramework\Mapping\User\UserApiMap.cs" />
+    <Compile Include="EntityFramework\Mapping\User\GridMap.cs" />
+    <Compile Include="EntityFramework\Mapping\User\LandingMap.cs" />
+    <Compile Include="EntityFramework\Mapping\User\UserMap.cs" />
     <Compile Include="EntityFramework\Repositories\DemoRepositoryBase.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DemoDataModule.cs" />
@@ -204,6 +212,7 @@
       <Name>Nankingcigar.Demo.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,6 +1,7 @@
 ﻿using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Microsoft.AspNet.Identity;
+using Nankingcigar.Demo.Core.Entity.Role;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -25,14 +26,27 @@ namespace Nankingcigar.Demo.Core.Entity.User
             UserAuditLogs = new HashSet<AuditLog>();
             ImpersonatorAuditLogs = new HashSet<AuditLog>();
 
-            CreatedPermissions = new HashSet<Permission.Permission>();
-            LastModifiedPermissions = new HashSet<Permission.Permission>();
-            DeletedPermissions = new HashSet<Permission.Permission>();
+            CreatedRoles = new HashSet<Role.Role>();
+            LastModifiedRoles = new HashSet<Role.Role>();
+            DeletedRoles = new HashSet<Role.Role>();
 
-            UserPermissions = new HashSet<UserPermission>();
-            CreatedUserPermissions = new HashSet<UserPermission>();
-            LastModifiedUserPermissions = new HashSet<UserPermission>();
-            DeletedUserPermissions = new HashSet<UserPermission>();
+            CreatedApis = new HashSet<Api.Api>();
+            LastModifiedApis = new HashSet<Api.Api>();
+            DeletedApis = new HashSet<Api.Api>();
+
+            CreatedRoleApis = new HashSet<RoleApi>();
+            LastModifiedRoleApis = new HashSet<RoleApi>();
+            DeletedRoleApis = new HashSet<RoleApi>();
+
+            UserRoles = new HashSet<RoleUser>();
+            CreatedRoleUsers = new HashSet<RoleUser>();
+            LastModifiedRoleUsers = new HashSet<RoleUser>();
+            DeletedRoleUsers = new HashSet<RoleUser>();
+
+            UserApis = new HashSet<UserApi>();
+            CreatedUserApis = new HashSet<UserApi>();
+            LastModifiedUserApis = new HashSet<UserApi>();
+            DeletedUserApis = new HashSet<UserApi>();
         }
 
         public bool IsActive { get; set; }
@@ -76,24 +90,54 @@ namespace Nankingcigar.Demo.Core.Entity.User
         public ICollection<AuditLog> ImpersonatorAuditLogs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<Permission.Permission> CreatedPermissions { get; set; }
+        public ICollection<Role.Role> CreatedRoles { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<Permission.Permission> LastModifiedPermissions { get; set; }
+        public ICollection<Role.Role> LastModifiedRoles { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<Permission.Permission> DeletedPermissions { get; set; }
+        public ICollection<Role.Role> DeletedRoles { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<UserPermission> UserPermissions { get; set; }
+        public ICollection<Api.Api> CreatedApis { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<UserPermission> CreatedUserPermissions { get; set; }
+        public ICollection<Api.Api> LastModifiedApis { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<UserPermission> LastModifiedUserPermissions { get; set; }
+        public ICollection<Api.Api> DeletedApis { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<UserPermission> DeletedUserPermissions { get; set; }
+        public ICollection<RoleApi> CreatedRoleApis { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<RoleApi> LastModifiedRoleApis { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<RoleApi> DeletedRoleApis { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<RoleUser> UserRoles { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<RoleUser> CreatedRoleUsers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<RoleUser> LastModifiedRoleUsers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<RoleUser> DeletedRoleUsers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<UserApi> UserApis { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<UserApi> CreatedUserApis { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<UserApi> LastModifiedUserApis { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<UserApi> DeletedUserApis { get; set; }
     }
 }

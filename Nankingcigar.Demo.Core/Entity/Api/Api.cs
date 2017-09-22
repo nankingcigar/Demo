@@ -1,24 +1,23 @@
-﻿using System;
+﻿using Abp.Domain.Entities.Auditing;
+using Nankingcigar.Demo.Core.Entity.Role;
+using Nankingcigar.Demo.Core.Entity.User;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abp.Domain.Entities.Auditing;
-using Nankingcigar.Demo.Core.Entity.User;
-using Abp.Domain.Entities;
 
 namespace Nankingcigar.Demo.Core.Entity.Api
 {
     [Table("Api")]
-    public sealed class Api : Entity<long>
+    public sealed class Api :
+        DemoEntity,
+        IFullAudited<User.User>
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage",
             "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Api()
         {
-            ApiPermissions = new HashSet<ApiPermission>();
+            ApiRoles = new HashSet<RoleApi>();
+            ApiUsers = new HashSet<UserApi>();
         }
 
         [Required]
@@ -33,8 +32,14 @@ namespace Nankingcigar.Demo.Core.Entity.Api
         [StringLength(20)]
         public string MethodName { get; set; }
 
+        public User.User CreatorUser { get; set; }
+        public User.User LastModifierUser { get; set; }
+        public User.User DeleterUser { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public ICollection<ApiPermission> ApiPermissions { get; set; }
+        public ICollection<RoleApi> ApiRoles { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<UserApi> ApiUsers { get; set; }
     }
 }
