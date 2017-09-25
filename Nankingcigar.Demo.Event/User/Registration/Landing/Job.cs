@@ -3,7 +3,7 @@ using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 
-namespace Nankingcigar.Demo.Event.User.Registration.Landing
+namespace Nankingcigar.Demo.MessageQueue.User.Registration.Landing
 {
     public class Job : BackgroundJob<Core.Entity.User.User>, ITransientDependency
     {
@@ -15,7 +15,7 @@ namespace Nankingcigar.Demo.Event.User.Registration.Landing
             Core.Entity.User.Landing landing = new Core.Entity.User.Landing()
             {
                 Id = args.Id,
-                DisplayName = args.DisplayName ?? args.UserName
+                Display = args.Display ?? args.UserName
             };
             await LandingRepository.InsertAsync(landing);
         }

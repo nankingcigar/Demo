@@ -194,9 +194,9 @@
     <Compile Include="Entity\User\UserApi.cs" />
     <Compile Include="Entity\User\User.cs" />
     <Compile Include="Entity\Role\RoleUser.cs" />
-    <Compile Include="EventBus\DemoEventData.cs" />
-    <Compile Include="EventBus\User\LoginEventData.cs" />
-    <Compile Include="EventBus\User\RegistrationEventData.cs" />
+    <Compile Include="Message\DemoMessage.cs" />
+    <Compile Include="Message\User\LoginMessage.cs" />
+    <Compile Include="Message\User\RegistrationMessage.cs" />
     <Compile Include="Extension\Repository\IRepositoryExtension.cs" />
     <Compile Include="Extension\Json\Converter\DemoDateTimeConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

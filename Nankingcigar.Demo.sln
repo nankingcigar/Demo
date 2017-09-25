@@ -34,7 +34,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.Dapper", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.Test", "Nankingcigar.Demo.Test\Nankingcigar.Demo.Test.csproj", "{2E3DF5C2-8A38-4A03-86D7-8D463C917E47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.Event", "Nankingcigar.Demo.Event\Nankingcigar.Demo.Event.csproj", "{E7D2A771-409A-4843-920D-F2E412A71CD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nankingcigar.Demo.MessageQueue", "Nankingcigar.Demo.Event\Nankingcigar.Demo.MessageQueue.csproj", "{E7D2A771-409A-4843-920D-F2E412A71CD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

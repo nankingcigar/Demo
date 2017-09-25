@@ -8,6 +8,7 @@ namespace Nankingcigar.Demo.Dapper.Mapper
         public UserMapper()
         {
             Table("User");
+            Map(entity => entity.UserName).Column("Name");
             Map(entity => entity.CreatedUsers).Ignore();
             Map(entity => entity.CreatorUser).Ignore();
             Map(entity => entity.LastModifiedUsers).Ignore();

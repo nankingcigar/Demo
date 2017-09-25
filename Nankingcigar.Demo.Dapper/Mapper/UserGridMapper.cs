@@ -7,7 +7,7 @@ namespace Nankingcigar.Demo.Dapper.Mapper
     {
         public UserGridMapper()
         {
-            Table("UserGrid");
+            Table("vUserGrid");
             AutoMap();
         }
     }

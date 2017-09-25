@@ -6,15 +6,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Nankingcigar.Demo.Core.Entity.User
 {
-    [Table("UserGrid")]
+    [Table("vUserGrid")]
     public class Grid : Entity<long>
     {
         [Required]
         [StringLength(50)]
-        public string UserName { get; set; }
+        public string Name { get; set; }
 
         [StringLength(50)]
-        public string DisplayName { get; set; }
+        public string Display { get; set; }
 
         [StringLength(100)]
         public string Email { get; set; }

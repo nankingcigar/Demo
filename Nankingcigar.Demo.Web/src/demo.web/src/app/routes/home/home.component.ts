@@ -54,11 +54,8 @@ export class HomeComponent implements OnInit {
     this._userService.getCurrentUser()
       .subscribe(user => {
         this._user = user;
-        this._displayName = this._user.displayName;
-        if (!this._displayName) {
-          this._displayName = this._user.userName;
-          this.welcome();
-        }
+        this._displayName = this._user.display;
+        this.welcome();
       });
   }
 

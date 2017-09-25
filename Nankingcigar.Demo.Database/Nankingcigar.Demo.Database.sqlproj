@@ -62,8 +62,8 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\RoleUser.sql" />
-    <Build Include="dbo\Tables\UserLanding.sql" />
-    <Build Include="dbo\Tables\UserGrid.sql" />
+    <Build Include="dbo\Tables\vUserLanding.sql" />
+    <Build Include="dbo\Tables\vUserGrid.sql" />
     <Build Include="dbo\Tables\UserApi.sql" />
     <Build Include="dbo\Tables\User.sql" />
     <Build Include="dbo\Tables\Role.sql" />

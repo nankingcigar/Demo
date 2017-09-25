@@ -407,9 +407,9 @@
       <Project>{3979f157-deb0-4878-ab1d-4cef6b5a1300}</Project>
       <Name>Nankingcigar.Demo.EntityFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Nankingcigar.Demo.Event\Nankingcigar.Demo.Event.csproj">
+    <ProjectReference Include="..\Nankingcigar.Demo.Event\Nankingcigar.Demo.MessageQueue.csproj">
       <Project>{e7d2a771-409a-4843-920d-f2e412a71cd9}</Project>
-      <Name>Nankingcigar.Demo.Event</Name>
+      <Name>Nankingcigar.Demo.MessageQueue</Name>
     </ProjectReference>
     <ProjectReference Include="..\Nankingcigar.Demo.WebApi\Nankingcigar.Demo.WebApi.csproj">
       <Project>{5eb52d3d-09fd-463a-b02a-8d9856bd3724}</Project>

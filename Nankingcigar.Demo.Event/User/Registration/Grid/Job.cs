@@ -3,7 +3,7 @@ using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 
-namespace Nankingcigar.Demo.Event.User.Registration.Grid
+namespace Nankingcigar.Demo.MessageQueue.User.Registration.Grid
 {
     public class Job : BackgroundJob<Core.Entity.User.User>, ITransientDependency
     {
@@ -15,8 +15,8 @@ namespace Nankingcigar.Demo.Event.User.Registration.Grid
             Core.Entity.User.Grid grid = new Core.Entity.User.Grid()
             {
                 Id = args.Id,
-                UserName = args.UserName,
-                DisplayName = args.DisplayName,
+                Name = args.UserName,
+                Display = args.Display ?? args.UserName,
                 Email = args.Email,
                 LastLoginTime = args.LastLoginTime
             };

@@ -6,6 +6,8 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Mapping.User
     {
         public UserMap()
         {
+            this.Property(e => e.UserName).HasColumnName("Name");
+
             this.HasMany(e => e.CreatedUsers)
                 .WithOptional(e => e.CreatorUser)
                 .HasForeignKey(e => e.CreatorUserId);

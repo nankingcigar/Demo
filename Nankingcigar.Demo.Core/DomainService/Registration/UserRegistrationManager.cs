@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Nankingcigar.Demo.Core.DomainService.User;
 using Nankingcigar.Demo.Core.Entity;
-using Nankingcigar.Demo.Core.EventBus.User;
+using Nankingcigar.Demo.Core.Message.User;
 using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Core.DomainService.Registration
@@ -24,7 +24,7 @@ namespace Nankingcigar.Demo.Core.DomainService.Registration
             };
             await UserManager.CreateAsync(user);
             await CurrentUnitOfWork.SaveChangesAsync();
-            EventBus.Trigger(new RegistrationEventData() { Data = user });
+            EventBus.Trigger(new RegistrationMessage() { Data = user });
         }
     }
 }

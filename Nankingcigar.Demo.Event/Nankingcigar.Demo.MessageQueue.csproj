@@ -8,8 +8,8 @@
     <ProjectGuid>{E7D2A771-409A-4843-920D-F2E412A71CD9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Nankingcigar.Demo.Event</RootNamespace>
-    <AssemblyName>Nankingcigar.Demo.Event</AssemblyName>
+    <RootNamespace>Nankingcigar.Demo.MessageQueue</RootNamespace>
+    <AssemblyName>Nankingcigar.Demo.MessageQueue</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -173,12 +173,12 @@
   <ItemGroup>
     <Compile Include="DemoEventModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User\Login\Grid\Event.cs" />
+    <Compile Include="User\Login\Grid\Handler.cs" />
     <Compile Include="User\Login\Grid\Job.cs" />
-    <Compile Include="User\Registration\Grid\Event.cs" />
+    <Compile Include="User\Registration\Grid\Handler.cs" />
     <Compile Include="User\Registration\Grid\Job.cs" />
-    <Compile Include="User\Registration\IRegistrationEvent.cs" />
-    <Compile Include="User\Registration\Landing\Event.cs" />
+    <Compile Include="User\Registration\IRegistrationHandler.cs" />
+    <Compile Include="User\Registration\Landing\Handler.cs" />
     <Compile Include="User\Registration\Landing\Job.cs" />
   </ItemGroup>
   <ItemGroup>

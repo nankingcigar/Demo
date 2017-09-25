@@ -5,6 +5,5 @@
  * @Last Modified time: 2017-09-19 02:25:26
  */
 export class LandingUser {
-    public userName: string;
-    public displayName: string;
+    public display: string;
 }

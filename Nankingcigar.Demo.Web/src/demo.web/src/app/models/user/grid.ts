@@ -8,6 +8,7 @@ import { LandingUser } from './landing';
 
 export class GridUser extends LandingUser {
   public id: number;
+  public name: string;
   public email: string;
   public lastLoginTime: number;
 }

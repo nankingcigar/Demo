@@ -2,7 +2,7 @@
 using Abp.Timing;
 using Microsoft.AspNet.Identity;
 using Nankingcigar.Demo.Core.DomainService.User;
-using Nankingcigar.Demo.Core.EventBus.User;
+using Nankingcigar.Demo.Core.Message.User;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -24,7 +24,7 @@ namespace Nankingcigar.Demo.Core.DomainService.Login
             user.LastLoginTime = Clock.Now;
             await UserManager.UpdateAsync(user);
             await UnitOfWorkManager.Current.SaveChangesAsync();
-            EventBus.Trigger(new LoginEventData() { Data = user });
+            EventBus.Trigger(new LoginMessage() { Data = user });
             return await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
         }
     }

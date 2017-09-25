@@ -67,7 +67,7 @@ namespace Nankingcigar.Demo.Core.Entity.User
         public string Password { get; set; }
 
         [StringLength(50)]
-        public string DisplayName { get; set; }
+        public string Display { get; set; }
 
         public DateTime? LastLoginTime { get; set; }
 

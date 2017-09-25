@@ -7,7 +7,7 @@ namespace Nankingcigar.Demo.Dapper.Mapper
     {
         public UserLandingMapper()
         {
-            Table("UserLanding");
+            Table("vUserLanding");
             AutoMap();
         }
     }
