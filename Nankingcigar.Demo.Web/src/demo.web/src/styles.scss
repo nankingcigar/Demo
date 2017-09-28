@@ -87,25 +87,25 @@
     }
 
     $classPrefix: nankingcigar-demo-;
-    .#{$classPrefix}login.page-login .page-content,
-    .#{$classPrefix}register.page-register .page-content {
+    .page-login .page-content,
+    .page-register .page-content {
       background: #121212;
     }
 
-    .#{$classPrefix}login.page-login .a-forgotPassword:hover,
-    .#{$classPrefix}login.page-login .a-forgotPassword:visited,
-    .#{$classPrefix}login.page-login .a-forgotPassword:active,
-    .#{$classPrefix}register.page-register .a-forgotPassword:hover,
-    .#{$classPrefix}register.page-register .a-forgotPassword:visited,
-    .#{$classPrefix}register.page-register .a-forgotPassword:active {
+    .page-login .a-forgotPassword:hover,
+    .page-login .a-forgotPassword:visited,
+    .page-login .a-forgotPassword:active,
+    .page-register .a-forgotPassword:hover,
+    .page-register .a-forgotPassword:visited,
+    .page-register .a-forgotPassword:active {
       color: #337ab7;
     }
 
-    .#{$classPrefix}login.page-login .page-content,
-    .#{$classPrefix}register.page-register .page-content,
-    .#{$classPrefix}login.page-login .page-content .btnSubmit,
-    .#{$classPrefix}register.page-login .page-content .btnSubmit,
-    .#{$classPrefix}login.page-login .page-content .loginError {
+    .page-login .page-content,
+    .page-register .page-content,
+    .page-login .page-content .btnSubmit,
+    .page-login .page-content .btnSubmit,
+    .page-login .page-content .loginError {
       -webkit-animation: fadein 3s;
       -moz-animation: fadein 3s;
       -ms-animation: fadein 3s;
@@ -113,12 +113,12 @@
       animation: fadein 3s;
     }
 
-    .#{$classPrefix}login.page-login .ui-dropdown {
+    .page-login .ui-dropdown {
       width: 100%;
     }
 
-    .#{$classPrefix}login.page-login .pace .pace-activity,
-    .#{$classPrefix}login.page-register .pace .pace-activity {
+    .page-login .pace .pace-activity,
+    .page-register .pace .pace-activity {
       margin-top: 0px;
     }
 

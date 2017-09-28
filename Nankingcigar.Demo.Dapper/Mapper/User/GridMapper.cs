@@ -1,11 +1,11 @@
 ﻿using DapperExtensions.Mapper;
 using Nankingcigar.Demo.Core.Entity.User;
 
-namespace Nankingcigar.Demo.Dapper.Mapper
+namespace Nankingcigar.Demo.Dapper.Mapper.User
 {
-    public sealed class UserGridMapper : ClassMapper<Grid>
+    public sealed class GridMapper : ClassMapper<Grid>
     {
-        public UserGridMapper()
+        public GridMapper()
         {
             Table("vUserGrid");
             AutoMap();

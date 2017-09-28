@@ -1,6 +1,12 @@
+/*
+ * @Author: Chao Yang
+ * @Date: 2017-09-25 07:14:28
+ * @Last Modified by:   Chao Yang
+ * @Last Modified time: 2017-09-25 07:14:28
+ */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -13,10 +19,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserComponent } from './user/user.component';
 import { LogComponent } from './log/log.component';
 import { AboutComponent } from './about/about.component';
+import { RoutesService } from '../../services/route/routes.service';
 
 export const ROUTES: Routes = [
   {
-    path: 'app',
+    path: '',
     component: HomeComponent,
     data: {
       toAuth: true
@@ -75,7 +82,7 @@ export const ROUTES: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(
-      ROUTES
+      []
     ),
     FormsModule,
     HttpClientModule,
@@ -91,7 +98,18 @@ export const ROUTES: Routes = [
     LogComponent,
     AboutComponent
   ],
-  exports: [
+  entryComponents: [
+    HomeComponent,
+    DashboardComponent,
+    ProfileComponent,
+    UserComponent,
+    LogComponent,
+    AboutComponent
   ]
 })
-export class HomeModule { }
+export class HomeModule {
+  constructor(
+    private _routesService: RoutesService) {
+    this._routesService.get(this.constructor.name);
+  }
+}

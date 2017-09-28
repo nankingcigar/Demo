@@ -18,23 +18,35 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework
 
         //Example:
         //public virtual IDbSet<User> Users { get; set; }
-        public virtual IDbSet<User> Users { get; set; }
+        public virtual IDbSet<User> User { get; set; }
 
-        public virtual IDbSet<UserApi> UserApis { get; set; }
+        public virtual IDbSet<UserApi> UserApi { get; set; }
 
-        public virtual IDbSet<Landing> UserLandings { get; set; }
+        public virtual IDbSet<Landing> Landing { get; set; }
 
-        public virtual IDbSet<Grid> UserGrids { get; set; }
+        public virtual IDbSet<Grid> Grid { get; set; }
 
-        public virtual IDbSet<AuditLog> Logs { get; set; }
+        public virtual IDbSet<AuditLog> AuditLog { get; set; }
 
         public virtual IDbSet<Role> Role { get; set; }
 
-        public virtual IDbSet<RoleApi> RoleApis { get; set; }
+        public virtual IDbSet<RoleApi> RoleApi { get; set; }
 
-        public virtual IDbSet<RoleUser> RoleUsers { get; set; }
+        public virtual IDbSet<RoleUser> RoleUser { get; set; }
 
         public virtual IDbSet<Api> Api { get; set; }
+
+        public virtual IDbSet<Core.Entity.UI.Module.Module> Module { get; set; }
+
+        public virtual IDbSet<Core.Entity.UI.Module.ModuleComponent> ModuleComponent { get; set; }
+
+        public virtual IDbSet<Core.Entity.UI.Module.ModuleRelationship> ModuleRelationship { get; set; }
+
+        public virtual IDbSet<Core.Entity.UI.Component.Component> Component { get; set; }
+
+        public virtual IDbSet<Core.Entity.UI.Route.Route> Route { get; set; }
+
+        public virtual IDbSet<Core.Entity.UI.Route.RouteRelationship> RouteRelationship { get; set; }
 
         /* NOTE:
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

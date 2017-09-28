@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 import { RouteService } from './services/route/route.service';
 
 @Component({
-  selector: selector(),
+  selector: 'nankingcigar-demo-app',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
@@ -19,8 +19,4 @@ export class AppComponent {
   ) {
     Waves.init();
   }
-}
-
-function selector(): string {
-    return 'nankingcigar-demo-app';
 }

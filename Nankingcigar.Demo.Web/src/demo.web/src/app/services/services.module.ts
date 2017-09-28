@@ -13,6 +13,7 @@ import { AccountService } from './account/account.service';
 import { UserService } from './user/user.service';
 import { LocalizationService } from './localization/localization.service';
 import { RouteService } from './route/route.service';
+import { RoutesService } from './route/routes.service';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { RouteService } from './route/route.service';
     CookieService,
     UserService,
     LocalizationService,
-    RouteService
+    RouteService,
+    RoutesService
   ]
 })
 export class ServicesModule { }

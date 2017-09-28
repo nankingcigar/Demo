@@ -12,7 +12,7 @@ import { AccountService } from '../../services/account/account.service';
 import { languageKeys } from '../../app.global';
 
 @Component({
-  selector: selector(),
+  selector: 'nankingcigar-demo-account-register',
   templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
@@ -58,8 +58,4 @@ export class RegisterComponent implements OnInit {
   onBlurEmail(e) {
     this._registerInput.email = this._registerInput.email.trim();
   }
-}
-
-function selector(): string {
-  return 'nankingcigar-demo-account-register';
 }

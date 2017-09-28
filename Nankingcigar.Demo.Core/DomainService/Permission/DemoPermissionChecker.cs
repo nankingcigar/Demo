@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Abp.Domain.Uow;
 using Nankingcigar.Demo.Core.Entity.Api;
 using Nankingcigar.Demo.Core.Entity.Role;
 using Nankingcigar.Demo.Core.Entity.User;
@@ -32,6 +33,7 @@ namespace Nankingcigar.Demo.Core.DomainService.Permission
             return Task.FromResult(true);
         }
 
+        [UnitOfWork]
         public async Task<bool> IsGrantedAsync(MethodInfo methodInfo, Type type)
         {
             var api = ApiRepository.CloseLazyLoad()

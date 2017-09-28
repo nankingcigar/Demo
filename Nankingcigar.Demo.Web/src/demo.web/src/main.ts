@@ -8,6 +8,4 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule).then(
-  (moduleRef: any) => app.moduleRef = moduleRef
-);
+platformBrowserDynamic().bootstrapModule(AppModule);

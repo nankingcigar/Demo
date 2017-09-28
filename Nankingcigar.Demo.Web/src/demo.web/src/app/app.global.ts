@@ -21,6 +21,9 @@ export const api = {
   user: {
     get: 'api/services/app/user/get',
     getAll: 'api/services/app/user/getAll'
+  },
+  route: {
+    get: '/api/services/app/route/getRoutes?moduleName='
   }
 };
 
@@ -107,15 +110,13 @@ export const languageKeys = {
   },
   errors: {
     global: {
+      '401': '401'
     },
     '/login': {
       '1': 'User Name or Password is incorrect.'
     },
     '/register': {
       '1': 'User Name or Email has been registered.'
-    },
-    '/app/user': {
-      '401': '401'
     }
   }
 };

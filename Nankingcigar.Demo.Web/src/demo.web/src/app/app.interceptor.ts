@@ -2,9 +2,9 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 10:21:46
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-21 10:29:30
+ * @Last Modified time: 2017-09-28 01:49:11
  */
-import { Injectable } from '@angular/core';
+import { Injectable, NgModuleRef } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse, HttpUserEvent } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -14,6 +14,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/map';
 
+import { AppModule } from './app.module';
 import { Request } from './models/http/request';
 import { AccountService } from './services/account/account.service';
 import { LocalizationService } from './services/localization/localization.service';
@@ -26,15 +27,17 @@ export class DemoInterceptor implements HttpInterceptor {
   private _localizationService: LocalizationService;
 
   constructor(
+    private _moduleRef: NgModuleRef<AppModule>,
     private _router: Router
   ) {
+    app.moduleRef = this._moduleRef;
+    Observable.of(this).delay(1000).subscribe(() => {
+      this._accountService = app.moduleRef.injector.get<AccountService>(AccountService);
+      this._localizationService = app.moduleRef.injector.get<LocalizationService>(LocalizationService);
+    });
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (app.moduleRef) {
-      this._accountService = app.moduleRef.injector.get<AccountService>(AccountService);
-      this._localizationService = app.moduleRef.injector.get<LocalizationService>(LocalizationService);
-    }
     if (this.containsRequest(req)) {
       if (req.method !== 'GET') {
         return Observable.of(null);
@@ -70,23 +73,32 @@ export class DemoInterceptor implements HttpInterceptor {
           if (err.error) {
             (<any>err).error = JSON.parse(err.error);
             if (err.error.__abp === true) {
-              this._localizationService.get(languageKeys.errors[this._router.url][err.error.error.code], { url: req.url })
-                .subscribe((translation: string) => {
-                  err.error.error.message = translation;
-                  if (err.error.error.code === 401) {
-                    toastr.error(
-                      translation,
-                      '',
-                      {
-                        closeButton: true,
-                        progressBar: true,
-                        showMethod: 'fadeIn',
-                        hideMethod: 'fadeOut',
-                        timeOut: 2000
-                      }
-                    );
-                  }
-                });
+              let code: string;
+              if (languageKeys.errors[this._router.url][err.error.error.code]) {
+                code = languageKeys.errors[this._router.url][err.error.error.code]
+              } else if (languageKeys.errors['global'][err.error.error.code]) {
+                code = languageKeys.errors['global'][err.error.error.code];
+              }
+              if (code) {
+                this._localizationService.get(code, { url: req.url })
+                  .subscribe((translation: string) => {
+                    console.log(translation);
+                    err.error.error.message = translation;
+                    if (err.error.error.code === 401) {
+                      toastr.error(
+                        translation,
+                        '',
+                        {
+                          closeButton: true,
+                          progressBar: true,
+                          showMethod: 'fadeIn',
+                          hideMethod: 'fadeOut',
+                          timeOut: 2000
+                        }
+                      );
+                    }
+                  });
+              }
               queueKey.requestBroadCaster.error(err.error.error);
               return Observable.throw(err.error.error);
             }

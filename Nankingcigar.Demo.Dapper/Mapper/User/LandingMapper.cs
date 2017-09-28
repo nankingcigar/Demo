@@ -1,11 +1,11 @@
 ﻿using DapperExtensions.Mapper;
 using Nankingcigar.Demo.Core.Entity.User;
 
-namespace Nankingcigar.Demo.Dapper.Mapper
+namespace Nankingcigar.Demo.Dapper.Mapper.User
 {
-    public sealed class UserLandingMapper : ClassMapper<Landing>
+    public sealed class LandingMapper : ClassMapper<Landing>
     {
-        public UserLandingMapper()
+        public LandingMapper()
         {
             Table("vUserLanding");
             AutoMap();

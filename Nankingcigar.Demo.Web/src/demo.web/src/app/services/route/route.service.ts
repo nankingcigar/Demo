@@ -13,6 +13,7 @@ import 'rxjs/add/operator/filter';
 import { BaseService } from '../base.service';
 import { AccountService } from '../account/account.service';
 import { LocalizationService } from '../localization/localization.service';
+import { RoutesService } from './routes.service';
 import { languageKeys } from '../../app.global';
 
 @Injectable()
@@ -24,7 +25,8 @@ export class RouteService extends BaseService {
     private _cookieService: CookieService,
     private _accountService: AccountService,
     private _router: Router,
-    private _localizationService: LocalizationService
+    private _localizationService: LocalizationService,
+    private _routesService: RoutesService
   ) {
     super();
     this._router.events.filter(event => {
@@ -47,15 +49,20 @@ export class RouteService extends BaseService {
       }
       parentRoute = route;
     }
-    if (route.data.toAuth) {
-      if (this._accountService.canActivate() === false) {
-        this._router.navigate(['login']);
-        return;
-      }
-    } else {
-      if (this._accountService.canActivate() === true) {
-        this._router.navigate(['app/dashboard']);
-        return;
+    if (route === event.state.root) {
+      return;
+    }
+    if (this._routesService.isStop()) {
+      if (route.data.toAuth) {
+        if (this._accountService.canActivate() === false) {
+          this._router.navigate(['login']);
+          return;
+        }
+      } else {
+        if (this._accountService.canActivate() === true) {
+          this._router.navigate(['app']);
+          return;
+        }
       }
     }
     languageKeys.page.home.subTitle = languageKeys.page.home[route.routeConfig.path];

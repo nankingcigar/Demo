@@ -6,34 +6,46 @@
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
+import { LoadedRouterConfig } from '@angular/router/src/config.d';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { RegisterComponent } from './register.component';
+import { RoutesService } from '../../services/route/routes.service';
 
+/*
+export const ROUTES: Routes = [
+  {
+    path: '',
+    component: RegisterComponent,
+    data: {
+      pageClass: 'page-register',
+      title: 'Login - Sign up'
+      }
+    }
+];
+*/
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     TranslateModule.forChild(),
     RouterModule.forChild(
-      [
-        {
-          path: 'register',
-          component: RegisterComponent,
-          data: {
-            pageClass: 'page-register',
-            title: 'Login - Sign up'
-          }
-        }
-      ]
+      []
     )
   ],
   declarations: [
     RegisterComponent
   ],
-  exports: [
+  entryComponents: [
+    RegisterComponent
   ]
 })
-export class RegisterModule { }
+export class RegisterModule {
+  constructor(
+    private _routesService: RoutesService
+  ) {
+    this._routesService.get(this.constructor.name);
+  }
+}

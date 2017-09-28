@@ -11,7 +11,7 @@ import { UserService } from '../../../services/user/user.service';
 import { languageKeys } from '../../../app.global';
 
 @Component({
-  selector: selector(),
+  selector: 'nankingcigar-demo-user',
   templateUrl: './user.component.html',
 })
 export class UserComponent implements OnInit {
@@ -25,8 +25,4 @@ export class UserComponent implements OnInit {
       this._users = users;
     });
   }
-}
-
-function selector(): string {
-  return 'nankingcigar-demo-user';
 }

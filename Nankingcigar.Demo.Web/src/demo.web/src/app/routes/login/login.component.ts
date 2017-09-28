@@ -13,7 +13,7 @@ import { LocalizationService } from '../../services/localization/localization.se
 import { LoginInput } from '../../models/account/login/input';
 
 @Component({
-  selector: selector(),
+  selector: 'nankingcigar-demo-account-login',
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
         if (this._error.hidden === false) {
           this._error.hidden = true;
         }
-        this._router.navigate(['app/dashboard']);
+        this._router.navigate(['app']);
       },
       err => {
         if (this._error.hidden === true) {
@@ -62,8 +62,4 @@ export class LoginComponent implements OnInit {
   onChange(e): void {
     this._localizationService.setLanguage(e.value);
   }
-}
-
-function selector(): string {
-  return 'nankingcigar-demo-account-login';
 }

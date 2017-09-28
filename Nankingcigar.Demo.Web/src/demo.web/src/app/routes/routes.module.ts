@@ -1,22 +1,17 @@
-
 /*
  * @Author: Chao Yang
  * @Date: 2017-08-28 07:55:28
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 06:56:48
+ * @Last Modified time: 2017-09-28 01:57:43
  */
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
 
-import { LoginModule } from './login/login.module';
-import { RegisterModule } from './register/register.module';
-import { HomeModule } from './home/home.module';
+import { AppModule } from '../app.module';
+import { LocalizationService } from '../services/localization/localization.service';
+import { RoutesService } from '../services/route/routes.service';
 
 export const ROUTES: Routes = [
-  /*
   {
     path: 'login',
     loadChildren: './login/login.module#LoginModule'
@@ -29,15 +24,14 @@ export const ROUTES: Routes = [
     path: 'home',
     loadChildren: './home/home.module#HomeModule'
   },
-  */
   {
     path: '**',
-    redirectTo: 'app',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: '',
-    redirectTo: 'app',
+    redirectTo: 'login',
     pathMatch: 'full'
   }
 ];
@@ -45,12 +39,16 @@ export const ROUTES: Routes = [
 @NgModule({
   imports: [
     RouterModule.forChild(
-      ROUTES
-    ),
-    LoginModule,
-    RegisterModule,
-    HomeModule
+      []
+    )
   ],
   declarations: []
 })
-export class RoutesModule { }
+export class RoutesModule {
+  constructor(
+    private _routesService: RoutesService,
+    private _localizationService: LocalizationService) {
+    this._localizationService.init();
+    this._routesService.get(this.constructor.name);
+  }
+}

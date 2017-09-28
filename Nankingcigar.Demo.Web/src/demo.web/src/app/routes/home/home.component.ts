@@ -16,13 +16,13 @@ import { LandingUser } from '../../models/user/landing';
 import { languageKeys } from '../../app.global';
 
 @Component({
-  selector: selector(),
+  selector: 'nankingcigar-demo-home',
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
   _user: LandingUser;
   _displayName: string;
-  _languageKeys = languageKeys.page.home;
+  _languageKeys: any = languageKeys.page.home;
   _logoText: string;
   _smallLogoText: string;
   _app = app;
@@ -317,7 +317,7 @@ export class HomeComponent implements OnInit {
     $('body').toggleClass('show-menu');
   }
 
-  toggeleNavigationMenu(e: UIEvent): void{
+  toggeleNavigationMenu(e: UIEvent): void {
     e.preventDefault();
     $('.top-menu').toggleClass('show-navigation');
   }
@@ -392,8 +392,4 @@ export class HomeComponent implements OnInit {
       err => this._router.navigate(['login'])
     );
   }
-}
-
-function selector(): string {
-  return 'nankingcigar-demo-home';
 }

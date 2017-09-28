@@ -21,6 +21,9 @@ export class LocalizationService extends BaseService {
     private _title: Title
   ) {
     super();
+  }
+
+  init(): void {
     this._translateService.setDefaultLang('en');
     if (localStorage.getItem(app.environment.languageKey)) {
       this._translateService.use(localStorage.getItem(app.environment.languageKey));
@@ -53,9 +56,11 @@ export class LocalizationService extends BaseService {
     if (title) {
       this._pageTitle = title;
     }
-    this.get(this._pageTitle, app).subscribe((translation: string) => {
-      this._title.setTitle(translation);
-    });
+    if (this._pageTitle) {
+      this.get(this._pageTitle, app).subscribe((translation: string) => {
+        this._title.setTitle(translation);
+      });
+    }
   }
 
   private setApp() {

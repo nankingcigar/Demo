@@ -12,6 +12,10 @@ interface App {
   year: number;
   moduleRef: NgModuleRef;
   environment: Environment;
+  login: string;
+  _404: string;
+  home: string;
+  navigateUrl: string;
 }
 
 interface Type<T> {

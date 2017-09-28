@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-25 07:52:42
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-05 06:52:40
+ * @Last Modified time: 2017-09-28 01:37:00
  */
 import { HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -33,11 +33,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     RouterModule.forRoot(
       [],
       {
-        enableTracing: environment.production ? false : true,
+        enableTracing: environment.production,
         useHash: true,
         preloadingStrategy: environment.production ? PreloadAllModules : NoPreloading
       }
     ),
+    ServicesModule,
     RoutesModule,
     TranslateModule.forRoot({
       loader: {
@@ -45,8 +46,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
-    }),
-    ServicesModule
+    })
   ],
   providers: [
     {
@@ -59,4 +59,5 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent
   ]
 })
-export class AppModule { }
+export class AppModule {
+}
