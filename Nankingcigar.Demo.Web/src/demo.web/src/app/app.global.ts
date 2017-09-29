@@ -23,7 +23,7 @@ export const api = {
     getAll: 'api/services/app/user/getAll'
   },
   route: {
-    get: '/api/services/app/route/getRoutes?moduleName='
+    get: '/api/services/app/route/getRoutesByModuleAndUser?moduleName='
   }
 };
 
