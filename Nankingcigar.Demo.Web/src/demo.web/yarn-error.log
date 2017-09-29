@@ -1,5 +1,5 @@
 Arguments: 
-  D:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+  D:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js upgrade
 
 PATH: 
   C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;D:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;D:\driver\;C:\Program Files\Microsoft\Web Platform Installer\;C:\ProgramData\chocolatey\bin;D:\Program Files\Git\cmd;D:\Program Files\TortoiseGit\bin;C:\Program Files\Anaconda3;C:\Program Files\Anaconda3\Scripts;C:\Program Files\Anaconda3\Library\bin;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio\;D:\Program Files\nodejs\;;D:\Program Files\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm
@@ -2954,9 +2954,13 @@ Lockfile:
     dependencies:
       jquery "^1.6"
   
-  jquery@>=1.5, jquery@^1.6, jquery@^3.2.1:
+  jquery@>=1.5, jquery@^1.6:
     version "1.12.4"
     resolved "https://registry.yarnpkg.com/jquery/-/jquery-1.12.4.tgz#01e1dfba290fe73deba77ceeacb0f9ba2fec9e0c"
+  
+  jquery@^3.2.1:
+    version "3.2.1"
+    resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
   
   js-base64@^2.1.5, js-base64@^2.1.8, js-base64@^2.1.9:
     version "2.3.2"
@@ -5972,11 +5976,13 @@ Lockfile:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/yn/-/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
   
-  zone.js@^0.8.14, zone.js@^0.8.16:
+  zone.js@0.8.16:
+    version "0.8.16"
+    resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.16.tgz#ac31b6c418f88c0f918ad6acd8a402aca9313abb"
+  
+  zone.js@^0.8.14:
     version "0.8.17"
     resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.17.tgz#4c5e5185a857da8da793daf3919371c5a36b2a0b"
 
 Trace: 
-  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com registry.yarnpkg.com:443
-      at errnoException (dns.js:53:10)
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:95:26)
+  Error: EPERM: operation not permitted, unlink 'D:\Work\CSharp\Nankingcigar\Demo\Nankingcigar.Demo.Web\src\demo.web\node_modules\node-sass\vendor\win32-x64-57\binding.node'

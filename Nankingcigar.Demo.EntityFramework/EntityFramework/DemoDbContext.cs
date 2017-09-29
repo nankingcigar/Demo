@@ -26,6 +26,8 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework
 
         public virtual IDbSet<Grid> Grid { get; set; }
 
+        public virtual IDbSet<UserRoute> UserRoute { get; set; }
+
         public virtual IDbSet<AuditLog> AuditLog { get; set; }
 
         public virtual IDbSet<Role> Role { get; set; }
@@ -33,6 +35,8 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework
         public virtual IDbSet<RoleApi> RoleApi { get; set; }
 
         public virtual IDbSet<RoleUser> RoleUser { get; set; }
+
+        public virtual IDbSet<RoleRoute> RoleRoute { get; set; }
 
         public virtual IDbSet<Api> Api { get; set; }
 

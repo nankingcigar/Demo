@@ -13,6 +13,10 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Mapping.Role
             this.HasMany(t => t.RoleUsers)
                 .WithRequired(t => t.Role)
                 .HasForeignKey(t => t.RoleId);
+
+            this.HasMany(t => t.RoleRoutes)
+                .WithRequired(t => t.Role)
+                .HasForeignKey(t => t.RoleId);
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Abp.Domain.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
-using Abp.Domain.Entities;
 
 namespace Nankingcigar.Demo.Core.Entity.UI.Route
 {

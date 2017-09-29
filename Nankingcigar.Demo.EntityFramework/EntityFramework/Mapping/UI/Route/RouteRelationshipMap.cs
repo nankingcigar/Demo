@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.ModelConfiguration;
-using Nankingcigar.Demo.Core.Entity.User;
+﻿using System.Data.Entity.ModelConfiguration;
 
 namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Mapping.UI.Route
 {

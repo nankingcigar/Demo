@@ -70,5 +70,16 @@
     <Build Include="dbo\Tables\AuditLog.sql" />
     <Build Include="dbo\Tables\RoleApi.sql" />
     <Build Include="dbo\Tables\Api.sql" />
+    <Build Include="dbo\Tables\UserRoute.sql" />
+    <Build Include="dbo\Tables\RouteRelationship.sql" />
+    <Build Include="dbo\Tables\Route.sql" />
+    <Build Include="dbo\Tables\RoleRoute.sql" />
+    <Build Include="dbo\Tables\ModuleRelationship.sql" />
+    <Build Include="dbo\Tables\ModuleComponent.sql" />
+    <Build Include="dbo\Tables\Module.sql" />
+    <Build Include="dbo\Tables\Component.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Script1.sql" />
   </ItemGroup>
 </Project>

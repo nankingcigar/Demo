@@ -1,5 +1,4 @@
-﻿
-using DapperExtensions.Mapper;
+﻿using DapperExtensions.Mapper;
 
 namespace Nankingcigar.Demo.Dapper.Mapper.UI.Module
 {

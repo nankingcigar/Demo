@@ -148,6 +148,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.4.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters">
       <HintPath>..\packages\System.Runtime.Serialization.Formatters.4.3.0\lib\net46\System.Runtime.Serialization.Formatters.dll</HintPath>
@@ -162,6 +163,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -185,6 +187,7 @@
     <Compile Include="Extend\IDapperRepositoryExtension.cs" />
     <Compile Include="Mapper\Api\ApiMapper.cs" />
     <Compile Include="Mapper\AuditLogMapper.cs" />
+    <Compile Include="Mapper\Role\RoleRouteMapper.cs" />
     <Compile Include="Mapper\Role\RoleUserMapper.cs" />
     <Compile Include="Mapper\Role\RoleApiMapper.cs" />
     <Compile Include="Mapper\Role\RoleMapper.cs" />
@@ -194,6 +197,7 @@
     <Compile Include="Mapper\UI\Module\ModuleMapper.cs" />
     <Compile Include="Mapper\UI\Route\RouteRelationshipMapper.cs" />
     <Compile Include="Mapper\UI\Route\RouteMapper.cs" />
+    <Compile Include="Mapper\User\UserRouteMapper.cs" />
     <Compile Include="Mapper\User\UserApiMapper.cs" />
     <Compile Include="Mapper\User\GridMapper.cs" />
     <Compile Include="Mapper\User\LandingMapper.cs" />

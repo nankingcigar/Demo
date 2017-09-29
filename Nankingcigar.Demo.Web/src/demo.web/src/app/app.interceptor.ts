@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 10:21:46
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-28 01:49:11
+ * @Last Modified time: 2017-09-28 08:22:04
  */
 import { Injectable, NgModuleRef } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse, HttpUserEvent } from '@angular/common/http';
@@ -74,8 +74,9 @@ export class DemoInterceptor implements HttpInterceptor {
             (<any>err).error = JSON.parse(err.error);
             if (err.error.__abp === true) {
               let code: string;
-              if (languageKeys.errors[this._router.url][err.error.error.code]) {
-                code = languageKeys.errors[this._router.url][err.error.error.code]
+              if (languageKeys.errors[this._router.url] &&
+                languageKeys.errors[this._router.url][err.error.error.code]) {
+                code = languageKeys.errors[this._router.url][err.error.error.code];
               } else if (languageKeys.errors['global'][err.error.error.code]) {
                 code = languageKeys.errors['global'][err.error.error.code];
               }

@@ -6,9 +6,9 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Mapping.UI.Module
     {
         public ModuleRelationshipMap()
         {
-            this.HasMany(e => e.Routes)
-                .WithOptional(e => e.ModuleRelationship)
-                .HasForeignKey(e => e.ModuleRelationshipId);
+            this.HasMany(t => t.Routes)
+                .WithOptional(t => t.ModuleRelationship)
+                .HasForeignKey(t => t.ModuleRelationshipId);
         }
     }
 }

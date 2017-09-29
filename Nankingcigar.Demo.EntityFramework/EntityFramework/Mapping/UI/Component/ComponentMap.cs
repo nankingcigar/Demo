@@ -6,9 +6,9 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Mapping.UI.Component
     {
         public ComponentMap()
         {
-            this.HasMany(e => e.ComponentModules)
-                .WithRequired(e => e.Component)
-                .HasForeignKey(e => e.ComponentId);
+            this.HasMany(t => t.ComponentModules)
+                .WithRequired(t => t.Component)
+                .HasForeignKey(t => t.ComponentId);
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Nankingcigar.Demo.Core.Entity.Role
         {
             RoleUsers = new HashSet<RoleUser>();
             RoleApis = new HashSet<RoleApi>();
+            RoleRoutes = new HashSet<RoleRoute>();
         }
 
         [Required]
@@ -31,5 +32,8 @@ namespace Nankingcigar.Demo.Core.Entity.Role
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public ICollection<RoleApi> RoleApis { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<RoleRoute> RoleRoutes { get; set; }
     }
 }

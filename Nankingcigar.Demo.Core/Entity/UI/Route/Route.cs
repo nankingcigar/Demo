@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Abp.Domain.Entities;
+using Nankingcigar.Demo.Core.Entity.Role;
+using Nankingcigar.Demo.Core.Entity.UI.Module;
+using Nankingcigar.Demo.Core.Entity.User;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Abp.Domain.Entities;
-using Nankingcigar.Demo.Core.Entity.UI.Module;
 
 namespace Nankingcigar.Demo.Core.Entity.UI.Route
 {
@@ -15,11 +17,14 @@ namespace Nankingcigar.Demo.Core.Entity.UI.Route
         {
             Parents = new HashSet<RouteRelationship>();
             Children = new HashSet<RouteRelationship>();
+            RouteRoles = new HashSet<RoleRoute>();
+            RouteUsers = new HashSet<UserRoute>();
         }
 
         [Required]
         [StringLength(50)]
         public string Path { get; set; }
+
         public long? ModuleRelationshipId { get; set; }
         public long? ModuleComponentId { get; set; }
         public long? ModuleId { get; set; }
@@ -35,5 +40,10 @@ namespace Nankingcigar.Demo.Core.Entity.UI.Route
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public ICollection<RouteRelationship> Children { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<RoleRoute> RouteRoles { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public ICollection<UserRoute> RouteUsers { get; set; }
     }
 }

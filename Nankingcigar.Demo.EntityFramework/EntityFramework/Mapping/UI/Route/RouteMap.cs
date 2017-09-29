@@ -6,12 +6,18 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Mapping.UI.Route
     {
         public RouteMap()
         {
-            this.HasMany(e => e.Parents)
-                .WithRequired(e => e.Parent)
-                .HasForeignKey(e => e.ParentId);
-            this.HasMany(e => e.Children)
-                .WithRequired(e => e.Child)
-                .HasForeignKey(e => e.ChildId);
+            this.HasMany(t => t.Parents)
+                .WithRequired(t => t.Parent)
+                .HasForeignKey(t => t.ParentId);
+            this.HasMany(t => t.Children)
+                .WithRequired(t => t.Child)
+                .HasForeignKey(t => t.ChildId);
+            this.HasMany(t => t.RouteRoles)
+                .WithRequired(t => t.Route)
+                .HasForeignKey(t => t.RouteId);
+            this.HasMany(t => t.RouteUsers)
+                .WithRequired(t => t.Route)
+                .HasForeignKey(t => t.RouteId);
         }
     }
 }

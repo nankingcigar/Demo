@@ -6,18 +6,18 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework.Mapping.UI.Module
     {
         public ModuleMap()
         {
-            this.HasMany(e => e.Parents)
-                .WithRequired(e => e.Parent)
-                .HasForeignKey(e => e.ParentId);
-            this.HasMany(e => e.Children)
-                .WithRequired(e => e.Child)
-                .HasForeignKey(e => e.ChildId);
-            this.HasMany(e => e.ModuleComponents)
-                .WithRequired(e => e.Module)
-                .HasForeignKey(e => e.ModuleId);
-            this.HasMany(e => e.Routes)
-                .WithOptional(e => e.Module)
-                .HasForeignKey(e => e.ModuleId);
+            this.HasMany(t => t.Parents)
+                .WithRequired(t => t.Parent)
+                .HasForeignKey(t => t.ParentId);
+            this.HasMany(t => t.Children)
+                .WithRequired(t => t.Child)
+                .HasForeignKey(t => t.ChildId);
+            this.HasMany(t => t.ModuleComponents)
+                .WithRequired(t => t.Module)
+                .HasForeignKey(t => t.ModuleId);
+            this.HasMany(t => t.Routes)
+                .WithOptional(t => t.Module)
+                .HasForeignKey(t => t.ModuleId);
         }
     }
 }

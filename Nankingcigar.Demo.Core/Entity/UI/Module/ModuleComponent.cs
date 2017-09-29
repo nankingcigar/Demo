@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using Abp.Domain.Entities;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using Abp.Domain.Entities;
 
 namespace Nankingcigar.Demo.Core.Entity.UI.Module
 {

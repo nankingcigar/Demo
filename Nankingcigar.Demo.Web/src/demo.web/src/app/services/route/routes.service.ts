@@ -2,7 +2,7 @@
  * @Author: Chao Yang
  * @Date: 2017-08-30 07:14:26
  * @Last Modified by: Chao Yang
- * @Last Modified time: 2017-09-19 06:00:38
+ * @Last Modified time: 2017-09-29 01:25:41
  */
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
@@ -18,6 +18,7 @@ export class RoutesService extends BaseService {
   private _url: String;
   private _urls: String[];
   private i = 0;
+  private _dict = new Map<String, any>();
 
   constructor(
     private _routeProxy: RouteProxy,
@@ -31,9 +32,51 @@ export class RoutesService extends BaseService {
     this._urls.push(url);
   }
 
+  reset(module: string) {
+    if (!this._dict.has(module)) {
+      console.log(1);
+      return Observable.of(this);
+    }
+    this.i++;
+    return this._routeProxy.get(module).map(routes => {
+      console.log(2);
+      this.i--;
+      this._dict.get(module)(routes);
+      return routes;
+    });
+  }
+
   get(module: string): void {
     this.i++;
-    this._routeProxy.get(module).subscribe(routes => this.initRoutes(routes), () => this.i--);
+    this._routeProxy.get(module).subscribe(routes2 => {
+      this.initRoutes(routes2);
+      const route: ActivatedRoute = this.getCurrentRoute();
+      this._dict.set(module, (routes) => {
+        const loadedRouterConfig: LoadedRouterConfig = (<any>(route.routeConfig))._loadedConfig;
+        const factories = Array.from(loadedRouterConfig.module.componentFactoryResolver['_factories'].keys());
+        this.processRoutes(factories, routes);
+        loadedRouterConfig.routes = routes;
+        this._router.resetConfig(this._router.config);
+      });
+    }, (error) => {
+      this.i--;
+      this._urls = [];
+      if (error.code === 3) {
+        const route: ActivatedRoute = this.getCurrentRoute();
+        if (!route.routeConfig.data) {
+          route.routeConfig.data = {};
+        }
+        route.routeConfig.data['toAuth'] = true;
+        this._dict.set(module, (routes) => {
+          const loadedRouterConfig: LoadedRouterConfig = (<any>(route.routeConfig))._loadedConfig;
+          const factories = Array.from(loadedRouterConfig.module.componentFactoryResolver['_factories'].keys());
+          this.processRoutes(factories, routes);
+          loadedRouterConfig.routes = routes;
+          this._router.resetConfig(this._router.config);
+        });
+        this._router.navigate(['']);
+      }
+    });
   }
 
   isStop(): boolean {
@@ -45,7 +88,6 @@ export class RoutesService extends BaseService {
     this._url = this._location.path().replace('/', '');
     if (this._urls.length > 0) {
       this._url = this._urls.shift();
-      console.log(this._urls);
     }
     const route: ActivatedRoute = this.getCurrentRoute();
     if (route.routeConfig === null) {

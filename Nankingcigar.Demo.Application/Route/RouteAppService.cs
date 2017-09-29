@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abp.Application.Services;
-using Abp.Authorization;
+﻿using Abp.Authorization;
 using Nankingcigar.Demo.Application.Route.DTO;
 using Nankingcigar.Demo.Core.Entity;
+using Nankingcigar.Demo.Core.Entity.Role;
 using Nankingcigar.Demo.Core.Entity.UI.Component;
 using Nankingcigar.Demo.Core.Entity.UI.Module;
-using Nankingcigar.Demo.Core.Extension.Repository;
+using Nankingcigar.Demo.Core.Entity.User;
 using Nankingcigar.Demo.Dapper.Extend;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Nankingcigar.Demo.Application.Route
 {
@@ -23,14 +21,20 @@ namespace Nankingcigar.Demo.Application.Route
         private readonly IDapperRepositoryExtension<ModuleComponent, long> _moduleComponentDapperRepository;
         private readonly IDapperRepositoryExtension<Core.Entity.UI.Route.Route, long> _routeDapperRepository;
         private readonly IDapperRepositoryExtension<Core.Entity.UI.Route.RouteRelationship, long> _routeRelationshipDapperRepository;
+        private readonly IDapperRepositoryExtension<RoleRoute, long> _roleRouteDapperRepository;
+        private readonly IDapperRepositoryExtension<RoleUser, long> _roleUserDapperRepository;
+        private readonly IDapperRepositoryExtension<UserRoute, long> _userRouteDapperRepository;
 
         public RouteAppService(
             IDapperRepositoryExtension<Module, long> moduleDapperRepository,
             IDapperRepositoryExtension<ModuleRelationship, long> moduleRelationshipDapperRepository,
             IDapperRepositoryExtension<Component, long> componentDapperRepository,
             IDapperRepositoryExtension<ModuleComponent, long> moduleComponentDapperRepository,
-        IDapperRepositoryExtension<Core.Entity.UI.Route.Route, long> routeDapperRepository,
-            IDapperRepositoryExtension<Core.Entity.UI.Route.RouteRelationship, long> routeRelationshipDapperRepository
+            IDapperRepositoryExtension<Core.Entity.UI.Route.Route, long> routeDapperRepository,
+            IDapperRepositoryExtension<Core.Entity.UI.Route.RouteRelationship, long> routeRelationshipDapperRepository,
+            IDapperRepositoryExtension<RoleRoute, long> roleRouteDapperRepository,
+            IDapperRepositoryExtension<RoleUser, long> roleUserDapperRepository,
+            IDapperRepositoryExtension<UserRoute, long> userRouteDapperRepository
         )
         {
             _moduleDapperRepository = moduleDapperRepository;
@@ -39,6 +43,9 @@ namespace Nankingcigar.Demo.Application.Route
             _moduleComponentDapperRepository = moduleComponentDapperRepository;
             _routeDapperRepository = routeDapperRepository;
             _routeRelationshipDapperRepository = routeRelationshipDapperRepository;
+            _roleRouteDapperRepository = roleRouteDapperRepository;
+            _userRouteDapperRepository = userRouteDapperRepository;
+            _roleUserDapperRepository = roleUserDapperRepository;
         }
 
         [AbpAllowAnonymous]
@@ -48,6 +55,10 @@ namespace Nankingcigar.Demo.Application.Route
             if (module == null)
             {
                 throw new DemoApiException(1);
+            }
+            if (module.RequiredLogin && !AbpSession.UserId.HasValue)
+            {
+                throw new DemoApiException(3);
             }
             var moduleRelationships =
                 (await _moduleRelationshipDapperRepository.GetAllAsync(entity => entity.ParentId == module.Id)).ToArray();
@@ -74,7 +85,13 @@ namespace Nankingcigar.Demo.Application.Route
                     moduleRouteIds.Contains(entity.ParentId));
             var rootRoutes =
                 moduleRoutes.Where(entity => routeRelaionships.All(entity2 => entity2.ChildId != entity.Id));
+            var roleRoutes = (await _roleRouteDapperRepository.GetAllAsync()).Where(entity => moduleRouteIds.Contains(entity.RouteId));
+            var userId = AbpSession.UserId ?? 0;
+            var userRoleIds = (await _roleUserDapperRepository.GetAllAsync(entity => entity.UserId == userId)).ToArray().Select(entity => entity.RoleId);
+            var userRoutes = (await _userRouteDapperRepository.GetAllAsync(entity => entity.UserId == userId))
+                .Where(entity => moduleRouteIds.Contains(entity.RouteId));
             var routes = new List<DTO.Route>();
+            var parentRoutes = new List<Core.Entity.UI.Route.Route>();
             var routeDictionary = new Dictionary<long, DTO.Route>();
             DTO.Route dtoRoute = null;
             foreach (var route in rootRoutes)
@@ -110,15 +127,24 @@ namespace Nankingcigar.Demo.Application.Route
                         PathMatch = config.Value<string>("patchMath")
                     };
                 }
-                routes.Add(dtoRoute);
-                routeDictionary.Add(route.Id, dtoRoute);
+                var routeRoles = roleRoutes.Where(entity => entity.RouteId == route.Id);
+                var userRoute = userRoutes.FirstOrDefault(entity => entity.RouteId == route.Id);
+                if (
+                    (userRoute != null && userRoute.HasPermission) || 
+                    (routeRoles.Count() == 0) ||
+                    (routeRoles.Count() > 0 && routeRoles.Any(entity => userRoleIds.Contains(entity.RoleId)))
+                )
+                {
+                    routes.Add(dtoRoute);
+                    routeDictionary.Add(route.Id, dtoRoute);
+                    parentRoutes.Add(route);
+                }
             }
-
-            var parentRoutes = rootRoutes;
-            var parentRouteIds = parentRoutes.Select(entity => entity.Id);
+            var parentRouteIds = parentRoutes.Select(entity => entity.Id).ToList();
             while (routeRelaionships.Any(entity => parentRouteIds.Contains(entity.ParentId)))
             {
                 var routeRelationships2 = routeRelaionships.Where(entity => parentRouteIds.Contains(entity.ParentId));
+                parentRoutes.Clear();
                 foreach (var routeRelationship in routeRelationships2)
                 {
                     var route = moduleRoutes.First(entity => entity.Id == routeRelationship.ChildId);
@@ -152,15 +178,23 @@ namespace Nankingcigar.Demo.Application.Route
                             PathMatch = config.Value<string>("patchMath")
                         };
                     }
-                    if (routeDictionary[routeRelationship.ParentId] is ComponentRoute parentRoute)
+                    var routeRoles = roleRoutes.Where(entity => entity.RouteId == route.Id);
+                    var userRoute = userRoutes.FirstOrDefault(entity => entity.RouteId == route.Id);
+                    if (
+                        (userRoute != null && userRoute.HasPermission) ||
+                        (routeRoles.Count() == 0) ||
+                        (routeRoles.Count() > 0 && routeRoles.Any(entity => userRoleIds.Contains(entity.RoleId)))
+                    )
                     {
-                        parentRoute.Children.Add(dtoRoute);
+                        if (routeDictionary[routeRelationship.ParentId] is ComponentRoute parentRoute)
+                        {
+                            parentRoute.Children.Add(dtoRoute);
+                            routeDictionary.Add(route.Id, dtoRoute);
+                            parentRoutes.Add(route);
+                        }
                     }
-                    routeDictionary.Add(route.Id, dtoRoute);
                 }
-                var childIds = routeRelationships2.Select(entity => entity.ChildId).ToArray();
-                parentRoutes = moduleRoutes.Where(entity => childIds.Contains(entity.Id));
-                parentRouteIds = parentRoutes.Select(entity => entity.Id);
+                parentRouteIds = parentRoutes.Select(entity => entity.Id).ToList();
             }
             return routes;
         }
