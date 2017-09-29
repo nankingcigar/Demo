@@ -61,7 +61,8 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Script1.sql" />
+    <None Include="table.drop.sql" />
+    <None Include="route.init.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\vUserLanding.sql" />

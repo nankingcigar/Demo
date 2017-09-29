@@ -1,7 +1,7 @@
-﻿using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
-namespace Nankingcigar.Demo.Application.Route.DTO
+namespace Nankingcigar.Demo.Core.Entity.View.Route
 {
     public class Route
     {

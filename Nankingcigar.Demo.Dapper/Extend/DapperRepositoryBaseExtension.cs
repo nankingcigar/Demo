@@ -2,6 +2,7 @@
 using Abp.Data;
 using Abp.Domain.Entities;
 using System.Data;
+using Nankingcigar.Demo.Core.Extension.Repository.Dapper;
 
 namespace Nankingcigar.Demo.Dapper.Extend
 {

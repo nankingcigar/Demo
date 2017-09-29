@@ -48,6 +48,12 @@
     <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.4.0.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DapperExtensions.DotnetCore">
+      <HintPath>..\packages\DapperExtensions.DotnetCore.1.0.1\lib\net461\DapperExtensions.DotnetCore.dll</HintPath>
+    </Reference>
     <Reference Include="JetBrains.Annotations, Version=11.0.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.11.0.0\lib\net20\JetBrains.Annotations.dll</HintPath>
     </Reference>
@@ -181,6 +187,8 @@
     <Compile Include="DomainService\Permission\IDemoPermissionChecker.cs" />
     <Compile Include="DomainService\Permission\DemoPermissionChecker.cs" />
     <Compile Include="DomainService\Registration\IUserRegistrationManager.cs" />
+    <Compile Include="DomainService\Route\IRouteManager.cs" />
+    <Compile Include="DomainService\Route\RouteManager.cs" />
     <Compile Include="DomainService\User\UserManager.cs" />
     <Compile Include="DomainService\Registration\UserRegistrationManager.cs" />
     <Compile Include="DataLayer\User\UserStore.cs" />
@@ -198,12 +206,14 @@
     <Compile Include="Entity\POCO\Module\Module.cs" />
     <Compile Include="Entity\POCO\Route\RouteRelationship.cs" />
     <Compile Include="Entity\POCO\Route\Route.cs" />
+    <Compile Include="Entity\View\Route\Route.cs" />
     <Compile Include="Entity\View\User\Grid.cs" />
     <Compile Include="Entity\View\User\Landing.cs" />
     <Compile Include="Entity\POCO\User\UserApi.cs" />
     <Compile Include="Entity\POCO\User\User.cs" />
     <Compile Include="Entity\POCO\Role\RoleUser.cs" />
     <Compile Include="Entity\POCO\User\UserRoute.cs" />
+    <Compile Include="Extension\Repository\Dapper\IDapperRepositoryExtension.cs" />
     <Compile Include="Message\DemoMessage.cs" />
     <Compile Include="Message\User\LoginMessage.cs" />
     <Compile Include="Message\User\RegistrationMessage.cs" />

@@ -5,6 +5,7 @@ using Abp.Reflection.Extensions;
 using Nankingcigar.Demo.Dapper.Extend;
 using System.Collections.Generic;
 using System.Reflection;
+using Nankingcigar.Demo.Core.Extension.Repository.Dapper;
 
 namespace Nankingcigar.Demo.Dapper
 {

@@ -99,7 +99,7 @@ namespace Nankingcigar.Demo.Core.DomainService.Authorization
                 return;
             }
 
-            await AuthorizeAsync(authorizeAttributes);
+            // await AuthorizeAsync(authorizeAttributes);
             await DemoPermissionChecker.IsGrantedAsync(methodInfo, type);
         }
 

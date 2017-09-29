@@ -1,9 +1,9 @@
 ﻿using Abp.Dependency;
 using Microsoft.AspNet.Identity;
-using Nankingcigar.Demo.Core.Extension.Repository;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Nankingcigar.Demo.Core.Extension.Repository.Dapper;
 
 namespace Nankingcigar.Demo.Core.DataLayer.User
 {
@@ -12,13 +12,14 @@ namespace Nankingcigar.Demo.Core.DataLayer.User
         IUserPasswordStore<Entity.POCO.User.User, long>,
         IUserEmailStore<Entity.POCO.User.User, long>,
         IQueryableUserStore<Entity.POCO.User.User, long>,
-        IDisposable, ITransientDependency
+        IDisposable, 
+        ITransientDependency
     {
-        public virtual IRepositoryExtension<Entity.POCO.User.User, long> UserRepository { get; set; }
+        public virtual IDapperRepositoryExtension<Entity.POCO.User.User, long> UserDapperRepository { get; set; }
 
         #region IQueryableUserStore
 
-        public virtual IQueryable<Entity.POCO.User.User> Users => UserRepository.GetAll();
+        public virtual IQueryable<Entity.POCO.User.User> Users => UserDapperRepository.GetAll().AsQueryable();
 
         #endregion IQueryableUserStore
 
@@ -26,27 +27,27 @@ namespace Nankingcigar.Demo.Core.DataLayer.User
 
         public virtual async Task CreateAsync(Entity.POCO.User.User user)
         {
-            await UserRepository.InsertAsync(user);
+            await UserDapperRepository.InsertAsync(user);
         }
 
         public virtual async Task UpdateAsync(Entity.POCO.User.User user)
         {
-            await UserRepository.UpdateAsync(user);
+            await UserDapperRepository.UpdateAsync(user);
         }
 
         public virtual async Task DeleteAsync(Entity.POCO.User.User user)
         {
-            await UserRepository.DeleteAsync(user.Id);
+            await UserDapperRepository.DeleteAsync(user);
         }
 
         public virtual async Task<Entity.POCO.User.User> FindByIdAsync(long userId)
         {
-            return await UserRepository.CloseLazyLoad().FirstOrDefaultAsync(userId);
+            return await UserDapperRepository.FirstOrDefaultAsync(userId);
         }
 
         public virtual async Task<Entity.POCO.User.User> FindByNameAsync(string userName)
         {
-            return await UserRepository.CloseLazyLoad().FirstOrDefaultAsync(user => user.UserName == userName);
+            return await UserDapperRepository.FirstOrDefaultAsync(user => user.UserName == userName);
         }
 
         #endregion IUserStore
@@ -96,7 +97,7 @@ namespace Nankingcigar.Demo.Core.DataLayer.User
 
         public virtual async Task<Entity.POCO.User.User> FindByEmailAsync(string email)
         {
-            return await UserRepository.CloseLazyLoad().FirstOrDefaultAsync(
+            return await UserDapperRepository.FirstOrDefaultAsync(
                 user => user.Email == email
             );
         }

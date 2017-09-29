@@ -194,7 +194,6 @@
     <Compile Include="DemoApplicationModule.cs" />
     <Compile Include="DemoAppServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Route\DTO\Route.cs" />
     <Compile Include="Route\RouteAppService.cs" />
     <Compile Include="Route\IRouteAppService.cs" />
     <Compile Include="User\IUserAppService.cs" />

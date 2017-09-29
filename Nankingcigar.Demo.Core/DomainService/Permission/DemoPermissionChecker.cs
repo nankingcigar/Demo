@@ -11,16 +11,18 @@ using System.Threading.Tasks;
 using Nankingcigar.Demo.Core.Entity.POCO.Api;
 using Nankingcigar.Demo.Core.Entity.POCO.Role;
 using Nankingcigar.Demo.Core.Entity.POCO.User;
+using Nankingcigar.Demo.Core.Extension.Repository.Dapper;
+using Dapper;
 
 namespace Nankingcigar.Demo.Core.DomainService.Permission
 {
     internal class DemoPermissionChecker : IDemoPermissionChecker, ITransientDependency
     {
         public IAbpSession AbpSession { get; set; }
-        public IRepositoryExtension<Api, long> ApiRepository { get; set; }
-        public IRepositoryExtension<RoleApi, long> RoleApiRepositoryExtension { get; set; }
-        public IRepositoryExtension<RoleUser, long> RoleUserRepositoryExtension { get; set; }
-        public IRepositoryExtension<UserApi, long> UserApiRepositoryExtension { get; set; }
+        public IDapperRepositoryExtension<Api, long> ApiDapperRepository { get; set; }
+        public IDapperRepositoryExtension<RoleApi, long> RoleApiDapperRepository { get; set; }
+        public IDapperRepositoryExtension<RoleUser, long> RoleUserDapperRepository { get; set; }
+        public IDapperRepositoryExtension<UserApi, long> UserApiDapperRepository { get; set; }
 
         public Task<bool> IsGrantedAsync(string permissionName)
         {
@@ -35,17 +37,16 @@ namespace Nankingcigar.Demo.Core.DomainService.Permission
         [UnitOfWork]
         public async Task<bool> IsGrantedAsync(MethodInfo methodInfo, Type type)
         {
-            var api = ApiRepository.CloseLazyLoad()
-                .GetAllIncluding(entity => entity.ApiRoles)
-                .FirstOrDefault(entity =>
-                    entity.Namespace == type.Namespace &&
-                    entity.ClassName == type.Name &&
-                    entity.MethodName == methodInfo.Name);
+            var api = await ApiDapperRepository.FirstOrDefaultAsync(entity =>
+                entity.Namespace == type.Namespace &&
+                entity.ClassName == type.Name &&
+                entity.MethodName == methodInfo.Name);
             if (api == null)
             {
                 return true;
             }
-            var userApi = await UserApiRepositoryExtension.FirstOrDefaultAsync(entity =>
+            api.ApiRoles = (await RoleApiDapperRepository.GetAllAsync(entity => entity.ApiId == api.Id)).ToList();
+            var userApi = await UserApiDapperRepository.FirstOrDefaultAsync(entity =>
                 entity.UserId == AbpSession.UserId &&
                 entity.ApiId == api.Id
             );
@@ -62,7 +63,7 @@ namespace Nankingcigar.Demo.Core.DomainService.Permission
                 return true;
             }
             var apiRoleIds = api.ApiRoles.Select(p => p.RoleId);
-            var userRoleIds = (await RoleUserRepositoryExtension.GetAllListAsync(entity =>
+            var userRoleIds = (await RoleUserDapperRepository.GetAllAsync(entity =>
                  entity.UserId == AbpSession.UserId.Value)).Select(entity => entity.RoleId);
             if (apiRoleIds.Any(apiRoleId => userRoleIds.Contains(apiRoleId)))
             {

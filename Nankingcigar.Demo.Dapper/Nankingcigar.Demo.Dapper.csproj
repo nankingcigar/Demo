@@ -184,7 +184,6 @@
   <ItemGroup>
     <Compile Include="DemoDapperModule.cs" />
     <Compile Include="Extend\DapperRepositoryBaseExtension.cs" />
-    <Compile Include="Extend\IDapperRepositoryExtension.cs" />
     <Compile Include="Mapper\POCO\Api\ApiMapper.cs" />
     <Compile Include="Mapper\AuditLogMapper.cs" />
     <Compile Include="Mapper\POCO\Role\RoleRouteMapper.cs" />
