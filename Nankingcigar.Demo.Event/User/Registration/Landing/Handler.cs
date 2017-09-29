@@ -10,7 +10,7 @@ namespace Nankingcigar.Demo.MessageQueue.User.Registration.Landing
 
         public async void HandleEvent(RegistrationMessage eventData)
         {
-            await BackgroundJobManager.EnqueueAsync<Job, Core.Entity.User.User>(eventData.Data);
+            await BackgroundJobManager.EnqueueAsync<Job, Core.Entity.POCO.User.User>(eventData.Data);
         }
     }
 }

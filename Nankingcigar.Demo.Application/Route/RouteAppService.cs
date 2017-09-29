@@ -1,15 +1,16 @@
 ﻿using Abp.Authorization;
 using Nankingcigar.Demo.Application.Route.DTO;
 using Nankingcigar.Demo.Core.Entity;
-using Nankingcigar.Demo.Core.Entity.Role;
-using Nankingcigar.Demo.Core.Entity.UI.Component;
-using Nankingcigar.Demo.Core.Entity.UI.Module;
-using Nankingcigar.Demo.Core.Entity.User;
 using Nankingcigar.Demo.Dapper.Extend;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Nankingcigar.Demo.Core.Entity.POCO.Component;
+using Nankingcigar.Demo.Core.Entity.POCO.Module;
+using Nankingcigar.Demo.Core.Entity.POCO.Role;
+using Nankingcigar.Demo.Core.Entity.POCO.Route;
+using Nankingcigar.Demo.Core.Entity.POCO.User;
 
 namespace Nankingcigar.Demo.Application.Route
 {
@@ -19,8 +20,8 @@ namespace Nankingcigar.Demo.Application.Route
         private readonly IDapperRepositoryExtension<ModuleRelationship, long> _moduleRelationshipDapperRepository;
         private readonly IDapperRepositoryExtension<Component, long> _componentDapperRepository;
         private readonly IDapperRepositoryExtension<ModuleComponent, long> _moduleComponentDapperRepository;
-        private readonly IDapperRepositoryExtension<Core.Entity.UI.Route.Route, long> _routeDapperRepository;
-        private readonly IDapperRepositoryExtension<Core.Entity.UI.Route.RouteRelationship, long> _routeRelationshipDapperRepository;
+        private readonly IDapperRepositoryExtension<Core.Entity.POCO.Route.Route, long> _routeDapperRepository;
+        private readonly IDapperRepositoryExtension<RouteRelationship, long> _routeRelationshipDapperRepository;
         private readonly IDapperRepositoryExtension<RoleRoute, long> _roleRouteDapperRepository;
         private readonly IDapperRepositoryExtension<RoleUser, long> _roleUserDapperRepository;
         private readonly IDapperRepositoryExtension<UserRoute, long> _userRouteDapperRepository;
@@ -30,8 +31,8 @@ namespace Nankingcigar.Demo.Application.Route
             IDapperRepositoryExtension<ModuleRelationship, long> moduleRelationshipDapperRepository,
             IDapperRepositoryExtension<Component, long> componentDapperRepository,
             IDapperRepositoryExtension<ModuleComponent, long> moduleComponentDapperRepository,
-            IDapperRepositoryExtension<Core.Entity.UI.Route.Route, long> routeDapperRepository,
-            IDapperRepositoryExtension<Core.Entity.UI.Route.RouteRelationship, long> routeRelationshipDapperRepository,
+            IDapperRepositoryExtension<Core.Entity.POCO.Route.Route, long> routeDapperRepository,
+            IDapperRepositoryExtension<RouteRelationship, long> routeRelationshipDapperRepository,
             IDapperRepositoryExtension<RoleRoute, long> roleRouteDapperRepository,
             IDapperRepositoryExtension<RoleUser, long> roleUserDapperRepository,
             IDapperRepositoryExtension<UserRoute, long> userRouteDapperRepository
@@ -91,7 +92,7 @@ namespace Nankingcigar.Demo.Application.Route
             var userRoutes = (await _userRouteDapperRepository.GetAllAsync(entity => entity.UserId == userId))
                 .Where(entity => moduleRouteIds.Contains(entity.RouteId));
             var routes = new List<DTO.Route>();
-            var parentRoutes = new List<Core.Entity.UI.Route.Route>();
+            var parentRoutes = new List<Core.Entity.POCO.Route.Route>();
             var routeDictionary = new Dictionary<long, DTO.Route>();
             DTO.Route dtoRoute = null;
             foreach (var route in rootRoutes)
@@ -130,7 +131,7 @@ namespace Nankingcigar.Demo.Application.Route
                 var routeRoles = roleRoutes.Where(entity => entity.RouteId == route.Id);
                 var userRoute = userRoutes.FirstOrDefault(entity => entity.RouteId == route.Id);
                 if (
-                    (userRoute != null && userRoute.HasPermission) || 
+                    (userRoute != null && userRoute.HasPermission) ||
                     (routeRoles.Count() == 0) ||
                     (routeRoles.Count() > 0 && routeRoles.Any(entity => userRoleIds.Contains(entity.RoleId)))
                 )

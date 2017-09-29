@@ -5,14 +5,14 @@ using Abp.Domain.Uow;
 
 namespace Nankingcigar.Demo.MessageQueue.User.Registration.Grid
 {
-    public class Job : BackgroundJob<Core.Entity.User.User>, ITransientDependency
+    public class Job : BackgroundJob<Core.Entity.POCO.User.User>, ITransientDependency
     {
-        public IRepository<Core.Entity.User.Grid, long> GridRepository { get; set; }
+        public IRepository<Core.Entity.View.User.Grid, long> GridRepository { get; set; }
 
         [UnitOfWork]
-        public override async void Execute(Core.Entity.User.User args)
+        public override async void Execute(Core.Entity.POCO.User.User args)
         {
-            Core.Entity.User.Grid grid = new Core.Entity.User.Grid()
+            Core.Entity.View.User.Grid grid = new Core.Entity.View.User.Grid()
             {
                 Id = args.Id,
                 Name = args.UserName,

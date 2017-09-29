@@ -1,7 +1,7 @@
-﻿using Nankingcigar.Demo.Core.Entity.User;
-using Nankingcigar.Demo.Dapper.Extend;
+﻿using Nankingcigar.Demo.Dapper.Extend;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Nankingcigar.Demo.Core.Entity.View.User;
 
 namespace Nankingcigar.Demo.Application.User
 {

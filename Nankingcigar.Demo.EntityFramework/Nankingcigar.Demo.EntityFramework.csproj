@@ -191,21 +191,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\DemoDbContext.cs" />
-    <Compile Include="EntityFramework\Mapping\Api\ApiMap.cs" />
-    <Compile Include="EntityFramework\Mapping\Role\RoleRouteMap.cs" />
-    <Compile Include="EntityFramework\Mapping\Role\RoleUser.cs" />
-    <Compile Include="EntityFramework\Mapping\Role\RoleMap.cs" />
-    <Compile Include="EntityFramework\Mapping\Role\RoleApiMap.cs" />
-    <Compile Include="EntityFramework\Mapping\UI\Component\ComponentMap.cs" />
-    <Compile Include="EntityFramework\Mapping\UI\Module\ModuleRelationshipMap.cs" />
-    <Compile Include="EntityFramework\Mapping\UI\Module\ModuleComponentMap.cs" />
-    <Compile Include="EntityFramework\Mapping\UI\Module\ModuleMap.cs" />
-    <Compile Include="EntityFramework\Mapping\UI\Route\RouteRelationshipMap.cs" />
-    <Compile Include="EntityFramework\Mapping\UI\Route\RouteMap.cs" />
-    <Compile Include="EntityFramework\Mapping\User\UserApiMap.cs" />
-    <Compile Include="EntityFramework\Mapping\User\GridMap.cs" />
-    <Compile Include="EntityFramework\Mapping\User\LandingMap.cs" />
-    <Compile Include="EntityFramework\Mapping\User\UserMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Api\ApiMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Role\RoleRouteMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Role\RoleUserMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Role\RoleMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Role\RoleApiMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Component\ComponentMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Module\ModuleRelationshipMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Module\ModuleComponentMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Module\ModuleMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Route\RouteRelationshipMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\Route\RouteMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\User\UserRouteMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\User\UserApiMap.cs" />
+    <Compile Include="EntityFramework\Mapping\View\User\GridMap.cs" />
+    <Compile Include="EntityFramework\Mapping\View\User\LandingMap.cs" />
+    <Compile Include="EntityFramework\Mapping\POCO\User\UserMap.cs" />
     <Compile Include="EntityFramework\Repositories\DemoRepositoryBase.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="DemoDataModule.cs" />

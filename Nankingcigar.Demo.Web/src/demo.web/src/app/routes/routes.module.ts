@@ -11,6 +11,7 @@ import { AppModule } from '../app.module';
 import { LocalizationService } from '../services/localization/localization.service';
 import { RoutesService } from '../services/route/routes.service';
 
+console.log(app.moduleRef);
 export const ROUTES: Routes = [
   {
     path: 'login',

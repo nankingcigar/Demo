@@ -61,25 +61,25 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\RoleUser.sql" />
+    <None Include="Script1.sql" />
+  </ItemGroup>
+  <ItemGroup>
     <Build Include="dbo\Tables\vUserLanding.sql" />
     <Build Include="dbo\Tables\vUserGrid.sql" />
+    <Build Include="dbo\Tables\UserRoute.sql" />
     <Build Include="dbo\Tables\UserApi.sql" />
     <Build Include="dbo\Tables\User.sql" />
-    <Build Include="dbo\Tables\Role.sql" />
-    <Build Include="dbo\Tables\AuditLog.sql" />
-    <Build Include="dbo\Tables\RoleApi.sql" />
-    <Build Include="dbo\Tables\Api.sql" />
-    <Build Include="dbo\Tables\UserRoute.sql" />
     <Build Include="dbo\Tables\RouteRelationship.sql" />
     <Build Include="dbo\Tables\Route.sql" />
+    <Build Include="dbo\Tables\RoleUser.sql" />
     <Build Include="dbo\Tables\RoleRoute.sql" />
+    <Build Include="dbo\Tables\RoleApi.sql" />
+    <Build Include="dbo\Tables\Role.sql" />
     <Build Include="dbo\Tables\ModuleRelationship.sql" />
     <Build Include="dbo\Tables\ModuleComponent.sql" />
     <Build Include="dbo\Tables\Module.sql" />
     <Build Include="dbo\Tables\Component.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Script1.sql" />
+    <Build Include="dbo\Tables\AuditLog.sql" />
+    <Build Include="dbo\Tables\Api.sql" />
   </ItemGroup>
 </Project>

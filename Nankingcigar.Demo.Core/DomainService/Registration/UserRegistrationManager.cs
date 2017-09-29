@@ -15,7 +15,7 @@ namespace Nankingcigar.Demo.Core.DomainService.Registration
         {
             var user = await UserManager.FindByNameAsync(userName);
             if (user != null) throw new DemoApiException(1);
-            user = new Entity.User.User
+            user = new Entity.POCO.User.User
             {
                 UserName = userName,
                 Password = PasswordHasher.HashPassword(password),

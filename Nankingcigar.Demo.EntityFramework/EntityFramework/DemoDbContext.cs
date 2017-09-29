@@ -1,14 +1,22 @@
 ﻿using Abp.EntityFramework;
 using Nankingcigar.Demo.Core.Entity;
-using Nankingcigar.Demo.Core.Entity.Api;
-using Nankingcigar.Demo.Core.Entity.Role;
-using Nankingcigar.Demo.Core.Entity.User;
 using System;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
+using Abp.Domain.Entities;
+using Abp.Domain.Uow;
+using EntityFramework.DynamicFilters;
+using Nankingcigar.Demo.Core.Entity.POCO.Api;
+using Nankingcigar.Demo.Core.Entity.POCO.Component;
+using Nankingcigar.Demo.Core.Entity.POCO.Module;
+using Nankingcigar.Demo.Core.Entity.POCO.Role;
+using Nankingcigar.Demo.Core.Entity.POCO.Route;
+using Nankingcigar.Demo.Core.Entity.POCO.User;
+using Nankingcigar.Demo.Core.Entity.View.User;
+using Module = Nankingcigar.Demo.Core.Entity.POCO.Module.Module;
 
 namespace Nankingcigar.Demo.EntityFramework.EntityFramework
 {
@@ -40,17 +48,17 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework
 
         public virtual IDbSet<Api> Api { get; set; }
 
-        public virtual IDbSet<Core.Entity.UI.Module.Module> Module { get; set; }
+        public virtual IDbSet<Module> Module { get; set; }
 
-        public virtual IDbSet<Core.Entity.UI.Module.ModuleComponent> ModuleComponent { get; set; }
+        public virtual IDbSet<ModuleComponent> ModuleComponent { get; set; }
 
-        public virtual IDbSet<Core.Entity.UI.Module.ModuleRelationship> ModuleRelationship { get; set; }
+        public virtual IDbSet<ModuleRelationship> ModuleRelationship { get; set; }
 
-        public virtual IDbSet<Core.Entity.UI.Component.Component> Component { get; set; }
+        public virtual IDbSet<Component> Component { get; set; }
 
-        public virtual IDbSet<Core.Entity.UI.Route.Route> Route { get; set; }
+        public virtual IDbSet<Route> Route { get; set; }
 
-        public virtual IDbSet<Core.Entity.UI.Route.RouteRelationship> RouteRelationship { get; set; }
+        public virtual IDbSet<RouteRelationship> RouteRelationship { get; set; }
 
         /* NOTE:
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
@@ -91,7 +99,11 @@ namespace Nankingcigar.Demo.EntityFramework.EntityFramework
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            var typesToRegister = Assembly.GetExecutingAssembly().GetTypes().Where(entity => entity.BaseType != null && entity.BaseType.IsGenericType && entity.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>));
+            modelBuilder.Filter("IPassivable", (IPassivable t) => t.IsActive, true);
+            var typesToRegister = Assembly.GetExecutingAssembly().GetTypes().Where(
+                entity => entity.BaseType != null &&
+                    entity.BaseType.IsGenericType &&
+                    entity.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>));
             foreach (var type in typesToRegister)
             {
                 dynamic configurationInstance = Activator.CreateInstance(type);

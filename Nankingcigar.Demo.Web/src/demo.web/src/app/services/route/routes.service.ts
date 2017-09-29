@@ -34,12 +34,10 @@ export class RoutesService extends BaseService {
 
   reset(module: string) {
     if (!this._dict.has(module)) {
-      console.log(1);
       return Observable.of(this);
     }
     this.i++;
     return this._routeProxy.get(module).map(routes => {
-      console.log(2);
       this.i--;
       this._dict.get(module)(routes);
       return routes;

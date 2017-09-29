@@ -1,9 +1,9 @@
 ﻿CREATE TABLE [dbo].[User] (
     [Id]                   BIGINT         IDENTITY (1, 1) NOT NULL,
-    [Name]             NVARCHAR (50)  NOT NULL,
+    [Name]                 NVARCHAR (50)  NOT NULL,
     [Email]                NVARCHAR (100) NULL,
     [Password]             NVARCHAR (500) NOT NULL,
-    [Display]          NVARCHAR (50)  NULL,
+    [Display]              NVARCHAR (50)  NULL,
     [AuthenticationSource] NVARCHAR (50)  NULL,
     [LastLoginTime]        DATETIME2 (7)  NULL,
     [IsActive]             BIT            NULL,

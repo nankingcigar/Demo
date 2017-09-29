@@ -1,7 +1,7 @@
 ﻿using Abp.Application.Services;
-using Nankingcigar.Demo.Core.Entity.User;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Nankingcigar.Demo.Core.Entity.View.User;
 
 namespace Nankingcigar.Demo.Application.User
 {

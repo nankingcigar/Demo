@@ -3,14 +3,14 @@ using Abp.Dependency;
 using Abp.Domain.Uow;
 using Abp.Runtime.Session;
 using Nankingcigar.Demo.Core.Entity;
-using Nankingcigar.Demo.Core.Entity.Api;
-using Nankingcigar.Demo.Core.Entity.Role;
-using Nankingcigar.Demo.Core.Entity.User;
 using Nankingcigar.Demo.Core.Extension.Repository;
 using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Nankingcigar.Demo.Core.Entity.POCO.Api;
+using Nankingcigar.Demo.Core.Entity.POCO.Role;
+using Nankingcigar.Demo.Core.Entity.POCO.User;
 
 namespace Nankingcigar.Demo.Core.DomainService.Permission
 {

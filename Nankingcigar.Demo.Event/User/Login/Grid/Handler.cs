@@ -11,7 +11,7 @@ namespace Nankingcigar.Demo.MessageQueue.User.Login.Grid
 
         public async void HandleEvent(LoginMessage eventData)
         {
-            await BackgroundJobManager.EnqueueAsync<Job, Core.Entity.User.User>(eventData.Data);
+            await BackgroundJobManager.EnqueueAsync<Job, Core.Entity.POCO.User.User>(eventData.Data);
         }
     }
 }
